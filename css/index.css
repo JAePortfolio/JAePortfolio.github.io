@@ -1,0 +1,100 @@
+* {
+  text-align:center; 
+}
+/* #navigation {
+  background-color: red;
+  margin-top:20px;
+  padding: 10px 0px 5px 0px;
+}
+
+#navigation li {
+  display: inline;
+  padding: 30px;
+  
+}
+#navigation li a {
+  font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+  font-size: 16px;
+  text-decoration: none;
+  color: black;
+} */
+
+#navigation {
+    list-style: none;
+    display: block;
+    background-color: red;
+    /* margin: 0 10px; */
+}
+
+#navigation li {
+    float: left;
+    margin: 0 1.5em;
+    font: bold 1em Arial;
+    background-color: #006699;
+}
+
+#navigation li a {
+    text-decoration: none;
+    padding: 5px 0;
+    width: 115px;
+    background: #006699;
+    color: #eee;
+    float: left;
+    text-align: center;
+    border-left: 1px solid #fff;
+}
+
+#slideshow{
+  background-color: rgb(34,177,76);
+  height: 280px;
+  margin-bottom: 20px;
+}
+
+
+#latest {
+  background-color: rgb(163,73,164);
+  /* height: 100px; */
+  min-height: 280px;
+  text-align:left;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+#Blog {
+  background-color: rgb(153,217,234);
+  height: 280px;
+  text-align: left;
+  margin-bottom: 20px;
+  font-size: 16px
+}
+
+#funStuff{
+  background-color: rgb(255,127,39);
+  height: 280px;
+  text-align: left;
+  margin-bottom: 20px;
+  font-size: 16px
+}
+
+#latest:hover{
+  transform:scale(1.04);
+}
+
+#Blog:hover{
+  transform:scale(1.04);
+}
+
+#funStuff:hover{
+  transform:scale(1.04);
+}
+
+#bottomT {
+  background-color: rgb(136,0,21);
+  height: 35px;
+}
+
+ssText {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 18px;
+  text-align: left;
+}
