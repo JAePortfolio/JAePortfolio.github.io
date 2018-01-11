@@ -100,3 +100,11 @@ ssText {
   font-size: 18px;
   text-align: left;
 }
+
+#test:visited{
+  color: black;
+}
+
+#test:link{
+  color: black;
+}

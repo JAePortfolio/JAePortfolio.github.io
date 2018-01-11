@@ -1,0 +1,84 @@
+#clock {
+    background-color: rgb(163,73,164);
+    /* height: 100px; */
+    min-height: 280px;
+    text-align:left;
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+
+  #clock:hover{
+    transform:scale(1.04);
+  }
+
+  #weather {
+    background-color: rgb(153,217,234);
+    height: 280px;
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 16px
+  }
+
+ #weather:hover{
+    transform:scale(1.04);
+  }
+  
+  #datalab{
+    background-color: rgb(255,127,39);
+    height: 280px;
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 16px
+  }
+
+ #datalab:hover{
+    transform:scale(1.04);
+  }
+  
+
+  #harris {
+    background-color: lightcoral;
+    /* height: 100px; */
+    min-height: 280px;
+    text-align:left;
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+
+  #harris:hover{
+     transform:scale(1.04);
+   }
+   
+  
+  #javaPrg {
+    background-color: yellow;
+    height: 280px;
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 16px
+  }
+
+  #javaPrg:hover{
+     transform:scale(1.04);
+   }
+   
+  
+  #website{
+    background-color: limegreen;
+    height: 280px;
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 16px
+  }
+
+  #website:hover{
+     transform:scale(1.04);
+   }
+  
+#test:visited{
+    color: black;
+  }
+  
+  #test:link{
+    color: black;
+  }
