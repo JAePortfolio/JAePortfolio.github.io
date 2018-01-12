@@ -1,6 +1,6 @@
-* {
+/* * {
   text-align:center; 
-}
+} */
 /* #navigation {
   background-color: red;
   margin-top:20px;
@@ -108,3 +108,4 @@ ssText {
 #test:link{
   color: black;
 }
+

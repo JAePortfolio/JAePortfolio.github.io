@@ -1,0 +1,17 @@
+dl dt{
+    font-weight: bold;
+    font-size: 16px;
+}
+
+dl dd {
+    font-size: 14px;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 2.5px solid black;
+    margin: 1em 0;
+    padding: 0;
+}
