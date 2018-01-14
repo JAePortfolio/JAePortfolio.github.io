@@ -30,4 +30,139 @@
                     <li><a href="../../achieve.html" class="on">Achievements</a></li>
                     <li><a href="../../links.html" class="on">Links</a></li>
                     <li><a href="../../contact.html" class="on">Contact</a></li>
-                </ul>    
+                </ul> 
+            </div>
+            <h1 text-algin:"center"><u>Digital Clock</u></h1>
+            <section>
+                <h3>Why this project?</h3>
+                <p>For my Electronics 1 Lab, this was our last final project. 
+                    Unfortunately, I couldn’t finish it in time for class. Not 
+                    because of me, but long story short because of the various 
+                    winter storms we had during the semester, things would be 
+                    pushed back, and so there just wasn’t enough time for this 
+                    project. The good thing was the professor dropped the lowest
+                     grade, so it did not affect my grade since I had no other 
+                     lower grades.</p>
+            </section>
+
+            <section>
+                <h3>Description</h3>
+                <p1>The project is to design a 12 hour digital clock with minutes
+                     and seconds and 12 hours being 1, 2, 3..12pm/am.<br>
+                    It is designed to be built with<br>
+                    <ul style="list-style-type:disc">
+                        <li>Digital Integrated Circuits (IC's). Specifically Small
+                             Scale Integrated Circuits (SSIC's) for this project.</li>
+                        <li>Seven Segment Digital Displays</li>
+                        <li>Crystal Oscillator for the clock signal OR a function 
+                            generator for the clock signal</li>
+                        <li>Powered by 12 V batter or Power Supply</li>
+                    </ul>
+                    In the final version, I use a 12 V battery and Crystal Oscillator.
+                </p1>
+            </section>
+
+            <section>
+                <h3>Definitions</h3>
+                <p2>If you are familiar with the items above, I suggest you jump to 
+                    the next section.<br><b>Digital Integrated Circuits</b> allows 
+                    electrical circuits to implement a variety of things such as logical,
+                    combinatorial,sequential and other functions. One example of one 
+                    is the picture below.<br>
+                    <center><img src="../../images/projects/clock/exampleIC.gif" alt="Example IC"
+                    width="125" height="125" align="middle"></center>
+                    The pins can be for different things. Basic ones are Voltage and Ground, others 
+                    can be depending on the IC. For example, one may be to divide by 2. On another IC, 
+                    a pin can be an AND gate.<br>My design of the clock will start off with a wiring diagram 
+                    that shows the routing of the wires connecting the pins of various IC’s to each other, 
+                    the seven segment displays, etc.<br>
+                    <b>Seven Segment Displays</b> is a display with seven segments to form the numbers 0-9.<br>
+                    <center><img src="../../images/projects/clock/ssdexample.png" alt="Example SSD"
+                        width="125" height="125" align="middle">
+                        <img src="../../images/projects/clock/ssddiagram.png" alt="Diagram of Segments"
+                        width="125" height="125" align="middle"></center><br>
+                    The segments as you see in that picture are labeled by letters. DP means "Decimal Point". 
+                    or example, if you had 2 of these displays lined up, and wanted to display 3.7, you would 
+                    have the DP light up as well. They also sell these with 2 digits instead of just one digit.<br>
+                    <center><img src="../../images/projects/clock/doublesddexample.png" alt="Exampl of Double Digit SSD"
+                        width="125" height="125" align="middle"></center><br>
+                    Each segment is an LED (the ones I used at least, I believe there are other types).  So if you 
+                    look at the pic of the diagram and lit up F and E, the number 1 appears.<br>
+                    <center><img src="../../images/projects/clock/ssddiagramOne.png" alt="Exampl of Double Digit SSD"
+                         width="125" height="125" align="middle"></center><br>
+                    Excuse the quality, I filled that in MS Paint real fast, but you get the idea. (If you look 
+                    at the white instead, it looks like a 3 ;D)<br>
+                    <b>Crystal Oscillator</b> This is a component that will eventually be used to provide a clock signal 
+                    to make the clock count. The crystal in the crystal oscillator consists of a small piece of 
+                    quartz crystal that is in a metal can. It's connected to a logic gate configured to act as an 
+                    amplifier. The crystal has a natural resonant frequency of the quartz crystal determines the 
+                    frequency of the oscillator.<br>
+                    <center><img src="../../images/projects/clock/crystalexample.png" alt="Exampl of Double Digit SSD"
+                        width="125" height="125" align="middle"></center><br>
+                    <b>Power Supply/12 V battery</b> The 12V battery should be self-explanatory . Power Supply is a piece 
+                    of equipment that just provides power. In the model below, you have three channels where you can
+                    set different voltages using the various buttons on the devices. You connect it to your board's 
+                    Va, Vb, Vc etc, or right into the board's shorting holes.<br>
+                    <center><img src="../../images/projects/clock/powersupply.png" alt="Exampl of Double Digit SSD"
+                       width="350" height="250" align="middle"></center><br>
+                </p2>
+            </section>
+
+            <section>
+                <h3>An important lesson learned when I started</h3>
+                <p3>If you aren't interested in this just jump to the next section. Now as I said before, I really 
+                    didn't get to finish this project in lab, in fact I barely had the time to start it. But I did 
+                    at least mess around with the Seven Segment Displays. Before the actual project, the manual asks
+                    you to just display a 1 on the seven-segment display using the DC Power Supply. Now for the 
+                    seven-segment display provided, it has 2 digits and has a forward voltage drop of 2 V. It is
+                    noted a current ID that is greater than 25mA (milli Amperes) will blow out the segment.  
+                    So we need some resistance. The manual said to aim for 13mA to pass into it with VDD = 9 V. 
+                    So using Ohm's law which states<br>V=IR<br>Which states the voltage equals the current multiplied
+                    by resistance, it's simple math. I just need to solve for the resistance, <b>R</b>. So<br>R=V/i<br>
+                    But there is a voltage drop of 2V, so the total voltage is 9-2=7V.<br>7V/(13mA)=538.46 Ohms, which
+                    you can round a bit higher to be on the safe side, os maybe 550 ohms.<br> Now the second time I did 
+                    this I made a big mistake that cost me. The ssecond time I went about this in my lab class, I believe
+                    I didn't use a resistor, I forget why now, I think I saw another classmate doing it (which I should of
+                    not have followed since they were all doing horrible), and I was getting nothing on one of the segments,
+                    but the others were working. I eventually figured out quickly I damaged the component. What did we learn
+                    here?<b>Follow basic instructions and just use common sense!</b><br>The lab workers told me they 
+                    didn't have any extras. What I did over the summer was order some of my own, they are not expensive.
+                    I think I spent 5 bucks for 4. Now after I got them, I did it with the correct resistance and it
+                    worked fine.<br>By the way, here's a picture of what I was supplied with! You can see the IC's 
+                    and the Seven Segment Displays ^^. Sorry for the quality, camera isn't the best.<br>
+                    <center><img src="../../images/projects/clock/componentpics.png" alt="Exampl of Double Digit SSD"
+                        width="350" height="200" align="middle"></center><br>One of the displays and IC's are on the 
+                    board so they are missing in this picture :P</p3>
+            </section>
+
+            <h2 "text-align:center" >Design Time!</h2>
+            <section>
+                <h3>The Hours</h3>
+                <p4>The first part I tackled was the hours. They require the least numbers to count so why not (1-12,:P)
+                    In reality the lab manual tells you to start with this.<br>For this first part, we will need three
+                    components<br>
+                    <ol>
+                        <li>BCD to Seven-Segment Drive IC (Binary Coded Decimal)</li>
+                        <li>Seven-Segment Display</li>
+                        <li>BCD Counters</li>
+                    </ol>
+                    <b>BCD to Seven Segment Driver</b>-So in computers if you didn't know, espcially in IC's, 0's and 1's 
+                    are used. Binary Code is used to represent things such as other numbers. So we need a IC to be able 
+                    to convert the binary code to decimal numbers (1, 2, 3 etc) to display on the Seven Segment Display.<br>
+                    <b>BCD Douncters</b>- This is an IC that simply counts up or down which count in BCD and binary.<br>
+                    So, for the clock, it will display like this for the hours. 01, 02, 03...09, 10, 11, 12.<br>So, the 
+                    highest digit will be 9, NOT 12! The reason which I should of said before is even though these
+                    Seven Segment Displays have 2 digits, each digit are "separated". They don't work together
+                    counting, so the left digit has to count only between 0 and 1, and the right digit 1-9. It's not 
+                    one whole display.<br>So, since the highest number is 9, we are going to need a 4 bit number.4 bit 
+                    numbers cover 0-15, because 2^4=16 numbers. The 2 comes from having two possibilities, 0 and 1, and 
+                    the 4 is the size. If we used 3 bit, it would be 2^3=8 numbers, or 0-7, which is missing 8 and 9 
+                    which we need. In BCD, no number exists above 9 though, so...<br>
+                    <center><img src="../../images/projects/clock/dectobcd.png" alt="A Decimal to BDC Conversion Chart"
+                         align="middle"></center><br>
+                    If we wanted let's say the number 453 to display using 3 Seven Segment Display, the BCD code equivalent
+                    would be-4:0100, 5:0101, 3:0011.<br>The IC provided, CD4543 that we will use is designed to have an input
+                    BCD and the output that can drive the seven-segment display. The good thing with this IC we don't need 
+                    to use any resistors!
+                </p4>
+            </section>
