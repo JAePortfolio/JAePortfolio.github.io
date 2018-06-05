@@ -149,9 +149,10 @@
                     <b>BCD to Seven Segment Driver</b>-So in computers if you didn't know, espcially in IC's, 0's and 1's 
                     are used. Binary Code is used to represent things such as other numbers. So we need a IC to be able 
                     to convert the binary code to decimal numbers (1, 2, 3 etc) to display on the Seven Segment Display.<br>
-                    <b>BCD Douncters</b>- This is an IC that simply counts up or down which count in BCD and binary.<br>
+                    <b>BCD Counters</b>- This is an IC that simply counts up or down which count in BCD and binary.<br>
                     So, for the clock, it will display like this for the hours. 01, 02, 03...09, 10, 11, 12.<br>So, the 
-                    highest digit will be 9, NOT 12! The reason which I should of said before is even though these
+                    highest digit(before getting confused, recall the definition of a digit) 
+                    will be 9, NOT 12! The reason which I should of said before is even though these
                     Seven Segment Displays have 2 digits, each digit are "separated". They don't work together
                     counting, so the left digit has to count only between 0 and 1, and the right digit 1-9. It's not 
                     one whole display.<br>So, since the highest number is 9, we are going to need a 4 bit number.4 bit 
@@ -163,6 +164,37 @@
                     If we wanted let's say the number 453 to display using 3 Seven Segment Display, the BCD code equivalent
                     would be-4:0100, 5:0101, 3:0011.<br>The IC provided, CD4543 that we will use is designed to have an input
                     BCD and the output that can drive the seven-segment display. The good thing with this IC we don't need 
-                    to use any resistors!
+                    to use any resistors!<br>In our given kit, we were given to different BCD counters. The part numbers
+                    are CD4510 and CD4518. Both have the same function which is to count, but the CD4510 is presetable.
+                    Why is that important? Because a 12 hour clock displays 1-12,  we obviously want to start from 01 as 
+                    the hour, not 00,so we want to preset at 01!<br>
                 </p4>
+                <p5>Now that I explained each function of the components, let's discussing hooking the components up!</br>
+                    <b>PLACE HOLDER HERE PIC</b></br>In this pic, the lab manual has already drawn out some connections we
+                    need to make. For example, we are to connect the a,b,c....g from the seven segment driver to the a,b,c... 
+                    g on the seven segment display. Now keep in mind from what I wrote before, I broke my 2-seven segment
+                    displays, so I had to order new ones from amazon. Unfortunately it seems 2-seven segment displays are 
+                    only sold in large bulks, or in special orders, such as a custom kit. So I had to buy single seven segment 
+                    displays. Would this be a problem? Not really! Because if you notice in the diagram, each set of letters
+                    corresponds to the position of each LED for EACH digit! So I can just place the single seven segment displays
+                    next to each other, and it would look and function the same way!</br>
+                    Now let's look at the other connections. Even though they are just given, I wanted to see why they are connected 
+                    the way they are. Also, there are some things not given, that we have to figure out! So we can look at what
+                    each pin does by looking at their data sheets! *INSERT A DEF*. According to the data sheet for 
+                    the CD4543 (seven segment driver), it says 2^3, 2^2, etc are the BCD inputs! And it makes sense. 
+                    Remember, we said before we need 2^4 bit size to represent the numbers we need. 2^3+2^2..+2^0 = 15, 
+                    which is equal to 2^4 (0-15). Then we use 2^3, 2^2, etc inputs to represent each bit in the 4 bit number 
+                    (a bit more on that later). The "Ph" and "Bl", which stand for Phase and Blanking, have multiple ways of
+                    being connected, depending on certain things. It says for an LED device, Phase is set
+                    to logic 0 for common cathode seven segment displays, and logic 1 for common anode. The difference between
+                    the two according to University of Hawaii says "The difference between the two displays is the common 
+                    cathode has all the cathodes of the 7-segments connected directly together and the common anode has all 
+                    the anodes of the 7-segments connected together". If you look at the diagram that came with your seven segment
+                    display or datasheet, it will tell you which you have. For these single segment displays I bought, I have a common
+                    anode display. So I'm suppose to set Phase to Logic 1. There is also a truth table, where it says 
+                    Blanking is always set to 0.<br> How do we set things to logic 1 and logic 0 you ask? For some of you this may 
+                    come to you as intuition, for some of you, it may not. The lab manual explains though. Essentially logic 1 is a 
+                    Vdd (power supply voltage in this case), and logic 0 is ground (0 volts). Our power supply can be a Digital Power 
+                    Supply, or a 9V battery.<br>Now, for the marking Q1-Q4.... INSERT TEXT. 
+                </p5>
             </section>
