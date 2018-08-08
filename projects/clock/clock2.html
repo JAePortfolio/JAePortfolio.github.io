@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DIGITAL CLOCK - EE 221</title>
+        <meta name = "description"
+        content = "An Engineers Journey Through School" />
+        <meta name = "keywords" 
+        content = "computer engineer, programming, circits, digital clock, HTML, CCNY
+        computer engineer " />
+        <meta name = "robots" 
+        content "nofollow" />
+        <meta http-equiv = "author"
+        content = "John" />
+        <link href="../../css/960.css" rel="stylesheet"/>
+        <link href="../../css/reset.css" rel="stylesheet"/>
+        <link href="../../css/text.css" rel="stylesheet"/>
+        <link href="../../css/projects/datalab/datalab.css" rel="stylesheet"/>
+    </head>
+
+    <body style="background-color: lightgray">
+        <div class="container_12 clearfix">
+            <p>
+                 <img src="../../images/banner.png"- alt="Cover" /> 
+            </p>            
+            <div class="grid_12">
+                 <ul id="navigation" align="center">
+                    <li><a href="../../about.html" class="on">About Me</a></li>
+                    <li><a href="../index.html" class="on">Projects</a></li>
+                    <li><a href="#" class="on">Blog</a></li>
+                    <li><a href="../../achieve.html" class="on">Achievements</a></li>
+                    <li><a href="../../links.html" class="on">Links</a></li>
+                    <li><a href="../../contact.html" class="on">Contact</a></li>
+                </ul> 
+            </div>
+            <h1 text-algin:"center"><u>Digital Clock</u></h1>
+
+            <section>
+                <h3>The Hours continued...</h3>
+                <p>So what are the Q1-Q4 markings. These pins are raised to logical 1 or logical 0 depending on 
+                    the current number. Let's say the current number is 5. For a 4-bit number, in binary, 5 is 
+                    0101. So Q1=1, Q2=0, Q3=1, Q4=0. This will come in handy for when we need to set the clock back
+                    to 01 after the 12th hour. 
+                </p>
+                <p>To cascade these chips together, the datasheet for the chips actually explains it pretty well.
+                    "If the CARRY-IN input is held low, the counter advances up or down on each positive going clock
+                    transition. Synchronous cascading is accomplished by connecting all clock inputs in parallel and
+                    connecting the CARRY-OUT of a less significant stage to the CARRY-IN of a more significant
+                    stage." So in the hour 12 example, 2 is the less significant digit. We bring the right digit's 
+                    CD4510 CARRY-OUT pin to the CARRY-IN pin of the left digit's CD4510 pin. The CARRY-IN of the 
+                    right digit's CD4510 is grounded, along with the left digit's CARRY-OUT, as they are not used.
+                </p>
+                <p>The P0-P3 are the pre-set values. Remember, we want to preset the display to 01. Using Reset 
+                    will cause it to go to 00, which is good for a 24 hour clock, not 12 hour. Again, we have to 
+                    set pins to logical 1 or 0 depending on what we want. For 01, the left digit is 0, the right
+                    digit is 1. So, P0-P4 on the left digit's CD4510 is all grounded for logical 0. For 1 on the
+                    right digit's CD4510, P0 is set to logical 1, and P1-P3 is logical 0, since 0001 = 1. 
+                </p>
+                <p>Now how do we get the chips to know when to preset. We can think of this logically. We want the 
+                    clock to preset to 01 when there is a 1 on the left side AND a 2 on the right side. The keyword 
+                    there is AND, this should make us think of an AND gate. AND gates if you aren't familiar output 
+                    a 1 only when both of its inputs are 1. You can also say its output is TRUE when both Inputs are
+                    True. Any other combinations results in 0 or false at the output. 
+                    <br>
+                    The chips we have for the AND gate are called CD4081. For this specific chip, each AND gate has 
+                    2 inputs. Some are designed to have more then 2 inputs. This will raise an issue in a moment.
+                    <br>
+                    Before we get to it, we have to think about something. Do we want reset the clock as it hits 12, 
+                    or as it hits 13? Since this clock triggers on the positive edge (so right as it hits a new pulse)
+                    we want to preset when we have a 1 and a 3. If it was a 1 and a 2, it would switch right as we are 
+                    getting to 2, so we would never even see the 2 display. 
+                    <br>
+                    So now this is where the problem of the AND gate comes into play. We have 2 inputs for the AND gate. 
+                    So we think let's input a 1 and 3. The problem is, remember in binary, a 3 is not represented by 1 
+                    'digit', it's 2 digits. For a 4-bit number, its 0011. So that would need 3 inputs! How do we solve this?
+                    We don't have a 3 input AND gate, so what we can do is just use 2 AND gates. We'll use 1 AND gate to check
+                    if the right digit is a 3. So we check Q1 and Q2 of the right digit's CD4510. If they are put 1, it will 
+                    ouput a 1 on the AND gate. We feed that output to the input of the second AND gate. So the second AND gate
+                    has the input of logical 1 since 3 has appeared, and now it needs its second input to be from the left digit
+                    when it has a 1. Since 1 is 0001, we just need 1 pin, so we can connect Q1 of the left digit's CD4510 into the 
+                    AND gate. These are our inputs. Now when both are true, AKA, 13 is next, the AND gate will output a logical 1.
+                    We feed that into the preset lines of BOTH CD4510. It will tell it to activate PRESET, and will PRESET to the
+                    values that are on P0-P3 of each clock, which we said before are set to display 01 on the clock.<br>
+                    <p><a href="clock3.html">Click here to continue onto the minutes and seconds.</a></p>
+                </p>
+            </section>
