@@ -38,22 +38,9 @@
         <p>
             <img src="images/banner.png" - alt="Cover" />
         </p>
+        
+        <div id="nav-placeholder"></div>
 
-        <nav class="green">
-            <div class="nav-wrapper">
-                <a href="#" class="brand-logo">Logo</a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="about.html">About Me</a></li>
-                    <li><a href="projects/index.html">Projects</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="achieve.html">Achievements</a></li>
-                    <li><a href="links.htmll">Links</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-        </nav>     
-<!--         <a class="carousel-item" href="#one!"><img src="images/IMG_6898.jpg"></a>
- -->
         <div class="grid_8" id="slideshow">                    
             <div class="slider">
                  <ul class="slides">
@@ -109,5 +96,10 @@
             height: 400,
         });
         });</script>
+
+    <script>
+    $(function(){
+        $("#nav-placeholder").load("nav.html");
+    });</script>
 
 </html>

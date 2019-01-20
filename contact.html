@@ -6,22 +6,29 @@
         <link href="css/reset.css" rel="stylesheet"/>
         <link href="css/text.css" rel="stylesheet"/>
         <link href="css/index.css" rel="stylesheet"/>
+
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        </head>
+
+        <body>
+        <!--JavaScript at end of body for optimized loading-->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+        </body>
     </head>
     <body style="background-color:lightgray">
         <div class="container_12 clearfix">
                 <p>
                      <img src="images/banner.png"- alt="Cover" /> 
                 </p>
-            <div class="grid_12">
-                <ul id="navigation" align="center">
-                    <li><a href="about.html" class="on">About Me</a></li>
-                    <li><a href="projects/index.html" class="on">Projects</a></li>
-                    <li><a href="#" class="on">Blog</a></li>
-                    <li><a href="achieve.html" class="on">Achievements</a></li>
-                    <li><a href="links.html" class="on">Links</a></li>
-                    <li><a href="contact.html" class="on">Contact</a></li>
-                </ul>
-            </div>
+             <div id="nav-placeholder"></div>
+
         <h1>Contact Information</h1>
         <p>Thank you for visiting my site! I can be reached by the following: <br>
             Phone: 917-703-6042<br>
@@ -32,4 +39,8 @@
         </p>
         <li><a href="javascript:history.go(-1)" class="on">Back to home</a></li>
     </body>
+    <script>
+        $(function(){
+            $("#nav-placeholder").load("nav.html");
+        });</script>
 </html>
