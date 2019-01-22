@@ -48,7 +48,7 @@
 
 #slideshow{
   background-color: rgb(34,177,76);
-  height: 280px;
+  height: 440px;
   margin-bottom: 20px;
   margin-top: 5px;
 }
@@ -93,6 +93,7 @@
 #funStuff:hover{
   transform:scale(1.04);
 }
+
 
 #bottomT {
   background-color: rgb(136,0,21);
