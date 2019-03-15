@@ -12,9 +12,19 @@
         <meta http-equiv = "author"
         content = "John" />
         <link href="../../css/960.css" rel="stylesheet"/>
-        <link href="../../css/reset.css" rel="stylesheet"/>
-        <link href="../../css/text.css" rel="stylesheet"/>
+        <!-- <link href="../../css/reset.css" rel="stylesheet"/>
+        <link href="../../css/text.css" rel="stylesheet"/> -->
         <link href="../../css/projects/datalab/datalab.css" rel="stylesheet"/>
+
+        <link href="../../css/projects/index.css" rel="stylesheet"/>
+        
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="../../css/materialize.min.css"  media="screen,projection"/>
+
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
 
     <body style="background-color: lightgray">
@@ -22,7 +32,9 @@
             <p>
                  <img src="../../images/banner.png"- alt="Cover" /> 
             </p>            
-            <div class="grid_12">
+            <div id="nav-placeholder"></div>
+
+            <!-- <div class="grid_12">
                  <ul id="navigation" align="center">
                     <li><a href="../../about.html" class="on">About Me</a></li>
                     <li><a href="../index.html" class="on">Projects</a></li>
@@ -31,7 +43,7 @@
                     <li><a href="../../links.html" class="on">Links</a></li>
                     <li><a href="../../contact.html" class="on">Contact</a></li>
                 </ul> 
-            </div>
+            </div> -->
             <h1 text-algin:"center"><u>Digital Clock</u></h1>
 
             <section>
@@ -83,3 +95,7 @@
                     <p><a href="clock3.html">Click here to continue onto the minutes and seconds.</a></p>
                 </p>
             </section>
+            <script>
+                $(function(){
+                    $("#nav-placeholder").load("../../nav.html");
+                });</script>
