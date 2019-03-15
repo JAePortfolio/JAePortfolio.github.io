@@ -9,13 +9,13 @@ This is repository for my first website which I will be using as a personal webs
 * [HTML](https://en.wikipedia.org/wiki/HTML) - Language Markup
 * [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) - Styling
 * [JS](https://www.javascript.com/) - Javascript
-* [CSS Materialize](https://materializecss.com/) - Streamline CSS Processo
+* [CSS Materialize](https://materializecss.com/) - Streamline CSS Process
 
 
 
 ## Authors
 
-* **John Arena** - *Developer of this Project* - [PurpleBooth](https://github.com/JAePortfolio)
+* **John Arena** - *Developer of this Project* - [JAePortfolio](https://github.com/JAePortfolio)
 
 ## License
 
