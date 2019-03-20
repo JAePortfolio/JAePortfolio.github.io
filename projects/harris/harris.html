@@ -12,9 +12,27 @@
         <meta http-equiv = "author"
         content = "John" />
         <link href="../../css/960.css" rel="stylesheet"/>
-        <link href="../../css/reset.css" rel="stylesheet"/>
-        <link href="../../css/text.css" rel="stylesheet"/>
-        <link href="../../css/projects/harris/harris.css" rel="stylesheet"/>
+        <!-- <link href="../../css/reset.css" rel="stylesheet"/>
+        <link href="../../css/text.css" rel="stylesheet"/> -->
+        <link href="../../css/projects/datalab/datalab.css" rel="stylesheet"/>
+
+        <link href="../../css/projects/index.css" rel="stylesheet"/>
+        
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="../../css/materialize.min.css"  media="screen,projection"/>
+
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        </head>
+
+        <body>
+        <!--JavaScript at end of body for optimized loading-->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="../../js/materialize.min.js"></script>
+        </body>
+
     </head>
 
     <body style="background-color: lightgray">
@@ -23,22 +41,23 @@
                  <img src="../../images/banner.png"- alt="Cover" /> 
             </p>            
             <div class="grid_12">
-                 <ul id="navigation" align="center">
+                 <!-- <ul id="navigation" align="center">
                     <li><a href="../../about.html" class="on">About Me</a></li>
                     <li><a href="../index.html" class="on">Projects</a></li>
                     <li><a href="#" class="on">Blog</a></li>
                     <li><a href="../../achieve.html" class="on">Achievements</a></li>
                     <li><a href="../../links.html" class="on">Links</a></li>
                     <li><a href="../../contact.html" class="on">Contact</a></li>
-                </ul>    
-                <h1>3D FloorPlan</h1>
+                </ul>     -->
+                <div id="nav-placeholder"></div>
+                <h2>3D FloorPlan</h2>
                 <p>This was a project I did in 12th grade. The reason I'm putting
                     it here is this was my favorite class in HS. The class was
                     Computer Aided Design and Drafting. I would say this 
                     final project  cemented the idea in me that I like designing/creating
                     things and wanted to pursue something involving that. (You
                     can read more in my blog about it!)</p>
-                <h2>The Project</h2>
+                <h4><u>The Project</u></h4>
                 <p1>If you haven't read about this class on my blog, long story short
                     I was Mr.Harris's top student. I excelled 1000% percent in his class
                     compared to other students, and so we discussed me taking one of
@@ -47,7 +66,7 @@
                     for one semester, but you can read about that again in my blog) and
                     creating 3D models for everything and applying textures and creating
                     HD-renders. Mr. Harris let me go at it.</p1>
-                <h2>How I started </h2>
+                <h4><u>How I started</u></h4>
                 <p2>So first we choose which floorplan to do. I really don't remember
                     how we choose one, but we did choose one. Now keep in mind,
                     I did this all in AutoCAD. AutoDesk 3DS Max is really more suitable
@@ -59,3 +78,8 @@
                     going on. You have a sink, fridge, oven, island, cabinets, etc.
                     All things to model! I decided to go for the island first, since
                     it has mostly simple shapes I can start with. </p2>
+                    <script>
+                        $(function(){
+                            $("#nav-placeholder").load("../../nav.html");
+                        });</script>
+                    
