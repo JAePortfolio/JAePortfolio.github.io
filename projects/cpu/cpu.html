@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -48,7 +49,8 @@
                     out of 80 were the only ones to complete it. The objective is to
                     design a 32-bit CPU based on the 32-bit MIPS instruction set. 32-bit meaning the 
                     addresses are 32 bits, the data elements are 32-bit integers, instruction length, 
-                    etc. I implemented R and I type instructions.
+                    etc. I implemented R and I type instructions. Below is a demonstration.<br>
+                    <iframe src="https://drive.google.com/file/d/1nbbg3yt1uD2epd76dG7N35Cwi4fdKxri/preview" width="640" height="420"></iframe>
                 </p>
                 </hr>
                 <h5><u>Software and Hardware</u></h5>
@@ -72,6 +74,8 @@
                     basically act as an opcode. These then activate certain enable lines depending on the opcode, for 
                     example, a memory write, a branch, etc. Bits 25-21, 20-16, are sent to the registers unit, etc. 
                     All the groups of bits are needed for different parts, again, per based on the MIPS architecture. 
+                    Below is a video of the design. <b>Note, it's sped up due to my professor's requirements.</b><br>
+                    <iframe src="https://drive.google.com/file/d/1e1PYewCHX4MaUxIFlYWcOAWkhtaN4DY8/preview" width="640" height="420"></iframe>
                 </p3>
 
                 <h5><u>The Challenge</u></h5>
@@ -79,7 +83,7 @@
                     Well instructions can take certain time, some longer then others. For example, a branch
                     instruction doesn't need much, you just need to add to the PC, whereas a Memory to Register takes more
                     time. So you have to have the instructions take long be able to complete under a single cycle just like 
-                    the instructions that are not as long 
+                    the instructions that are not as long.
                 </p4>
                 <a href="javascript:history.go(-2)" class="on">Back to home</a></li>
 
