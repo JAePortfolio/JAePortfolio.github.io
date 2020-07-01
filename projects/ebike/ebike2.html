@@ -17,6 +17,8 @@
         <link href="../../css/projects/datalab/datalab.css" rel="stylesheet"/>
 
         <link href="../../css/projects/index.css" rel="stylesheet"/>
+        <link href="slick/slick.css" rel="stylesheet"/>
+        <link href="slick/slick-theme.css" rel="stylesheet"/>
         
         <!--Import Google Icon Font-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -31,6 +33,7 @@
         <!--JavaScript at end of body for optimized loading-->
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="../../js/materialize.min.js"></script>
+        <script type="text/javascript" scr="slick/slick.min.js"></script>
         </body>
     </head>
 
@@ -41,14 +44,28 @@
             <div class="row">         
                 <h4>Smart eBike Kit</h4><hr>
                 <div class="col s10">
-                    <div id="desc" class="section scrollspy">
-                        <h5><u>Description</u></h5>
-                        <p>For my Senior Capstone, I lead and managed a team of 4 to design a Smart eBike Kit. This would be a product that can be sold on the market that would allow you to transform a mountain bike into an eBike. An eBike is an electronic bicycle, which generally consists of a battery and a motor. Our kit will have this, but also a smartphone application that communicates with the various modules, and an object detection system using LiDAR.
+                    <div id="pwrSys" class="section scrollspy">
+                        <h5><u>Power System</u></h5>
+                        <p>The power system is divider into three components
+                            <ol>
+                                <li>36V Battery - For powering the components and modules.</li>
+                                <li>Battery Management System (BMS) - A module that monitors an even charging process throughout the battery cells in the battery pack. It protects cells from damage and failure, and detects unsafe conditions and responds</li>
+                                <li>DC/DC Converter - To convert the 36V to lower values to power modules.</li>
+                                <li>DC/DC Converter Current Divider - To limit the appropriate current to modules to ensure no risk of current suddenly rushing into the wrong component.</li>
+                            </ol>
+                            The power system was design and built by my team member Ionut who is an electrical engineer. He created the schematics and PCB layouts in KiCAD. The battery cell layout and BMS were done in AutoCAD.
                         </p>
                     </div>
-                    <div id="SAH" class="section scrollspy">
-                        <h5><u>Software and Hardware</u></h5>
-                        <p1>Every module (other than the battery management system) was designed by us. We created hardware schematics and PCBs in KiCAD. The modules communicate and send signals via our Raspberry Pi. For the software side, our smartphone application was prototyped with the assistance of Blynk (an IOT platform). We used C++. The smartphone application communicates to the Raspbery Pi via bluetooth.
+                    <div id="batt" class="section scrollspy">
+                        <h5><u>36V Battery</u></h5>
+                        <p1>The 36V battery is comprised of 3.6V lithium ion cells. We used recycled cells which were at 90% of their original capacity. They were taken from hospital equipment and modem battery packs. We purchased 100 at $1.10 each. The reasoning behind this was it was greener for the project and more cost effective. The 3.6V cells were rated at 2600mAh. The design consisted of 10 in series for 36V and 5 in parallel for 13000mAh total. They would be connected using nickle.
+                             
+                        <div class="pwrSlides">
+                            <div><img src="../../images/projects/ebike/pwr/pwr3.PNG"></div>
+                            <div><img src="../../images/projects/ebike/pwr/pwr1.PNG"></div>
+                            <div><img src="../../images/projects/ebike/pwr/pwr2.PNG"></div>
+                        </div> 
+
                         </p1>
                     </div>
                     <div id="design" class="section scrollspy">
@@ -70,16 +87,19 @@
                     <div style="position: fixed">
                         <ul class="section table-of-contents">
                             <li>
-                                <a href="#desc">Description</a>
+                                <a href="#pwrSys">Power System</a>
                             </li>
                             <li>
-                                <a href="#SAH">Software and Hardware</a>
+                                <a href="#batt">36V Battery</a>
                             </li>
                             <li>
-                                <a href="#design">The Design</a>
+                                <a href="#bms">Battery Management System</a>
                             </li>
                             <li>
-                                <a href="#funcDiag">Functional Block Diagram</a>
+                                <a href="#dcConv">DC/DC Converter</a>
+                            </li>
+                            <li>
+                                <a href="#currDiv">DC/DC Converter Current Divider</a>
                             </li>
                         </ul>
                     </div>
@@ -87,11 +107,11 @@
 
                 <div class="container center-align">
                     <ul class="pagination">
-                        <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-                        <li class="active"><a href="ebike.html">1</a></li>
-                        <li class="waves-effect"><a href="ebike2.html">2</a></li>
+                        <li class="waves-effect"><a href="ebike.html"><i class="material-icons">chevron_left</i></a></li>
+                        <li class="waves-effect"><a href="ebike.html">1</a></li>
+                        <li class="active"><a href="ebike2.html">2</a></li>
                         <li class="waves-effect"><a href="#">3</a></li>
-                        <li class="waves-effect"><a href="ebike2.html"><i class="material-icons">chevron_right</i></a></li>
+                        <li class="waves-effect"><a href="#"><i class="material-icons">chevron_right</i></a></li>
                     </ul>
                 </div>
             </div>
@@ -107,6 +127,9 @@
         $(document).ready(function(){
             $('.materialboxed').materialbox();
             $('.scrollspy').scrollSpy();
+            $('.pwrSlides').slick({
+
+            });
         });
     </script>
 
