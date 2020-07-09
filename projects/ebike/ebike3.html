@@ -72,8 +72,15 @@
                         <br>
                         <img class="materialboxed" src="../../images/projects/ebike/mtr/mtr3.PNG" alt="Inrush Graph" width="270" height="323"><br>
                         As for effiency, PWM requires only transistors to act as switches. These have low impedance and draw less power compraed to variable resistors. Achieving 20% speed means 80% of the voltage has to dissipate through resistors, which would have huge power loss.<br>
-                        For interfacing with the Pi, we use the PWM pins of the Pi to send any duty cycle between 0 and 100 depending on the throttle's positioning. By using the Pi like this, we can then add modes such as Wet/Dry mode on our smart phone application, which will reduce the duty cycle by a certain percentage in wet road conditions.
+                        For interfacing with the Pi, we use the PWM pins of the Pi to send any duty cycle between 0 and 100 depending on the throttle's positioning. By using the Pi like this, we can then add modes such as Wet/Dry mode on our smart phone application, which will reduce the duty cycle by a certain percentage in wet road conditions.<br>
+                        Below is a picture of the final PCB design at the time 
+                        <img class="materialboxed" src="../../images/projects/ebike/mtr/mtr4.PNG" alt="PCB Design by Shamim" width="479" height="369">
                         </p2></hr>
+                    </div>
+                    <div id="throttle" class="section scrollspy">
+                        <h5><u>Throttle</u></h5>
+                        <p>For the throttle, the throttle voltage would change depending on the position of the throttle. We used an ADC chip using SPI communication between the Pi to get the current value. Then depending on the position of the throttle, it will be a variable in the motor PWM output.
+                        </p>
                     </div>
                     <a href="javascript:history.go(-1)" class="on">Back to Projects</a></li>
                 </div>
@@ -91,6 +98,9 @@
                             <li>
                                 <a href="#mtrctrl">Motor Controller</a>
                             </li>
+                            <li>
+                                <a href="#throttle">Throttle</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -101,7 +111,8 @@
                         <li class="waves-effect"><a href="ebike.html">1</a></li>
                         <li class="waves-effect"><a href="ebike2.html">2</a></li>
                         <li class="active"><a href="ebike3.html">3</a></li>
-                        <li class="disabled"><a href="#"><i class="material-icons">chevron_right</i></a></li>
+                        <li class="waves-effect"><a href="ebike4.html">4</a></li>
+                        <li class="waves-effect"><a href="ebike4.html"><i class="material-icons">chevron_right</i></a></li>
                     </ul>
                 </div>
             </div>
