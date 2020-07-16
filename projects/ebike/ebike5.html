@@ -47,36 +47,34 @@
                 <h4>Smart eBike Kit</h4><hr>
                 <div class="col s10">
                     <div id="title" class="section scrollspy">
-                        <h5><u>Speedometer System</u></h5>
-                        <p>The speedometer system is divider into three components
-                            <ol>
-                                <li>Speedometer Circuit - For detecting the revolution of the wheel.</li>
-                                <li>Speedometer Calculation - The process to determine the speed in MPH.</li>
-                                <li>Speedometer Display on our App - Displaying the information to the rider.</li>
-                            </ol>
-                            This part of the project was done by me. I created the schematic and PCB designs in KiCAD. The code was done in C++. The PCB would communicate with the Pi reporting when the wheel had 1 revolution, and the code would do the rest. Then the data would be sent to a smartphone via bluetooth for displaying.
+                        <h5><u>eBraking System</u></h5>
+                        <p>The eBrake System were designed to handle two scenarios. The first scenario is when both the throttle and brake are both active. In this scenario we want to signal the motor to be cut off.  The second scenario is when the rider is braking and is pressing the brakes off and on, we don't want the motor to keep shutting on and off abruptly. 
                         </p>
                     </div>
                     <div id="circuit" class="section scrollspy">
-                        <h5><u>Speedometer Circuit</u></h5>
-                        <p1>The speedometer circuit is a non-latched hall effect sensor. This means it returns to its original voltage value after a magnet passes. The hall effect sensor I chose is specifically for automotive purposes. It operates at 5V @50mA. Below is an image and how I would position the circuit and the magnet on the wheel itself.                         
+                        <h5><u>eBrake Circuits</u></h5>
+                        <p1>The eBrake sensors use the same sensors designed by me on the previous page for the speedometer.
+                       </p1>
+                    </div>
+                    <div id="plcment" class="section scrollspy">
+                        <h5><u>eBrake Placement</u></h5>
+                        <p1>We planned to have the magnet in a case attached to the brake line, while the PCB sits in a case attached to the bike frame. When the brake is used, the brake line will move and the magnet along with it, passing the sensor and triggering it. Below is a picture of the idea. In the second picture is the idea of the 3d magnet casing. There will be another side to the case that snaps close between the brake line. It looks very thick here, but it will be much thinner in the final design, we just didn't get to measure an appropriate size at the time. 
                         <div class="carousel carousel-slider">
-                            <a class="carousel-item" ><img src="../../images/projects/ebike/speed/circ1.PNG"></a>
-                            <a class="carousel-item" ><img src="../../images/projects/ebike/speed/position1.PNG"></a>
+                            <a class="carousel-item" ><img src="../../images/projects/ebike/brake/brake2.PNG"></a>
+                            <a class="carousel-item" ><img src="../../images/projects/ebike/brake/brake3.PNG"></a>
                         </div>
                        </p1>
                     </div>
-                    <div id="calc" class="section scrollspy">
-                        <h5><u>Speedometer Calculation</u></h5>
-                        <p2>Below is an image of how I do the conversion. In the latest design, I calculate the speed every 5 revolutions.<br>
-                        <img class="materialboxed" src="../../images/projects/ebike/speed/calc1.PNG" alt="Battery Management System" width="504" height="205"><br>
-                        One thing that became a problem was false readings in reading the revolution. Very rarely, when the magnet passed the sensor, it would be read twice. The code would then think since there was 2 passes, one revolution completed, and the wrong value would be sent. To solve this, I simply calculated the fastest timing between two readings for 25MPH, which was 92.7ms. Then I checked the timing in the code, if there was any timing faster than that, throw it out.
+                    <div id="scenario1" class="section scrollspy">
+                        <h5><u>Handling Scenario #1</u></h5>
+                        <p2>Scenario 1 is straight forward. When the brake send an active low signal and the throttle is high, the Pi will read the signals and then respond appropriately by sending a signal to open a switch between the power supply and the motor, which will cause it to disconnect.
                         </p2></hr>
                     </div>
-                    <div id="app" class="section scrollspy">
-                        <h5><u>Speedometer Display on App</u></h5>
-                        <p3>Below in the video shows a demonstration of the app. The calculated value of speed gets sent to the app. Then the value updates on the app. The colors go from green to red, where green is 0 and red is 25 MPH.</p3><br>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/-29N8PHMdbc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div id="scenario2" class="section scrollspy">
+                        <h5><u>Handling Scenario 2</u></h5>
+                        <p3>In the scenario of pressing the brakes on and off, we needed to figure out how long should we keep the motor disconnected from the power. Below in the table is some measurements we did, recording the average time between hitting the brakes.</p3><br>
+                        <img class="materialboxed" src="../../images/projects/ebike/brake/brake1.PNG" alt="Braking Times" width="297" height="313"><br>
+                        From these measurements, the largest time we got was 1.69s and the smallest was .7s, with an average of 1.3s. So we decided to wait 2 seconds before re-enabling the motor AFTER the last brake release.
                     </div>
                     <a href="javascript:history.go(-1)" class="on">Back to Projects</a></li>
                 </div>
@@ -86,16 +84,19 @@
                     <div style="position: fixed">
                         <ul class="section table-of-contents">
                             <li>
-                                <a href="#title">Power System</a>
+                                <a href="#title">eBraking System</a>
                             </li>
                             <li>
-                                <a href="#circuit">Speedometer Circuit</a>
+                                <a href="#circuit">eBrake Circuits</a>
                             </li>
                             <li>
-                                <a href="#calc">Speedometer Calculation</a>
+                                <a href="#plcment">eBrake Placement</a>
                             </li>
                             <li>
-                                <a href="#app">Speedometer Display on App</a>
+                                <a href="#scenario1">Handling Scenario #1</a>
+                            </li>
+                            <li>
+                                <a href="#scenario2">Handling Scenario #2</a>
                             </li>
                         </ul>
                     </div>
@@ -103,13 +104,13 @@
 
                 <div class="container center-align">
                     <ul class="pagination">
-                        <li class="waves-effect"><a href="ebike3.html"><i class="material-icons">chevron_left</i></a></li>
+                        <li class="waves-effect"><a href="ebike4.html"><i class="material-icons">chevron_left</i></a></li>
                         <li class="waves-effect"><a href="ebike.html">1</a></li>
                         <li class="waves-effect"><a href="ebike2.html">2</a></li>
                         <li class="waves-effect"><a href="ebike3.html">3</a></li>
-                        <li class="active"><a href="ebike4.html">4</a></li>
-                        <li class="waves-effect"><a href="ebike5.html">5</a></li>
-                        <li class="waves-effect"><a href="ebike5.html"><i class="material-icons">chevron_right</i></a></li>
+                        <li class="waves-effect"><a href="ebike4.html">4</a></li>
+                        <li class="active"><a href="ebike5.html">5</a></li>
+                        <li class="disabled"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
                     </ul>
                 </div>
             </div>
