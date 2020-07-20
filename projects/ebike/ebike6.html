@@ -47,36 +47,24 @@
                 <h4>Smart eBike Kit</h4><hr>
                 <div class="col s10">
                     <div id="title" class="section scrollspy">
-                        <h5><u>Speedometer System</u></h5>
-                        <p>The speedometer system is divider into three components
-                            <ol>
-                                <li>Speedometer Circuit - For detecting the revolution of the wheel.</li>
-                                <li>Speedometer Calculation - The process to determine the speed in MPH.</li>
-                                <li>Speedometer Display on our App - Displaying the information to the rider.</li>
-                            </ol>
-                            This part of the project was done by me. I created the schematic and PCB designs in KiCAD. The code was done in C++. The PCB would communicate with the Pi reporting when the wheel had 1 revolution, and the code would do the rest. Then the data would be sent to a smartphone via bluetooth for displaying.
+                        <h5><u>Objecting Detection System</u></h5>
+                        <p>Part of our innovation for the project was to create an object detection system that can help the eBike rider avoid crashes. We researched and went over three methods of doing so. 
+                        <ol>
+                            <li>Camera &#10006; - Being the cheapest option, we considered this first. Although a camera has a high FOV, the problem arises where the rasberry Pi only being able to process 4-5 frames at a MAX every second. This will cause the Pi to get hot, reduce its capabilities and waste power. Also adequate lighting is needed, which makes it useless for night time. There are ways to increase the frame rate, but its expensive.</li>
+                            <li>Ultrasound &#10006;- The second option was also cheap, and it had very low power consumption. Similar to the camera, it has a high FOV but very short inaccurate range (up to 3m). On a bike, 3m between a car and bicycle is so limited, and a car going 30 MPH will close that distance in less than a second, so it would not be safe.</li>
+                            <li>LiDAR &#10004;- The final option was LiDAR. It is very expensive ($170) but the benefits outweight the cost. LiDAR means Light Detection and Ranging. It is a remote sensing method that uses light in the form of a pulsed laser to measure ranges to an object. Our LiDAR that we chose has a range up to 40m, and a low power consumption 675mW and operates with a 5V source, perfect for our DC/DC converter. It will be used via the I2C interface since the motor uses the PWM pins. </li>
+                        </ol>
                         </p>
                     </div>
-                    <div id="circuit" class="section scrollspy">
-                        <h5><u>Speedometer Circuit</u></h5>
-                        <p1>The speedometer circuit is a non-latched hall effect sensor. This means it returns to its original voltage value after a magnet passes. The hall effect sensor I chose is specifically for automotive purposes. It operates at 5V @50mA. Below is an image and how I would position the circuit and the magnet on the wheel itself.                         
-                        <div class="carousel carousel-slider">
-                            <a class="carousel-item" ><img src="../../images/projects/ebike/speed/circ1.PNG"></a>
-                            <a class="carousel-item" ><img src="../../images/projects/ebike/speed/position1.PNG"></a>
-                        </div>
+                    <div id="use" class="section scrollspy">
+                        <h5><u>How it is used and placement</u></h5>
+                        <p1>We went over many scenarios and did research on bicycle accidents. We decided as a starting point, the LiDAR should act as rear eyes, since the rider has eyes infront of him, and is limited to knowing what's behind them, compared to a car using mirrors. We decided to place ontop of the battery compartment, at a 30-45 degree angle towards the left towards vehicles, assuming you're on the right side of the road. Then on our smartphone app, we will have a bar that shows how close an object is coming to you. This is a basic use of the LiDAR and we wanted to explore more advance ways of using it (ways to ignore certain objects, the LiDAR being able to rotate), but due to COVID-19, we didn't get that far.
                        </p1>
                     </div>
-                    <div id="calc" class="section scrollspy">
-                        <h5><u>Speedometer Calculation</u></h5>
-                        <p2>Below is an image of how I do the conversion. In the latest design, I calculate the speed every 5 revolutions.<br>
-                        <img class="materialboxed" src="../../images/projects/ebike/speed/calc1.PNG" alt="Battery Management System" width="504" height="205"><br>
-                        One thing that became a problem was false readings in reading the revolution. Very rarely, when the magnet passed the sensor, it would be read twice. The code would then think since there was 2 passes, one revolution completed, and the wrong value would be sent. To solve this, I simply calculated the fastest timing between two readings for 25MPH, which was 92.7ms. Then I checked the timing in the code, if there was any timing faster than that, throw it out.
-                        </p2></hr>
-                    </div>
                     <div id="app" class="section scrollspy">
-                        <h5><u>Speedometer Display on App</u></h5>
-                        <p3>Below in the video shows a demonstration of the app. The calculated value of speed gets sent to the app. Then the value updates on the app. The colors go from green to red, where green is 0 and red is 25 MPH.</p3><br>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/-29N8PHMdbc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <h5><u>Smartphone App Display</u></h5>
+                        <p1>Below in the video is a demonstration of the LiDAR data being sent to the app. Keep in mind this is a very early look at the app GUI, so there are things missing and not final (You will see a final version on another page). Our final design kept the LiDAR bar down towards the bottom, and it will have the bar change colors depending how close you are to an object. <br> <iframe width="560" height="315" src="https://www.youtube.com/embed/QbC9u_-aFCs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                       </p1>
                     </div>
                     <a href="javascript:history.go(-1)" class="on">Back to Projects</a></li>
                 </div>
@@ -86,16 +74,13 @@
                     <div style="position: fixed">
                         <ul class="section table-of-contents">
                             <li>
-                                <a href="#title">Power System</a>
+                                <a href="#title">Object Detection System</a>
                             </li>
                             <li>
-                                <a href="#circuit">Speedometer Circuit</a>
+                                <a href="#use">How it is used and placement</a>
                             </li>
                             <li>
-                                <a href="#calc">Speedometer Calculation</a>
-                            </li>
-                            <li>
-                                <a href="#app">Speedometer Display on App</a>
+                                <a href="#app">Smartphone App Display</a>
                             </li>
                         </ul>
                     </div>
@@ -103,15 +88,15 @@
 
                 <div class="container center-align">
                     <ul class="pagination">
-                        <li class="waves-effect"><a href="ebike3.html"><i class="material-icons">chevron_left</i></a></li>
+                        <li class="waves-effect"><a href="ebike5.html"><i class="material-icons">chevron_left</i></a></li>
                         <li class="waves-effect"><a href="ebike.html">1</a></li>
                         <li class="waves-effect"><a href="ebike2.html">2</a></li>
                         <li class="waves-effect"><a href="ebike3.html">3</a></li>
-                        <li class="active"><a href="ebike4.html">4</a></li>
+                        <li class="waves-effect"><a href="ebike4.html">4</a></li>
                         <li class="waves-effect"><a href="ebike5.html">5</a></li>
-                        <li class="waves-effect"><a href="ebike6.html">6</a></li>
+                        <li class="active"><a href="ebike6.html">6</a></li>
                         <li class="waves-effect"><a href="ebike7.html">7</a></li>
-                        <li class="waves-effect"><a href="ebike5.html"><i class="material-icons">chevron_right</i></a></li>
+                        <li class="waves-effect"><a href="ebike7.html"><i class="material-icons">chevron_right</i></a></li>
                     </ul>
                 </div>
             </div>
