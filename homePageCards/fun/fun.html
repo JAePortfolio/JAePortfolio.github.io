@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>About Me</title>
+        <link href="../../css/960.css" rel="stylesheet"/>
+<!--         <link href="css/reset.css" rel="stylesheet"/>
+        <link href="css/text.css" rel="stylesheet"/> -->
+        <link href="../../css/index.css" rel="stylesheet"/>
+
+                      
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="../../css/materialize.min.css"  media="screen,projection"/>
+
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        </head>
+
+        <body>
+        <!--JavaScript at end of body for optimized loading-->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="../../js/materialize.min.js"></script>
+        </body>
+    </head>
+    <body style="background-color:lightgray">
+        <div id="nav-placeholder"></div>
+
+        <div class="container_12 clearfix">   
+            <div class="row"> 
+                <h4>Fun Projects</h4><hr>
+                <h5><u>TF2 Sentry</u></h5>
+                <p1>This is a project I'm doing for fun and to learn from. I am building a functioning model of a sentry from the game Team Fortress 2. It will be made from cardboard, PVC pipe, held together with various bolts, cut out slots, etc. <br> It will be powered by an ARM Cortext-M7. I am using a ST32F7 Nucleo Board to develop on to interface with sensors, motor(s) and other components. It will feature an Android app as well, where the app will represent the in-game PDA which tells me the status of the sentry (health, enabled/disabled, etc). It will communicate with the sentry via Bluetooth Low Energy.
+                <br>The project is moving a bit slow as it's hard to build this without the proper equipment, but it's moving along daily. More to come to the page soon...
+                </p1>
+                <hr>
+            </div>
+        </div>
+    </body>
+    <script>
+        $(function(){
+            $("#nav-placeholder").load("../../navBarHomePageCards.html");
+        });</script>
+    <script>
+        $(document).ready(function(){
+            $('.materialboxed').materialbox();
+        })
+    </script>
+    
+</html>
+
+            
