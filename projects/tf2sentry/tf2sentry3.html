@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>TF2 Sentry - PROJECT PAGE IN PROGRESS</title>
+        <title>Smart eBike Conversion Kit</title>
         <meta name = "description"
         content = "An Engineers Journey Through School" />
         <meta name = "keywords" 
@@ -17,7 +17,11 @@
         <link href="../../css/projects/datalab/datalab.css" rel="stylesheet"/>
 
         <link href="../../css/projects/index.css" rel="stylesheet"/>
-        
+
+        <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" rel="stylesheet">
+         -->
+
         <!--Import Google Icon Font-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Import materialize.css-->
@@ -29,8 +33,9 @@
 
         <body>
         <!--JavaScript at end of body for optimized loading-->
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
         <script type="text/javascript" src="../../js/materialize.min.js"></script>
+        <!-- <script type="text/javascript" scr="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script> -->
         </body>
     </head>
 
@@ -41,49 +46,34 @@
             <div class="row">         
                 <h4>TF2 Sentry - Page Work in Progress</h4><hr>
                 <div class="col s10">
-                    <div id="desc" class="section scrollspy">
-                        <h5><u>Description</u></h5>
-                        <p>For a fun project on my own to do, I decided it should be something that I can make using the STM series. I never got to learn it and figured it would be a good time, especially during the current lockdowns due to COVID-19. I decided to make the Engineer's sentry from Team Fortress 2. What I had in mind for it was to be able to scan infront of itself using a motor and some sensors, then respond with a flash representing a muzzle flash and play sounds through some speakers. It would also communicate with a PDA I'd make as an Android App.
+                    <div id="title" class="section scrollspy">
+                        <h5><u>Motor System</u></h5>
+                        <p>The motor system has two main components, the motor itself and the motor controller. It will be controlled via the STM32F7. 
                         </p>
                     </div>
-                    <div id="SAH" class="section scrollspy">
-                        <h5><u>Software and Hardware</u></h5>
-                        <p1>The sentry will use ultrasonic sensors, a stepper motor, speakers, bluetooth. Of course it will all be controlled by the STM32F7. I used an STM32F7 Nucleo Board to prototype, but after prototyping was completed, I designed by own STM32F7 board, creating the schematics and PCB in KiCAD. For the software, it was all designed by me in C. For the smartphone application, it is done using Java and will communicate via bluetooth to the sentry, and visa versa. 
-                        </p1>
+                    <div id="mtr" class="section scrollspy">
+                        <h5><u>Motor - Force, Torque, Inertia and RPM Calculation.</u></h5>
+                        <p1>This was the first major part of the sentry for me. I had to find a motor that can support the weight it would be required to move, and if it had enough torque to support the timing. The operation of the sentry in TF2 is it rotates a full 90 degrees within a 2 second period. When it sees a target, it rotates to it within 1 second. <br> So I thought to myself oh boy, this will be something, as I knew I had to get some physics involved which I remember as one of my first classes, I did not like, but I thought I should be able to handle it now. I've graduated and have a far better understanding of things now, and ability to. I decided to open my old physics books for some assistance.<br>So the top of the sentry gun that rotates is obviously a unique shape. For simplicity, I modeled it as a circle on paper that is being rotated at it's center. Now, I need to find the force required to rotate the sentry which can support the speed and weight. I (at the time) thought the load to be 1lb (though now it's around 1.7lbs). 
+                        I need to figure out the force required to move the sentry, which naturally I need to find the torque, inertia, and a few other things. Below is a summary of the calculations I went through.<br>
+                        <img class="materialboxed" src="../../images/projects/tf2sentry/calculations.png" alt="Calculations for the motor" width="430" height="200">
+                       </p1>
                     </div>
-                    <div id="design" class="section scrollspy">
-                        <h5><u>The Design and Functionality</u></h5>
-                        <p2>The sentry itself is made out of cardboard pieces I designed and cut out from leftover cardboard I have, along with PVC pipes, steel pipes. It will be held together using nuts and bolts, along with hot glue. <br>
-                            The functionality is as follows, which will be created in C and flashed onto the STM32F746ZG.
-                            <ol>
-                                <li>There will be 3 ultrasonic sensors. One looking directly ahead (0 degrees), one looking to the left at a 45 degree angle, and one looking to the right a 45 degree angle. There will be a set distance of detection that I decide upon.</li>
-                                <li>When there is nothing detected, it will scan back and forth like in the game, playing audio.</li>
-                                <li>When an object is detected within X length of the sensor, the motor will rotate the sentry either 45 degrees to the left, 45 to the right, or stay put, depending on which ultrasonic sensor triggered the response.</li>
-                                <li>Once the motor does what is needed, a firing routine will go off. It will play an audio sound of it firing, and flash the amber LEDs. The bluetooth system will be told to tell the smartphone the sentry is firing.</li>
-                                <li>When finished firing, it will return to it's original position.</li>
-                                <li>When the sentry is "sapped", it will stop moving and not do anything until the sapper is removed, or if succesfully "destroyed", the sentry will be reset by bluetooth via the app.</li>
-                                <li>The Android Application written in Java will act how the PDA acts in the game. It monitors the health and ammo. The ammo meter will drop everytime the sentry is firing. The health will drop when a sapper is attached.</li>
-                              </ol> 
-                        </p2></hr>
+                    <div id="mtrType" class="section scrollspy">
+                        <h5><u>Motor - Motor Type</u></h5>
+                        <p2>What type of motor will I chose? A DC motor, a stepper motor, or a servo? I knew DC was out, so I initially went with servos with my lack of understanding initially. A servo doesn't know where it's at, it just has a start and end point, and it's to go to that position as quickly as possible. I cannot control exactly where it goes. The only way was to find a servo that had an exact 90 degree range. The servo I initially had was a 360 servo, which I found out it was really a modified DC motor, so it didn't function as a servo properly. Consequently, the constant turning of the sentry eventually became off calibration very quickly. When I tried to get a certain RPM as well, it became jittery and would shake the whole sentry, and the turning wasn't smooth enough anyways.<br>So now I moved onto a stepper motor. I can get a controller that enables different types of stepping to make the rotation smooth, and changing the step frequency adjusts the RPM. I can do this all via the STM32F7.
                     </div>
-                    <div id="funcDiag" class="section scrollspy">
-                        <h5><u>Functional Block Diagram</u></h5>
-                        <p3>This is the functional block diagram I came up with to give a general understanding on how all the modules would be connected.</p3><br>
-                        <img class="materialboxed" src="../../images/projects/tf2sentry/funcDiag.jpg" alt="Functional Block Diagram" width="417" height="302"><br>
-                        Below is a table of contents<br>
-                        <ol>
-                            <li>Page 1 - Description</li>
-                            <li>Page 2 - Power System</li>
-                            <li>Page 3 - Motor System</li>
-                            <li>Page 4 - Ultrasonic Sensor System</li>
-                            <li>Page 5 - Audio System</li>
-                            <li>Page 6 - LEDs</li>
-                            <li>Page 7 - Bluetooth System</li>
-                            <li>Page 8 - Smartphone Application</li>
-                            <li>Page 9 - Final Schematic and PCB Design</li>
-                        </ol> 
+                    <div id="mtrSel" class="section scrollspy">
+                        <h5><u>Motor Chosen - Nema 11 Stepper</u></h5>
+                        <p3>The stepper I finally ended up with is a Nema 11 Stepper I found at stepperonline. They had a wonderful graphing system that showed if a motor can meet what you need based on the info you provided, so I was able to pick a motor which cost around $15. The info provided is from what I solved above, and the motor is actually pretty overkill, but all of them were, which makes sense, cardboard isn't that difficult to move. The minimum voltage required is 6.2V and can run just fine at 12V. It has two phases, each phase works at a maximum of .67A, so at max operation it will be a total of 1.34A.<br>
+                        <img class="materialboxed" src="https://www.omc-stepperonline.com/image/cache/catalog/stepper-motor/11/nema-11-bipolar-18deg-12ncm-17ozin-067a-62v-28x28x51mm-4-wires--52491-1000x1000.jpg" alt="Stepper Motor" width="200" height="150">
+                        </p3>
                     </div>
-                    <a href="javascript:history.go(-1)" class="on">Back to Projects</a></li>
+                    <div id="mtrCtrl" class="section scrollspy">
+                        <h5><u>Motor Controller</u></h5>
+                        <p4>I went through many motor controllers. The chosen motor controller was the A4988. It has a drive capacity of up to 35V and 2A, which is perfect. It has 5 selectable step modes, which is great for smoothness and 3.3-5V logic spply, and some other goodies. I got a premade board for it. It also statisfies the requirements of the resistances of the phases of the motor.
+                        </p4>
+                    </div>
+                    <a href="javascript:history.go(-1)" class="on">Back to Power System</a></li>
                 </div>
 
 
@@ -91,16 +81,19 @@
                     <div style="position: fixed">
                         <ul class="section table-of-contents">
                             <li>
-                                <a href="#desc">Description</a>
+                                <a href="#title">Motor System</a>
                             </li>
                             <li>
-                                <a href="#SAH">Software and Hardware</a>
+                                <a href="#mtr">Motor - Force, Torque, Inertia and RPM Calculation</a>
                             </li>
                             <li>
-                                <a href="#design">The Design</a>
+                                <a href="#mtrType">Motor - Motor Type</a>
                             </li>
                             <li>
-                                <a href="#funcDiag">Functional Block Diagram</a>
+                                <a href="#mtrSel">Motor Chosen - Nema 11 Stepper</a>
+                            </li>
+                            <li>
+                                <a href="#mtrCtrl">Motor Controller</a>
                             </li>
                         </ul>
                     </div>
@@ -108,10 +101,10 @@
 
                 <div class="container center-align">
                     <ul class="pagination">
-                        <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-                        <li class="active"><a href="tf2sentry.html">1</a></li>
-                        <li class="waves-effect"><a href="#">2</a></li>
-                        <li class="waves-effect"><a href="#">3</a></li>
+                        <li class="waves-effect"><a href="tf2sentry2.html"><i class="material-icons">chevron_left</i></a></li>
+                        <li class="waves-effect"><a href="tf2sentry.html">1</a></li>
+                        <li class="waves-effect"><a href="tf2sentry2.html">2</a></li>
+                        <li class="active"><a href="tf2sentry3.html">3</a></li>
                         <li class="waves-effect"><a href="#">4</a></li>
                         <li class="waves-effect"><a href="#">5</a></li>
                         <li class="waves-effect"><a href="#">6</a></li>
@@ -130,8 +123,13 @@
     </script>
     <script>
         $(document).ready(function(){
-            $('.materialboxed').materialbox();
+            $('.materialboxed').materialbox({
+            });
             $('.scrollspy').scrollSpy();
+            $('.carousel.carousel-slider').carousel({
+                indicators: true,
+                height: 50
+            });
         });
     </script>
 
