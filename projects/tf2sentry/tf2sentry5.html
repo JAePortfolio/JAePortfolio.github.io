@@ -89,6 +89,55 @@ HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_1, sineVal, 100, DAC_ALIGN_12B_R);
                         <p4>I wanted to avoid needing extra memory to store the audio. For example, needing an SD card to store the audio. The good news is, I can store the data onto the flash ROM on the STM. There's enough room. After some research, I found out by going into the FLASH_ROM.ld file, I can define the areas in the ROM where I want to store the audio file data. I define the starting address and the size required. Using the software from STM called the STM Monitor, I can see where on the STM there is available space on the ROM. I do this because I don't want to override something that the STM needs. Then in the code, I have a pointer to this data to use it.<br>
                         </p4>
                     </div>
+                    <div id="results" class="section scrollspy">
+                        <h5><u>Results</u></h5>
+                        <p5>Below is photos from my oscilloscope and a video of one of the sounds playing on the speaker (the sound specifically being the scanning beep).<br>
+                        <iframe scr="https://drive.google.com/file/d/1ZWiDRZsqSpiItDE-Ykzc9e5wXtlC8ei-/preview"
+                        width="640" height="480"></iframe>
+                        <div class="slider">
+                            <ul class="slides">
+                                <li>
+                                    <img src="../../images/projects/tf2sentry/audioResults/audioSig1.jpg">
+                                    <div class="caption left-align">
+                                        <h3>DAC Signal</h3>
+                                        <h5 class="ight grey-text text-lighten-3">The DAC signal at different horizontal levels.</h5>
+                                    </div>
+                                </li>
+                                <li>
+                                    <img src="../../images/projects/tf2sentry/audioResults/audioSig2.jpg">
+                                </li>
+                                <li>
+                                    <img src="../../images/projects/tf2sentry/audioResults/audioSig3.jpg">
+                                </li>
+                                <li>
+                                    <img src="../../images/projects/tf2sentry/audioResults/audioSig4.jpg">
+                                </li>
+                                <li>
+                                    <img src="../../images/projects/tf2sentry/audioResults/audioSig5.jpg">
+                                </li>
+                                <li>
+                                    <img src="../../images/projects/tf2sentry/audioResults/ampSig1.jpg">
+                                    <div class="caption left-align">
+                                        <h3>Amplified Signal</h3>
+                                        <h5 class="ight grey-text text-lighten-3">This is the signal after it goes through the amplifier.</h5>
+                                    </div>
+                                </li>
+                                <li>
+                                    <img src="../../images/projects/tf2sentry/audioResults/ampSig2.jpg">
+                                </li>
+                                <li>
+                                    <img src="../../images/projects/tf2sentry/audioResults/ampSig3.jpg">
+                                </li>
+                                <li>
+                                    <img src="../../images/projects/tf2sentry/audioResults/ampSig4.jpg">
+                                </li>
+                                <li>
+                                    <img src="../../images/projects/tf2sentry/audioResults/ampSig5.jpg">
+                                </li>
+                            </ul>
+                        </div>   
+                        </p5>
+                    </div>
                     <a href="javascript:history.go(-1)" class="on">Back to Motor System</a></li>
                 </div>
 
@@ -110,6 +159,9 @@ HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_1, sineVal, 100, DAC_ALIGN_12B_R);
                             </li>
                             <li>
                                 <a href="#storing">Storing the Data</a>
+                            </li>
+                            <li>
+                                <a href="#results">Results</a>
                             </li>
                         </ul>
                     </div>
@@ -151,6 +203,12 @@ HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_1, sineVal, 100, DAC_ALIGN_12B_R);
             });
         });
     </script>
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function(){
+        $('.slider').slider({
+            height: 425,
+        });
+        });</script>
 
 
                 
