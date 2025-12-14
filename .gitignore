@@ -16,3 +16,9 @@ package-lock.json
 
 # VS Code
 .vscode/
+
+#V2 Setup
+V2_SETUP.md
+
+# src
+src/
