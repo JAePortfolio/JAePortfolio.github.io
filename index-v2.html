@@ -9,7 +9,7 @@
 
 <body class="bg-base-100 text-base-content">
     <header>
-        <div class="navbar bg-base-200 text-base-content">
+        <div class="navbar bg-base-200 min-h-0 h-20 text-base-content">
             <div class="flex-1">
                 <a class="btn btn-ghost text-xl">John A - Computer Engineer</a>
             </div>
@@ -33,7 +33,7 @@
         </div>
     </header>
     
-    <div
+    <!-- <div
         class="hero min-h-screen"
         style="background-image: url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp);"
     >
@@ -48,15 +48,36 @@
             <button class="btn btn-primary">Get Started</button>
             </div>
         </div>
-    </div>
-    
-    <section id="credibility-statement" class="py-12 text-base-content">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-xl font-semibold">
-                [ LED THE DEVELOPMENT OF SCALABLE IOT SYSTEMS USED ACROSS THE EAST COAST. ]
-            </h2>
+    </div> -->
+
+<section id="hero-slider" class="relative w-full h-[80vh] overflow-hidden">
+  <!-- Hardware Panel -->
+    <div id="hardware-bg" class="absolute inset-y-0 left-0 overflow-hidden" style="width:50%;">
+        <img src="/images/projects/tf2sentry/final/pcb2.png" class="w-full h-full object-cover" alt="Hardware">
+        
+        <div class="absolute inset-0 flex items-center justify-center bg-black/30">
+            <div class="flex flex-col items-center text-center"> 
+                <h2 class="text-5xl font-extrabold tracking-widest text-base-content">HARDWARE</h2>
+                <p class="mt-2 text-xl text-base-content opacity-70">
+                    PCBs, FPGAs, IoT, Custom Housings and more.
+                </p>
+            </div>
         </div>
-    </section>
+    </div>
+
+    <!-- Software Panel -->
+    <div id="software-bg" class="absolute inset-y-0 right-0 overflow-hidden" style="width:50%;">
+        <img src="/images/projects/vscode.png" class="w-full h-full object-cover" alt="Software"> <div class="absolute inset-0 flex items-center justify-center bg-black/30">
+            <div class="flex flex-col items-center text-center"> 
+                <h2 class="text-5xl font-extrabold tracking-widest text-base-content">SOFTWARE</h2>
+                <p class="mt-2 text-xl text-base-content opacity-70">
+                    Mobile Apps, Embedded C/C++, Python, Internal Tooling, QA and more.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
 
     <section id="projects" class="py-16 sm:py-24 text-base-content">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -145,3 +166,44 @@
     </footer>
 </body>
 </html>
+
+<script>
+const hero = document.getElementById('hero-slider');
+const hardware = document.getElementById('hardware-bg');
+const software = document.getElementById('software-bg');
+
+hero.addEventListener('mousemove', e => {
+  const rect = hero.getBoundingClientRect();
+  const mouseX = e.clientX - rect.left;
+  const totalWidth = rect.width;
+  const totalOpacity = 100;
+
+  // Mouse position as a percentage
+  const percent = (mouseX / totalWidth) * 100;
+
+  // Right panel width = mouse position percentage
+  software.style.width = percent + "%";
+
+  // Left panel width = remaining space
+  hardware.style.width = (100 - percent) + "%";
+  
+  // Opacity adjusts based on mouse position. *2 because default will be 50% due to mouse starting in middle
+  software.style.opacity = (totalOpacity - (100 - percent)) * 2 + "%";
+  hardware.style.opacity = (totalOpacity - percent) * 2 + "%";
+});
+
+// Reset width to 50% and opacity to 100% when mouse leaves
+hero.addEventListener('mouseleave', () => {
+  hardware.style.width = "50%";
+  software.style.width = "50%";
+  hardware.style.opacity = "100%";
+    software.style.opacity = "100%";
+});
+</script>
+
+<style>
+/* Smooth container expansion */
+#hardware-bg, #software-bg {
+  transition: width .75s ease;
+}
+</style>
