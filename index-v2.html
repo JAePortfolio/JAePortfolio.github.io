@@ -61,71 +61,7 @@
             <h2 class="mb-12 text-center text-3xl font-bold">
                 Latest
             </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <div class="card bg-base-100 shadow-xl">
-                    <figure class="h-48 bg-base-200">
-                        </figure>
-                    <div class="card-body">
-                        <h3 class="card-title">Project Title One</h3>
-                        <p class="mb-4">Brief description of the technology and impact.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="badge badge-primary">Python</span>
-                            <span class="badge badge-secondary">Embedded</span>
-                        </div>
-                        <div class="card-actions justify-end">
-                            <a class="btn btn-sm btn-primary">View Demo</a>
-                            <a class="btn btn-sm btn-ghost">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card bg-base-100 shadow-xl">
-                    <figure class="h-48 bg-base-200">
-                        </figure>
-                    <div class="card-body">
-                        <h3 class="card-title">Project Title Two</h3>
-                        <p class="mb-4">Brief description of the technology and impact.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="badge badge-primary">C++</span>
-                            <span class="badge badge-secondary">Hardware</span>
-                        </div>
-                        <div class="card-actions justify-end">
-                            <a class="btn btn-sm btn-primary">View Demo</a>
-                            <a class="btn btn-sm btn-ghost">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card bg-base-200 shadow-sm border border-base-300 rounded-md">
-  
-                    <figure class="h-48 bg-neutral">
-                        <img src="/images/projects/your-image.png" alt="Project" class="w-full h-full object-cover opacity-90" />
-                    </figure>
-
-                    <div class="card-body gap-4">
-                        <div class="flex justify-between items-start">
-                        <h3 class="card-title text-lg font-bold uppercase tracking-tight">Autonomous Robotics</h3>
-                        <div class="badge badge-outline rounded-sm text-xs opacity-60">2024</div>
-                        </div>
-                        
-                        <p class="text-sm leading-relaxed opacity-80">
-                        Developed a custom PCB and embedded RTOS for real-time sensor fusion and pathfinding.
-                        </p>
-
-                        <div class="card-actions">
-                        <div class="badge badge-primary badge-sm">C++</div>
-                        <div class="badge badge-secondary badge-sm">Altium</div>
-                        <div class="badge badge-ghost badge-sm border-base-300">RTOS</div>
-                        </div>
-
-                        <div class="flex justify-between items-center mt-4 pt-4 border-t border-base-300">
-                        <a href="#" class="link link-primary text-xs font-semibold no-underline uppercase tracking-wider">
-                            GitHub
-                        </a>
-                        <button class="btn btn-primary btn-sm rounded-sm">View Project</button>
-                        </div>
-                    </div>
-                </div>
+            <div id="latest-3-boxes" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             </div>
             
             <div class="text-center mt-12">
@@ -182,3 +118,4 @@ hero.addEventListener('mouseleave', () => {
 </style>
 
 <script src="js/components/layout.js"></script>
+<script src="js/components/latestactivity.js"></script>
