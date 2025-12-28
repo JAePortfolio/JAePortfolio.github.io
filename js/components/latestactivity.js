@@ -36,18 +36,12 @@ const activities = [
 
 function renderLatest() {
     const container = document.getElementById("latest-3-boxes");
-
     if(!container) return;
 
     container.innerHTML = activities.slice(0, 3).map(activity => {
-        // PRE-CALCULATE THE STATES
         const isComingSoon = activity.isComingSoon === true;
         
-        // Use your exact button/badge classes but swap content if coming soon
-        const badgeHTML = isComingSoon 
-            ? `<div class="badge badge-warning rounded-sm text-[10px] font-bold uppercase tracking-tighter">WIP / Coming Soon</div>`
-            : `<div class="badge badge-outline rounded-sm text-xs opacity-60">${activity.year}</div>`;
-
+        // Button Logic
         const buttonHTML = isComingSoon
             ? `<button class="btn btn-ghost btn-sm rounded-sm opacity-50 cursor-not-allowed" disabled>Locked</button>`
             : `<a href="${activity.link}" class="btn btn-primary btn-sm rounded-sm">View Project</a>`;
@@ -69,15 +63,18 @@ function renderLatest() {
     </figure>
 
     <div class="card-body p-6 flex flex-col flex-1 gap-4">
-        <div class="space-y-1">
-            <div class="flex justify-between items-start gap-2">
+        <div>
+            <div class="flex justify-between items-start gap-4">
                 <h3 class="text-lg font-bold uppercase tracking-tight leading-tight">${activity.title}</h3>
-                ${!isComingSoon ? `<div class="badge badge-outline rounded-sm text-[10px] opacity-40 shrink-0 mt-1">${activity.year}</div>` : ''}
+                <div class="badge badge-outline rounded-sm text-[10px] opacity-40 shrink-0 mt-1">${activity.year}</div>
             </div>
-            ${isComingSoon ? `<div class="text-[10px] font-bold text-warning uppercase tracking-widest">WIP / Coming Soon</div>` : ''}
+            
+            <div class="text-[10px] font-bold uppercase tracking-widest mt-1 h-4">
+                ${isComingSoon ? '<span class="text-warning">WIP / Coming Soon</span>' : '&nbsp;'}
+            </div>
         </div>
         
-        <p class="text-sm leading-relaxed opacity-70 line-clamp-3">
+        <p class="text-sm leading-relaxed opacity-70 flex-grow">
             ${activity.desc}
         </p>
 
