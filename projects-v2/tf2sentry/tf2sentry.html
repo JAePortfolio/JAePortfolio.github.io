@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="business">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John A - Computer Engineer</title>
+    <link href="../../output.css" rel="stylesheet">
+</head>
+
+<body class="bg-base-100 text-base-content">
+    <header id="main-navbar"></header>
+
+<header class="py-20 bg-base-200 border-b border-base-300">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+            <h1 class="text-6xl font-black uppercase tracking-tighter leading-none mb-6">TF2 Sentry Mk.1</h1>
+            <p class="text-lg opacity-80 mb-8">
+                A 1:1 scale autonomous replica demonstrating multi-system integration: from power regulation and motor control to custom audio and smartphone interfacing.
+            </p>
+            <div class="flex gap-4">
+                <div class="badge badge-outline rounded-none p-4 font-mono uppercase">Status: Deployed</div>
+                <div class="badge badge-primary rounded-none p-4 font-mono uppercase text-white">System: 10/10 Online</div>
+            </div>
+        </div>
+        <div class="bg-base-100 p-4 border border-base-300 shadow-xl">
+            <img src="images/final_build.jpg" class="w-full grayscale hover:grayscale-0 transition-all" alt="Final Assembly">
+        </div>
+    </div>
+</header>
+
+<div class="bg-base-100 border-b border-base-300 sticky top-[65px] z-40">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex flex-wrap justify-between gap-4 uppercase text-[10px] font-bold opacity-60">
+        <div class="flex gap-2"><span>MCU:</span> <span class="text-base-content font-mono">STM32F103</span></div>
+        <div class="flex gap-2"><span>Motors:</span> <span class="text-base-content font-mono">NEMA 17 Stepper</span></div>
+        <div class="flex gap-2"><span>Detection:</span> <span class="text-base-content font-mono">HC-SR04 Array</span></div>
+        <div class="flex gap-2"><span>Control:</span> <span class="text-base-content font-mono">C++ State Machine</span></div>
+    </div>
+</div>
+
+
+
+<main class="max-w-6xl mx-auto px-6 py-20">
+    <div class="grid grid-cols-1 gap-4 py-10">
+        <div class="grid grid-cols-1 md:grid-cols-12 border border-base-300 bg-base-100 group">
+            <div class="md:col-span-4 p-8 border-r border-base-300">
+                <span class="text-[10px] font-mono opacity-40 uppercase">System_01</span>
+                <h3 class="text-xl font-black uppercase mb-4">Description</h3>
+                <label for="modal-1" onclick="openLog('tf2sentry', 'tf2project-data', 1)" class="btn btn-primary btn-sm rounded-none uppercase">Open Log</label>
+            </div>
+            <div class="md:col-span-8 bg-base-200 p-4"> </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 border border-base-300 bg-base-100 group">
+            <div class="md:col-span-4 p-8 border-r border-base-300">
+                <span class="text-[10px] font-mono opacity-40 uppercase">System_02</span>
+                <h3 class="text-xl font-black uppercase mb-4">Power System</h3>
+                <label for="modal-2" class="btn btn-primary btn-sm rounded-none uppercase">Open Log</label>
+            </div>
+            <div class="md:col-span-8 bg-base-200 p-4"> </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 border border-base-300 bg-base-100 group">
+            <div class="md:col-span-4 p-8 border-r border-base-300">
+                <span class="text-[10px] font-mono opacity-40 uppercase">System_03</span>
+                <h3 class="text-xl font-black uppercase mb-4">Motor System</h3>
+                <label for="modal-3" class="btn btn-primary btn-sm rounded-none uppercase">Open Log</label>
+            </div>
+            <div class="md:col-span-8 bg-base-200 p-4"> </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 border border-base-300 bg-base-100 group">
+            <div class="md:col-span-4 p-8 border-r border-base-300">
+                <span class="text-[10px] font-mono opacity-40 uppercase">System_04</span>
+                <h3 class="text-xl font-black uppercase mb-4">Ultrasonic Sensors</h3>
+                <label for="modal-4" class="btn btn-primary btn-sm rounded-none uppercase">Open Log</label>
+            </div>
+            <div class="md:col-span-8 bg-base-200 p-4"> </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 border border-base-300 bg-base-100 group">
+            <div class="md:col-span-4 p-8 border-r border-base-300">
+                <span class="text-[10px] font-mono opacity-40 uppercase">System_05</span>
+                <h3 class="text-xl font-black uppercase mb-4">Audio System</h3>
+                <label for="modal-5" class="btn btn-primary btn-sm rounded-none uppercase">Open Log</label>
+            </div>
+            <div class="md:col-span-8 bg-base-200 p-4"> </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 border border-base-300 bg-base-100 group">
+            <div class="md:col-span-4 p-8 border-r border-base-300">
+                <span class="text-[10px] font-mono opacity-40 uppercase">System_06</span>
+                <h3 class="text-xl font-black uppercase mb-4">LEDs</h3>
+                <label for="modal-6" class="btn btn-primary btn-sm rounded-none uppercase">Open Log</label>
+            </div>
+            <div class="md:col-span-8 bg-base-200 p-4"> </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 border border-base-300 bg-base-100 group">
+            <div class="md:col-span-4 p-8 border-r border-base-300">
+                <span class="text-[10px] font-mono opacity-40 uppercase">System_07</span>
+                <h3 class="text-xl font-black uppercase mb-4">Bluetooth</h3>
+                <label for="modal-7" class="btn btn-primary btn-sm rounded-none uppercase">Open Log</label>
+            </div>
+            <div class="md:col-span-8 bg-base-200 p-4"> </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 border border-base-300 bg-base-100 group">
+            <div class="md:col-span-4 p-8 border-r border-base-300">
+                <span class="text-[10px] font-mono opacity-40 uppercase">System_08</span>
+                <h3 class="text-xl font-black uppercase mb-4">Mobile App</h3>
+                <label for="modal-8" class="btn btn-primary btn-sm rounded-none uppercase">Open Log</label>
+            </div>
+            <div class="md:col-span-8 bg-base-200 p-4"> </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 border border-base-300 bg-base-100 group">
+            <div class="md:col-span-4 p-8 border-r border-base-300">
+                <span class="text-[10px] font-mono opacity-40 uppercase">System_09</span>
+                <h3 class="text-xl font-black uppercase mb-4">PCB Design</h3>
+                <label for="modal-9" class="btn btn-primary btn-sm rounded-none uppercase">Open Log</label>
+            </div>
+            <div class="md:col-span-8 bg-base-200 p-4"> </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 border border-base-300 bg-base-100 group">
+            <div class="md:col-span-4 p-8 border-r border-base-300">
+                <span class="text-[10px] font-mono opacity-40 uppercase">System_10</span>
+                <h3 class="text-xl font-black uppercase mb-4">Construction</h3>
+                <label for="modal-10" class="btn btn-primary btn-sm rounded-none uppercase">Open Log</label>
+            </div>
+            <div class="md:col-span-8 bg-base-200 p-4"> </div>
+        </div>
+    </div>
+
+<input type="checkbox" id="modal-1" class="modal-toggle" />
+<div class="modal modal-bottom sm:modal-middle" role="dialog">
+    <div class="modal-box w-full max-w-5xl h-full max-h-[90vh] rounded-none p-0 flex flex-col">
+        <div class="p-4 border-b border-base-300 flex justify-between items-center bg-base-100 sticky top-0 z-10">
+            <h3 id="modal-title-1" class="font-black uppercase text-sm">Loading...</h3>
+            <label for="modal-1" class="btn btn-sm btn-square btn-ghost">✕</label>
+        </div>
+        
+        <div id="modal-content-1" class="overflow-y-auto p-8">
+            </div>
+    </div>
+</div>
+
+    <input type="checkbox" id="modal-5" class="modal-toggle" />
+    <div class="modal modal-bottom sm:modal-middle" role="dialog">
+        <div class="modal-box w-full max-w-5xl h-full max-h-[90vh] rounded-none p-0 flex flex-col">
+            <div class="p-4 border-b border-base-300 flex justify-between items-center bg-base-100 sticky top-0 z-10">
+                <h3 class="font-black uppercase text-sm">Log_05: Audio System</h3>
+                <label for="modal-5" class="btn btn-sm btn-square btn-ghost">✕</label>
+            </div>
+            <div class="overflow-y-auto p-8">
+                <h4 class="font-bold uppercase mb-4">System Design</h4>
+                <p class="text-sm opacity-80 leading-relaxed mb-6">
+                    Implementation of DAC and DMA for real-time game audio playback on the STM32.
+                </p>
+                </div>
+        </div>
+    </div>
+    </main>
+
+
+
+    <footer id="main-footer"></footer>
+</body>
+</html>
+
+<script src="../../js/components/layout.js"></script>
+<script src="../../js/main.js"></script>

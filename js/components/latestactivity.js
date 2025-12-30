@@ -29,7 +29,7 @@ const activities = [
         img: "../../images/projects/tf2sentry/sentryCard.png",
         tags: ["STM32", "C/C++", "Robotics"],
         github: "",
-        link: "../../projects/tf2sentry/tf2sentry.html",
+        link: "../../projects-v2/tf2sentry/index.html",
         isComingSoon: false,
     },
 ]

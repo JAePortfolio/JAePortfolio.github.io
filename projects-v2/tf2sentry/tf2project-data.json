@@ -1,0 +1,36 @@
+{
+  "logs": [
+    {
+      "id": 1,
+      "logTitle": "Log_01: Description",
+      "sections": [
+        {
+          "sectionTitle": "Description",
+          "content": "For a fun project on my own to do, I decided it should be something that I can make using the STM series. I never got to learn it and figured it would be a good time, especially during the current lockdowns due to COVID-19. I decided to make the Engineer's sentry from Team Fortress 2. What I had in mind for it was to be able to scan infront of itself using a motor and some sensors, then respond with a flash representing a muzzle flash and play sounds through some speakers. It would also communicate with a PDA I'd make as an Android App."
+        },
+        {
+          "sectionTitle": "Software and Hardware",
+          "content": "The sentry will use ultrasonic sensors, a stepper motor, speakers, bluetooth. Of course it will all be controlled by the STM32F7. I used an STM32F7 Nucleo Board to prototype, but after prototyping was completed, I designed by own STM32F7 board, creating the schematics and PCB in KiCAD. For the software, it was all designed by me in C. For the smartphone application, it is done using Java and will communicate via bluetooth to the sentry, and visa versa."
+        },
+        {
+          "sectionTitle": "The Design and Functionality",
+          "content": "The sentry itself is made out of cardboard pieces I designed and cut out from leftover cardboard I have, along with PVC pipes, steel pipes. It will be held together using nuts and bolts, along with hot glue. The functionality is as follows:",
+          "list": [
+            "There will be 3 ultrasonic sensors (0°, -45°, and +45°) with a set detection distance.",
+            "When nothing is detected, it scans back and forth like in the game while playing audio.",
+            "When an object is detected, the motor rotates the sentry to face the target based on which sensor triggered.",
+            "A firing routine triggers amber LED flashes and audio firing sounds. Bluetooth updates the smartphone app.",
+            "When finished firing, it returns to its original position.",
+            "If 'sapped', it stops all movement; if 'destroyed', it is reset via the Android App.",
+            "The Android App (Java) acts as the in-game PDA, monitoring health and ammo in real-time."
+          ]
+        },
+        {
+          "sectionTitle": "Functional Block Diagram",
+          "content": "This is the functional block diagram I came up with to give a general understanding on how all the modules would be connected.",
+          "image": "/projects-v2/tf2sentry/assets/funcDiag.jpg"
+        }
+      ]
+    }
+  ]
+}
