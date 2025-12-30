@@ -30,23 +30,44 @@ const navbarTemplate = `
 
 // 2. The Footer Template
 const footerTemplate = `
-<footer id="contact-footer" class="py-12 sm:py-16 bg-base-300 text-base-content">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        
-        <h3 class="mb-6 text-2xl font-bold">
-            Get in Touch
-        </h3>
-        
-        <div class="flex justify-center space-x-6 mb-8 text-lg">
-            <a href="mailto:your.email@example.com" class="link link-hover">Email</a>
-            <a href="YOUR_LINKEDIN_LINK" target="_blank" class="link link-hover">LinkedIn</a>
-            <a href="YOUR_GITHUB_LINK" target="_blank" class="link link-hover">GitHub</a>
+<footer class="bg-base-300 border-t border-base-300 py-12 mt-20">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            
+            <div>
+                <h2 class="text-3xl font-black uppercase tracking-tighter mb-4">Get in Touch</h2>
+                <p class="text-sm opacity-60 leading-relaxed max-w-sm mb-8">
+                Currently open for engineering opportunities requiring technical problem-solving, system optimization, and the development of functional, high-performance solutions.
+                </p>
+                <div class="flex items-center gap-4">
+                    <span class="relative flex h-4 w-4">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-4 w-4 bg-success shadow-[0_0_15px_rgba(34,197,94,1.0)]"></span>
+                    </span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest opacity-50">System Status: Accepting Inquiries</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-2">
+                <a href="mailto:jarena012@gmail.com" class="group flex justify-between items-center border border-base-content/10 p-4 hover:bg-primary hover:text-primary-content transition-all duration-300">
+                    <span class="text-xs font-bold uppercase tracking-widest">Email</span>
+                    <span class="text-sm opacity-40 group-hover:opacity-100">ADDR_0x454D41494c</span>
+                </a>
+                <a href="https://www.linkedin.com/in/john-arena" class="group flex justify-between items-center border border-base-content/10 p-4 hover:bg-primary hover:text-primary-content transition-all duration-300">
+                    <span class="text-xs font-bold uppercase tracking-widest">LinkedIn</span>
+                    <span class="text-sm opacity-40 group-hover:opacity-100">get_connection()</span>
+                </a>
+                <a href="https://github.com/JAePortfolio" class="group flex justify-between items-center border border-base-content/10 p-4 hover:bg-primary hover:text-primary-content transition-all duration-300">
+                    <span class="text-xs font-bold uppercase tracking-widest">GitHub</span>
+                    <span class="text-sm opacity-40 group-hover:opacity-100">IO_STREAM_SOURCE</span>
+                </a>
+            </div>
         </div>
 
-        <p class="text-sm opacity-70">
-            &copy; 2025 JAe | Computer Engineering Portfolio
-        </p>
-
+        <div class="mt-20 pt-8 border-t border-base-content/5 flex flex-col md:flex-row justify-between gap-4 opacity-40 text-[10px] font-bold uppercase tracking-[0.2em]">
+            <span>&copy; 2025 JAe | Computer Engineering Portfolio</span>
+            <span>Built with Tailwind & DaisyUI</span>
+        </div>
     </div>
 </footer>
 `;
