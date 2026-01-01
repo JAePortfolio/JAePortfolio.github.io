@@ -44,6 +44,12 @@ function renderContent(container, log) {
                     <div class="bg-base-200 p-2 border border-base-300 mb-6">
                         <img src="${section.image}" loading="lazy" class="w-full h-auto shadow-inner">
                     </div>` : ''}
+                
+                ${section.video ? `
+                    <div class="bg-base-200 p-2 border border-base-300 mb-6">
+                        <iframe src="${section.video}" frameborder="0" 
+                        width="640" height="480"></iframe>
+                    </div>` : ''}
 
                 ${section.code ? `
                     <div class="mockup-code text-xs mb-6">

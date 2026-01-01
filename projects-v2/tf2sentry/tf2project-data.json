@@ -79,6 +79,34 @@
           ]
         }
       ]
+    },
+    {
+      "id": 3,
+      "logTitle": "Log_03: Motor System",
+      "sections": [
+        {
+          "sectionTitle": "Motor - Force, Torque, Inertia, and RPM Calculations",
+          "content": "This was the first major part of the sentry for me. I had to find a motor that can support the weight it would move, and if it had enough torque to support the timing. The operation of the sentry in TF2 is it rotates a full 90 degrees within a 2 second period. When it sees a target, it rotates to it within 1 second. Opening my old physics book for some assistance, I was able to calculate the requirements. So the top of the sentry gun that rotates is obviously a unique shape. For simplicity, I modeled it as a circle that is being rotated at it's center. Now, I need to find the force required to rotate the sentry which can suppor tthe speed and weight. The load at the time of the design is 1.7lbs. Below is a summary of the calculations I did to find the torque, inertia, and a few other things.",
+          "image": "/projects-v2/tf2sentry/assets/calculations.png"
+        },
+        {
+          "sectionTitle": "Motor Selection",
+          "content": "What type of motor is needed here is one of the first questions. A DC motor, a stepper, a servo? DC motor was out since it would need a feedback system to know it's position. A servo also doesn't know where it's at, and just has a start and endpoint that it gets to as quickly as possible. The initial servo I had anyways was a 360 servo, which just made it a modified DC motor. So the obvious choice was the stepper motor. I can get a controller that enables different type of stepping to make the rotation smooth, and changing the step frequency adjusts the RPM. This can all be done via the STM32."
+        },
+        {
+          "sectionTitle": "Motor Chosen - Nema 11 Stepper",
+          "content": "The stepper I chose was a Nema 11 stepper motor, which I found at stepperonline. They had a wonderful graphing system that showed if a motor can meet your specifications. The cost was around $15. The motor is actually a bit of overkill, but all of them were, but that makes sense since most of the sentry is made out of cardboard. The minimum voltage required is 6.2V an can run just fine at 12V. It has two phases and each phase works at a max of .67A, so at max operation it's 1.34A."
+        },
+        {
+          "sectionTitle": "Motor Controller",
+          "content": " I went through many motor controllers. The chosen motor controller was the A4988. It has a drive capacity of up to 35V and 2A, which is perfect. It has 5 selectable step modes, which is great for smoothness and 3.3-5V logic spply, and some other goodies. I got a premade board for it. It also statisfies the requirements of the resistances of the phases of the motor. "
+        },
+        {
+          "sectionTitle": "Results",
+          "content": "Below is a video of the motor itself, moving at 15RPM.",
+          "video": "https://drive.google.com/file/d/1OPJoO9Ijz2DHaABHdi1U8rJkKgglga5b/preview"
+        }
+      ]
     }
   ]
 }
