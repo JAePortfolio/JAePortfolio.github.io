@@ -11,7 +11,7 @@ const navbarTemplate = `
     <div class="flex-none items-center">
         <a class="link link-hover ml-4">Projects</a>
         <a class="link link-hover ml-4">About</a>
-        <a class="link link-hover ml-4">Contact</a>
+        <a href="/contact-v2.html" class="link link-hover ml-4">Contact</a>
 
         <a href="https://www.linkedin.com/in/john-arena" target="_blank" class="btn btn-ghost btn-circle ml-8">
             <svg class="size-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
