@@ -33,15 +33,15 @@ const activities = [
         isComingSoon: false,
     },
     {
-        title: "Project Four",
+        title: "Smart eBike - Capstone",
         year: "2020",
-        type: "Hardware",
-        desc: "An older project that will only show on the full Portfolio page.",
-        img: "path/to/image.png",
-        tags: ["Tag1", "Tag2"],
-        github: "#",
+        type: "Hardware/Software",
+        desc: "Lead a team of 4 to create a product that can convert your regular bike into an eBike. The kit includes a battery, motor, various sensors, object detection (LiDAR), Mobile App, and more.",
+        img: "/projects-v2/ebike/assets/ebike.png",
+        tags: ["PCB Design", "LiDAR/Object Det", "Mobile Development", "Embedded Systems", "Power Systems"],
+        github: "https://github.com/JAePortfolio/Smart-eBike",
         link: "#",
-        isComingSoon: false,
+        isComingSoon: true,
     },
 ];
 
@@ -86,7 +86,7 @@ function renderProjects(containerId, isLatestOnly = false) {
                             <div class="badge badge-outline rounded-sm text-[10px] opacity-40 shrink-0 mt-1">${activity.year}</div>
                         </div>
                         <div class="text-[10px] font-bold uppercase tracking-widest mt-1 h-4">
-                            ${isComingSoon ? '<span class="text-warning">WIP / Coming Soon</span>' : '&nbsp;'}
+                            ${isComingSoon ? '<span class="text-warning">Page WIP / Coming Soon</span>' : '&nbsp;'}
                         </div>
                     </div>
                     
