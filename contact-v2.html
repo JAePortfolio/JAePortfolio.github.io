@@ -57,33 +57,47 @@
         </div>
     </div>
 
-    <div class="bg-base-200 border border-base-300 p-8 w-full">
-      <form action="https://formsubmit.co/jarena012@gmail.com" method="POST"class="flex flex-col gap-6">
-        
-        <div class="form-control w-full">
-          <label class="label pt-0"><span class="label-text font-bold uppercase text-xs opacity-50">Name</span></label>
-          <input type="text" placeholder="Full Name" class="input input-bordered rounded-none w-full bg-base-100 h-12" />
-        </div>
+  <div class="bg-base-200 border border-base-300 p-8 flex flex-col h-full">
+    <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="flex flex-col h-full">
+      
+      <input type="hidden" name="access_key" value="b5c60a9a-7e27-470f-a3e4-a5682b8c8393">
+      <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
-        <div class="form-control w-full">
-          <label class="label pt-0"><span class="label-text font-bold uppercase text-xs opacity-50">Email</span></label>
-          <input type="email" placeholder="Email Address" class="input input-bordered rounded-none w-full bg-base-100 h-12" />
+      <div id="form-result" class="space-y-4 flex-grow">
+        <div class="form-control">
+          <label class="label"><span class="label-text font-bold uppercase text-[10px]">Name</span></label>
+          <input type="text" name="name" required placeholder="Full Name" class="input input-bordered rounded-none bg-base-100 h-12 w-full" />
         </div>
-
-        <div class="form-control w-full">
-          <label class="label pt-0"><span class="label-text font-bold uppercase text-xs opacity-50">Message</span></label>
-          <textarea class="textarea textarea-bordered rounded-none w-full bg-base-100 h-24 resize-none" placeholder="How can I help you?"></textarea>
+        <div class="form-control">
+          <label class="label"><span class="label-text font-bold uppercase text-[10px]">Email</span></label>
+          <input type="email" name="email" required placeholder="email@example.com" class="input input-bordered rounded-none bg-base-100 h-12 w-full" />
         </div>
+        <div class="form-control">
+          <label class="label"><span class="label-text font-bold uppercase text-[10px]">Message</span></label>
+          <textarea name="message" required class="textarea textarea-bordered rounded-none bg-base-100 h-28 resize-none w-full" placeholder="How can I help you?"></textarea>
+        </div>
+      </div>
+      
+      <div id="result" class="mt-4 text-center font-bold text-sm text-success hidden uppercase tracking-widest">
+        Message Sent Successfully
+      </div>
 
-        <button type="submit" class="btn btn-primary btn-block rounded-none h-16 text-lg font-black uppercase tracking-widest mt-2">
-          Send Message
-        </button>
-      </form>
-    </div>
+      <button type="submit" id="submit-btn" class="btn btn-primary btn-block rounded-none h-14 font-black uppercase mt-6">
+        Send Message
+      </button>
+    </form>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initContactForm('contact-form');
+        });
+    </script>
+  </div>
 
   </div>
 </main>
     <footer id="main-footer"></footer>
+    <div id="toast-container" class="toast toast-end toast-bottom z-100 p-6">
+  </div>
 </body>
 </html>
 

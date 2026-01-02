@@ -80,3 +80,84 @@ function renderContent(container, log) {
         container.insertAdjacentHTML('beforeend', html);
     });
 }
+
+/**
+ * Handles Web3Forms submission for a contact form
+ * @param {string} formId - Form ID number
+ */
+function initContactForm(formId) {
+    const form = document.getElementById(formId);
+    if (!form) return;
+
+    const result = document.getElementById('form-result');
+    const btn = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // UI Feedback: Loading state
+        btn.innerHTML = "Sending...";
+        btn.disabled = true;
+
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: json
+        })
+        .then(async (response) => {
+            if (response.status === 200) {
+                const toastContainer = document.getElementById('toast-container');
+                
+                // Create the alert element
+                const toast = document.createElement('div');
+                // Using rounded-none to match your Sentry/Engineering aesthetic
+                toast.className = "alert alert-success rounded-none border border-base-300 shadow-2xl transition-all duration-500 translate-y-10 opacity-0";
+                
+                toast.innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-5 w-5" fill="none" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <div class="flex flex-col">
+                            <span class="font-black uppercase text-[10px] tracking-widest">Success</span>
+                            <span class="text-xs opacity-80">Message sent!</span>
+                        </div>
+                    </div>
+                `;
+
+                toastContainer.appendChild(toast);
+
+                //  Animation
+                setTimeout(() => {
+                    toast.classList.remove('translate-y-10', 'opacity-0');
+                }, 10);
+                
+                // Reset the Form UI
+                form.reset();
+                btn.disabled = false;
+                btn.innerHTML = "Send Message";
+
+                // Auto-remove after 5 seconds
+                setTimeout(() => {
+                    toast.classList.add('opacity-0');
+                    setTimeout(() => toast.remove(), 500);
+                }, 5000);
+            }
+        })
+        .catch(error => {
+            // Network/General Error State
+            result.innerHTML = "Error: " + error.message;
+            result.classList.add('text-error');
+            result.classList.remove('hidden');
+            btn.disabled = false;
+            btn.innerHTML = "Send Message";
+        });
+    });
+}
