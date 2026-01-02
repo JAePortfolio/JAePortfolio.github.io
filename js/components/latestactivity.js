@@ -12,7 +12,7 @@ const activities = [
     },
     {
         title: "PCB Business Cards",
-        year: "2025",
+        year: "2026",
         type: "Hardware",
         desc: "Design and fabrication of custom PCB business cards with embedded LEDs and interactive features.",
         img: "../../images/projects/pcbcards/card1.png",
