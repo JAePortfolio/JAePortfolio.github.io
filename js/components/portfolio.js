@@ -54,6 +54,17 @@ const activities = [
         link: "#",
         isComingSoon: true,
     },
+    {
+        title: "Digital Clock",
+        year: "2018",
+        type: "Hardware",
+        desc: "This is a 12 hour seven segment digital clock, using a crystal oscillator and can be powered with a 9V battery. One of my first hardware projects",
+        img: "/projects-v2/clock/assets/cardImage.jpg",
+        tags: ["ICs", "Wiring", "Breadboard"],
+        github: "",
+        link: "#",
+        isComingSoon: true,
+    },
 ];
 
 /**
