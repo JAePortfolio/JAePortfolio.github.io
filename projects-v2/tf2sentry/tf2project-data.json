@@ -107,6 +107,38 @@
           "video": "https://drive.google.com/file/d/1OPJoO9Ijz2DHaABHdi1U8rJkKgglga5b/preview"
         }
       ]
+    },
+    {
+      "id": 4,
+      "logTitle": "LOG_04: Ultrasonic Sensor System",
+      "sections": [
+        {
+          "sectionTitle": "Ultrasonic Sensor System",
+          "content": "This system will be used for object detection. It will use a total of 3 ultrasonic sensors. I will use these to see how far an object is from the sentry, and once an object is known to be within a certain distance, I can tell the STM controller to carry out certain routines. The reason I have 3 ultrasonic sensors rather than 1 is to provide a 90 degree view. One will be mounted looking 45 degrees to the left, one 45 degrees to the right, then one centered."
+        },
+        {
+          "sectionTitle": "Sensor Selection",
+          "content": "This was pretty straight forward, as a sensor commonly used in projects is the HC-SR04.",
+          "image": "/projects-v2/tf2sentry/assets/hc05.jpg"
+        },
+        {
+          "sectionTitle": "Object Detection",
+          "content": " There are 4 pins for the sensor. VDD, GND, TRIG and ECHO. VDD will be at 5V. According to the datasheet, the trigger pin needs to be sent a 10uS pulse for the sensor to operate. The sensor will then send out a sonic burst. Then the echo pin will go high with a range in proportion. So TRIG will be an output and ECHO an input (on the stm32 that is). I will have to use the STM to see how long the ECHO pin is high to calculate the distance. "
+        },
+        {
+          "sectionTitle": "Calculations",
+          "content": " The calculations are as follows. The STM is gonna tell me how long ECHO was high to a variable totalTime. Since the totalTime is the time it took for the signal to go to the object and come back, we need to divide it by 2. So I have a variable totalFinal = totalTime/2. Why is time needed? To calculate the distance, we need the totalFinal and velocity of sound because Distance = totalFinal * Vs. Since I am using cm units in the code, velSound = 34300 cm/s. So distance = totalFinal * velSound."
+        },
+        {
+          "sectionTitle": "Programming the STM32",
+          "content": "The first thing to notice is there is no supported function for delaying in microseconds, so I will have to write one. I can use one of the many available timers. I chose timer 3. What I basically need to do is just set the prescalar and keep the counter period to max. For example if the APB is set to 80 MHZ, I set the prescalar to 80-1 which gives me a 1MHz timer. Why 1MHz? Because Freq = 1/Time, 1Mhz = 1/1uS. The period is left at the max so I can delay up to that amount. For the code, that's straight forward. I'll have the function input an amount to delay by. Then the function will reset the counter to 0, and then have a while loop where while the counter is less than the inputted delay, just stay on the while loop until it reaches that condition.\n Now the next part is the sensor routine. It will basically make the TRIG go high, delay by 10us, then go low.\n  Now to read the ECHO pin's duration of when it is high, I need to use interrupts and special timers. These timers on this stm32 are TIM1 and TIM8. The reason being is they have something called input capture. It detects a transition by a signal and counts for me so I can have the pulse width of the echo pin, using two channels. There are 6 channels available on TIM1, but channel 5 and 6 do not have this functionality, so I can only count for 2 sensors on TIM1. TIM8 will be used for a 3rd. Channel 1 and 3 will use direct mode and Channel 2 and 4 will use indirect mode, respectively. The reason being is indirect mode means to use the same pin Channel 1 and Channel 3 are connected to, rather then a different pin. Since I only have the echo pin, it is required. I then set channel 1 and 3 as a rising edge, the start of a echo signal and channels 2 and 4 to falling.\n  Everytime this happens, an interrupt occurs, so I have a callback function ready. In my callback function, I detect if this is the first capture (which is when the echo goes high). If so, just increment the firstCapture variable, so the next time I know the duration has been recorded and can use the value. Now let's say I have the duration. I call a function to calculate the distance using the calculations I discussed in the above section. Then I reset the firstCapture variable. Since I have three sensors and two different timers, my code reflects this. For example I check which timer is calling the callback, and I have different variables for the distance calculated for each sensor!\n  Finally after all of this, we are returned to the while loop in main. All I have to do now is check if the distance is within a range I set, and carry out the functions I want, those being to play audio, make the motor turn the sentry, make the sentry fire, etc. Also, there comes the question what happens if more than 1 sensor has an object in range? Well it should turn to the closest object, just like in the game"
+        },
+        {
+          "sectionTitle": "Results",
+          "content": "Below is a video of a LED turning on and off depending on the distance from my Metrocard to the sensor.",
+          "video": "https://drive.google.com/file/d/1_iv2C9Slon_vCIIDOHmnWVtmgQYoIlc8/preview"
+        }
+      ]
     }
   ]
 }
