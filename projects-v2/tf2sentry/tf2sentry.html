@@ -22,113 +22,226 @@
                 <div class="badge badge-primary rounded-none p-4 font-mono uppercase text-white">System: 10/10 Online</div>
             </div>
         </div>
-        <div class="bg-base-100 p-4 border border-base-300 shadow-xl">
-            <img src="images/final_build.jpg" class="w-full grayscale hover:grayscale-0 transition-all" alt="Final Assembly">
+        <div class="bg-base-300 p-2 border border-base-300 shadow-2xl relative">
+            <img src="/projects-v2/tf2sentry/assets/slideshow/21.jpg" class="w-full h-auto object-cover" alt="Final Assembly">
+            
+            <div class="absolute top-4 left-4 bg-primary text-white text-[10px] font-black px-2 py-1 uppercase">
+                Live_Capture
+            </div>
         </div>
     </div>
 </header>
 
-<div class="bg-base-100 border-b border-base-300 sticky top-[65px] z-40">
+<!-- <div class="bg-base-100 border-b border-base-300 sticky top-[0px] z-40">
     <div class="max-w-6xl mx-auto px-6 py-4 flex flex-wrap justify-between gap-4 uppercase text-[10px] font-bold opacity-60">
         <div class="flex gap-2"><span>MCU:</span> <span class="text-base-content font-mono">STM32F103</span></div>
         <div class="flex gap-2"><span>Motors:</span> <span class="text-base-content font-mono">NEMA 17 Stepper</span></div>
         <div class="flex gap-2"><span>Detection:</span> <span class="text-base-content font-mono">HC-SR04 Array</span></div>
         <div class="flex gap-2"><span>Control:</span> <span class="text-base-content font-mono">C++ State Machine</span></div>
     </div>
-</div>
-
-
+</div> -->
 
 <main class="max-w-6xl mx-auto px-6 py-20">
     <div class="grid grid-cols-1 gap-4 py-10">
-        <div class="grid grid-cols-1 md:grid-cols-12 border border-base-300 bg-base-100 group">
-            <div class="md:col-span-4 p-8 border-r border-base-300">
-                <span class="text-[10px] font-mono opacity-40 uppercase">System_01</span>
-                <h3 class="text-xl font-black uppercase mb-4">Description</h3>
-                <label for="modal-1" onclick="openLog('tf2sentry', 'tf2project-data', 1)" class="btn btn-primary btn-sm rounded-none uppercase">Open Log</label>
+        <div class="flex flex-col md:flex-row items-center justify-between p-8 bg-base-200 border border-base-300 mb-4">
+            
+            <div class="flex flex-col gap-1">
+                <span class="text-xs font-mono text-primary uppercase tracking-widest">System_01</span>
+                <h3 class="text-2xl font-black uppercase tracking-tight">Description</h3>
             </div>
-            <div class="md:col-span-8 bg-base-200 p-4"> </div>
-        </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-12 border border-base-300 bg-base-100 group">
-            <div class="md:col-span-4 p-8 border-r border-base-300">
-                <span class="text-[10px] font-mono opacity-40 uppercase">System_02</span>
-                <h3 class="text-xl font-black uppercase mb-4">Power System</h3>
-                <label for="modal-2" onclick="openLog('tf2sentry', 'tf2project-data', 2)" class="btn btn-primary btn-sm rounded-none uppercase">Open Log</label>
-            </div>
-            <div class="md:col-span-8 bg-base-200 p-4"> </div>
-        </div>
+            <div class="flex items-center gap-10">
+                <div class="hidden lg:flex flex-col items-end">
+                    <span class="text-[10px] uppercase opacity-50">Status</span>
+                    <span class="text-xs font-mono text-success">NOMINAL_VOLTAGE</span>
+                </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-12 border border-base-300 bg-base-100 group">
-            <div class="md:col-span-4 p-8 border-r border-base-300">
-                <span class="text-[10px] font-mono opacity-40 uppercase">System_03</span>
-                <h3 class="text-xl font-black uppercase mb-4">Motor System</h3>
-                <label for="modal-3" onclick="openLog('tf2sentry', 'tf2project-data', 3)" class="btn btn-primary btn-sm rounded-none uppercase">Open Log</label>
+                <label for="modal-2" 
+                    onclick="openLog('tf2sentry', 'tf2project-data', 1, 'Description')" 
+                    class="btn btn-primary px-10 rounded-none h-10 flex items-center justify-center">
+                    OPEN LOG
+                </label>
             </div>
-            <div class="md:col-span-8 bg-base-200 p-4"> </div>
         </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-12 border border-base-300 bg-base-100 group">
-            <div class="md:col-span-4 p-8 border-r border-base-300">
-                <span class="text-[10px] font-mono opacity-40 uppercase">System_04</span>
-                <h3 class="text-xl font-black uppercase mb-4">Ultrasonic Sensors</h3>
-                <label for="modal-4" onclick="openLog('tf2sentry', 'tf2project-data', 4)" class="btn btn-primary btn-sm rounded-none uppercase">Open Log</label>
+        <div class="flex flex-col md:flex-row items-center justify-between p-8 bg-base-200 border border-base-300 mb-4">
+            
+            <div class="flex flex-col gap-1">
+                <span class="text-xs font-mono text-primary uppercase tracking-widest">System_02</span>
+                <h3 class="text-2xl font-black uppercase tracking-tight">Power System</h3>
             </div>
-            <div class="md:col-span-8 bg-base-200 p-4"> </div>
+
+            <div class="flex items-center gap-10">
+                <div class="hidden lg:flex flex-col items-end">
+                    <span class="text-[10px] uppercase opacity-50">Status</span>
+                    <span class="text-xs font-mono text-success">NOMINAL_VOLTAGE</span>
+                </div>
+
+                <label for="modal-2" 
+                    onclick="openLog('tf2sentry', 'tf2project-data', 2, 'Power System')" 
+                    class="btn btn-primary px-10 rounded-none h-10 flex items-center justify-center">
+                    OPEN LOG
+                </label>
+            </div>
         </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-12 border border-base-300 bg-base-100 group">
-            <div class="md:col-span-4 p-8 border-r border-base-300">
-                <span class="text-[10px] font-mono opacity-40 uppercase">System_05</span>
-                <h3 class="text-xl font-black uppercase mb-4">Audio System</h3>
-                <label for="modal-5" onclick="openLog('tf2sentry', 'tf2project-data', 5)" class="btn btn-primary btn-sm rounded-none uppercase">Open Log</label>
+                <div class="flex flex-col md:flex-row items-center justify-between p-8 bg-base-200 border border-base-300 mb-4">
+            
+            <div class="flex flex-col gap-1">
+                <span class="text-xs font-mono text-primary uppercase tracking-widest">System_03</span>
+                <h3 class="text-2xl font-black uppercase tracking-tight">Motor System</h3>
             </div>
-            <div class="md:col-span-8 bg-base-200 p-4"> </div>
+
+            <div class="flex items-center gap-10">
+                <div class="hidden lg:flex flex-col items-end">
+                    <span class="text-[10px] uppercase opacity-50">Status</span>
+                    <span class="text-xs font-mono text-success">NOMINAL_VOLTAGE</span>
+                </div>
+
+                <label for="modal-3" 
+                    onclick="openLog('tf2sentry', 'tf2project-data', 3, 'Motor System')" 
+                    class="btn btn-primary px-10 rounded-none h-10 flex items-center justify-center">
+                    OPEN LOG
+                </label>
+            </div>
         </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-12 border border-base-300 bg-base-100 group">
-            <div class="md:col-span-4 p-8 border-r border-base-300">
-                <span class="text-[10px] font-mono opacity-40 uppercase">System_06</span>
-                <h3 class="text-xl font-black uppercase mb-4">LEDs</h3>
-                <label for="modal-6" onclick="openLog('tf2sentry', 'tf2project-data', 6)" class="btn btn-primary btn-sm rounded-none uppercase">Open Log</label>
+                <div class="flex flex-col md:flex-row items-center justify-between p-8 bg-base-200 border border-base-300 mb-4">
+            
+            <div class="flex flex-col gap-1">
+                <span class="text-xs font-mono text-primary uppercase tracking-widest">System_04</span>
+                <h3 class="text-2xl font-black uppercase tracking-tight">Ultrasonic Sensors</h3>
             </div>
-            <div class="md:col-span-8 bg-base-200 p-4"> </div>
+
+            <div class="flex items-center gap-10">
+                <div class="hidden lg:flex flex-col items-end">
+                    <span class="text-[10px] uppercase opacity-50">Status</span>
+                    <span class="text-xs font-mono text-success">NOMINAL_VOLTAGE</span>
+                </div>
+
+                <label for="modal-4" 
+                    onclick="openLog('tf2sentry', 'tf2project-data', 4, 'Ultrasonic Sensors')" 
+                    class="btn btn-primary px-10 rounded-none h-10 flex items-center justify-center">
+                    OPEN LOG
+                </label>
+            </div>
         </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-12 border border-base-300 bg-base-100 group">
-            <div class="md:col-span-4 p-8 border-r border-base-300">
-                <span class="text-[10px] font-mono opacity-40 uppercase">System_07</span>
-                <h3 class="text-xl font-black uppercase mb-4">Bluetooth</h3>
-                <label for="modal-7" onclick="openLog('tf2sentry', 'tf2project-data', 7)" class="btn btn-primary btn-sm rounded-none uppercase">Open Log</label>
+                <div class="flex flex-col md:flex-row items-center justify-between p-8 bg-base-200 border border-base-300 mb-4">
+            
+            <div class="flex flex-col gap-1">
+                <span class="text-xs font-mono text-primary uppercase tracking-widest">System_05</span>
+                <h3 class="text-2xl font-black uppercase tracking-tight">Audio System</h3>
             </div>
-            <div class="md:col-span-8 bg-base-200 p-4"> </div>
+
+            <div class="flex items-center gap-10">
+                <div class="hidden lg:flex flex-col items-end">
+                    <span class="text-[10px] uppercase opacity-50">Status</span>
+                    <span class="text-xs font-mono text-success">NOMINAL_VOLTAGE</span>
+                </div>
+
+                <label for="modal-5" 
+                    onclick="openLog('tf2sentry', 'tf2project-data', 5, 'Audio System')" 
+                    class="btn btn-primary px-10 rounded-none h-10 flex items-center justify-center">
+                    OPEN LOG
+                </label>
+            </div>
         </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-12 border border-base-300 bg-base-100 group">
-            <div class="md:col-span-4 p-8 border-r border-base-300">
-                <span class="text-[10px] font-mono opacity-40 uppercase">System_08</span>
-                <h3 class="text-xl font-black uppercase mb-4">Mobile App</h3>
-                <label for="modal-8" onclick="openLog('tf2sentry', 'tf2project-data', 8)" class="btn btn-primary btn-sm rounded-none uppercase">Open Log</label>
+                <div class="flex flex-col md:flex-row items-center justify-between p-8 bg-base-200 border border-base-300 mb-4">
+            
+            <div class="flex flex-col gap-1">
+                <span class="text-xs font-mono text-primary uppercase tracking-widest">System_06</span>
+                <h3 class="text-2xl font-black uppercase tracking-tight">LEDS</h3>
             </div>
-            <div class="md:col-span-8 bg-base-200 p-4"> </div>
+
+            <div class="flex items-center gap-10">
+                <div class="hidden lg:flex flex-col items-end">
+                    <span class="text-[10px] uppercase opacity-50">Status</span>
+                    <span class="text-xs font-mono text-success">NOMINAL_VOLTAGE</span>
+                </div>
+
+                <label for="modal-6"
+                    onclick="openLog('tf2sentry', 'tf2project-data', 6, 'LEDS')" 
+                    class="btn btn-primary px-10 rounded-none h-10 flex items-center justify-center">
+                    OPEN LOG
+                </label>
+            </div>
         </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-12 border border-base-300 bg-base-100 group">
-            <div class="md:col-span-4 p-8 border-r border-base-300">
-                <span class="text-[10px] font-mono opacity-40 uppercase">System_09</span>
-                <h3 class="text-xl font-black uppercase mb-4">PCB Design</h3>
-                <label for="modal-9" onclick="openLog('tf2sentry', 'tf2project-data', 9)" class="btn btn-primary btn-sm rounded-none uppercase">Open Log</label>
+                <div class="flex flex-col md:flex-row items-center justify-between p-8 bg-base-200 border border-base-300 mb-4">
+            
+            <div class="flex flex-col gap-1">
+                <span class="text-xs font-mono text-primary uppercase tracking-widest">System_07</span>
+                <h3 class="text-2xl font-black uppercase tracking-tight">Bluetooth</h3>
             </div>
-            <div class="md:col-span-8 bg-base-200 p-4"> </div>
+
+            <div class="flex items-center gap-10">
+                <div class="hidden lg:flex flex-col items-end">
+                    <span class="text-[10px] uppercase opacity-50">Status</span>
+                    <span class="text-xs font-mono text-success">NOMINAL_VOLTAGE</span>
+                </div>
+
+                <label for="modal-7" 
+                    onclick="openLog('tf2sentry', 'tf2project-data', 7, 'Bluetooth')" 
+                    class="btn btn-primary px-10 rounded-none h-10 flex items-center justify-center">
+                    OPEN LOG
+                </label>
+            </div>
         </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-12 border border-base-300 bg-base-100 group">
-            <div class="md:col-span-4 p-8 border-r border-base-300">
-                <span class="text-[10px] font-mono opacity-40 uppercase">System_10</span>
-                <h3 class="text-xl font-black uppercase mb-4">Construction</h3>
-                <label for="modal-10" onclick="openLog('tf2sentry', 'tf2project-data', 10)" class="btn btn-primary btn-sm rounded-none uppercase">Open Log</label>
+                <div class="flex flex-col md:flex-row items-center justify-between p-8 bg-base-200 border border-base-300 mb-4">
+            
+            <div class="flex flex-col gap-1">
+                <span class="text-xs font-mono text-primary uppercase tracking-widest">System_08</span>
+                <h3 class="text-2xl font-black uppercase tracking-tight">Mobile App</h3>
             </div>
-            <div class="md:col-span-8 bg-base-200 p-4"> </div>
+
+            <div class="flex items-center gap-10">
+                <div class="hidden lg:flex flex-col items-end">
+                    <span class="text-[10px] uppercase opacity-50">Status</span>
+                    <span class="text-xs font-mono text-success">NOMINAL_VOLTAGE</span>
+                </div>
+
+                <label for="modal-8" 
+                    onclick="openLog('tf2sentry', 'tf2project-data', 8, 'Mobile App')" 
+                    class="btn btn-primary px-10 rounded-none h-10 flex items-center justify-center">
+                    OPEN LOG
+                </label>
+            </div>
+        </div>
+                <div class="flex flex-col md:flex-row items-center justify-between p-8 bg-base-200 border border-base-300 mb-4">
+            
+            <div class="flex flex-col gap-1">
+                <span class="text-xs font-mono text-primary uppercase tracking-widest">System_09</span>
+                <h3 class="text-2xl font-black uppercase tracking-tight">PCB Design</h3>
+            </div>
+
+            <div class="flex items-center gap-10">
+                <div class="hidden lg:flex flex-col items-end">
+                    <span class="text-[10px] uppercase opacity-50">Status</span>
+                    <span class="text-xs font-mono text-success">NOMINAL_VOLTAGE</span>
+                </div>
+
+                <label for="modal-9" 
+                    onclick="openLog('tf2sentry', 'tf2project-data', 9, 'PCB Design')" 
+                    class="btn btn-primary px-10 rounded-none h-10 flex items-center justify-center">
+                    OPEN LOG
+                </label>
+            </div>
+        </div>
+                <div class="flex flex-col md:flex-row items-center justify-between p-8 bg-base-200 border border-base-300 mb-4">
+            
+            <div class="flex flex-col gap-1">
+                <span class="text-xs font-mono text-primary uppercase tracking-widest">System_10</span>
+                <h3 class="text-2xl font-black uppercase tracking-tight">Construction</h3>
+            </div>
+
+            <div class="flex items-center gap-10">
+                <div class="hidden lg:flex flex-col items-end">
+                    <span class="text-[10px] uppercase opacity-50">Status</span>
+                    <span class="text-xs font-mono text-success">NOMINAL_VOLTAGE</span>
+                </div>
+
+                <label for="modal-10" 
+                    onclick="openLog('tf2sentry', 'tf2project-data', 10, 'Construction')" 
+                    class="btn btn-primary px-10 rounded-none h-10 flex items-center justify-center">
+                    OPEN LOG
+                </label>
+            </div>
         </div>
     </div>
 
