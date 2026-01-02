@@ -9,7 +9,7 @@ const navbarTemplate = `
         <a href="/" class="btn btn-ghost text-xl">John A - Computer Engineer</a>
     </div>
     <div class="flex-none items-center">
-        <a class="link link-hover ml-4">Projects</a>
+        <a class="link link-hover ml-4">Portfolio</a>
         <a class="link link-hover ml-4">About</a>
         <a href="/contact-v2.html" class="link link-hover ml-4">Contact</a>
 
@@ -85,7 +85,7 @@ const minimizedFooterTemplate = `
             </div>
 
             <div class="flex justify-center gap-8">
-                <a href="/projects" class="text-[10px] font-bold uppercase tracking-widest hover:text-primary transition-colors opacity-60 hover:opacity-100">Projects</a>
+                <a href="/projects" class="text-[10px] font-bold uppercase tracking-widest hover:text-primary transition-colors opacity-60 hover:opacity-100">Portfolio</a>
                 <a href="/about" class="text-[10px] font-bold uppercase tracking-widest hover:text-primary transition-colors opacity-60 hover:opacity-100">About</a>
                 <a href="/contact" class="text-[10px] font-bold uppercase tracking-widest text-primary">Contact</a>
             </div>
