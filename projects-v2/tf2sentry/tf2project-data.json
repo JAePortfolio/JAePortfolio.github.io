@@ -139,6 +139,225 @@
           "video": "https://drive.google.com/file/d/1_iv2C9Slon_vCIIDOHmnWVtmgQYoIlc8/preview"
         }
       ]
+    },
+    {
+      "id": 5,
+      "logTitle": "LOG_05: Audio System",
+      "sections": [
+        {
+          "sectionTitle": "Audio System",
+          "content": "The audio system will play the audio of the sentry everytime it completes a 90 degree movement, , the sound of it spotting a target, and the sound of the sentry firing. I did NOT include a motor sound for two reasons. One, the real motor has it's own sound, and two, the motor's own sound will drown out the sound effect."
+        },
+        {
+          "sectionTitle": "Design of the System",
+          "content": " The way the sentry will provide audio is using DAC (Digital to Analog Conversion), an audio amplifier and obviously a speaker. I will output a datastream from the audio from the STM to the amplifier, which will be connected to a speaker. The amplifier is the PAM8302A. I will use the HAL libraries along with DMA. Following the AN3126 guide from STM, I designed a system to test, by generating a sine wave with the code below. I use specifically TIM6 since it's designed to drive the DAC. The clock is at 80Mhz. The prescalar is 100-1, and the samples is 100. So 80Mhz/(80 * 100 *100) = 100Hz. In the image below, you can find the generated sine wave",
+          "code": "uint8_t samples = 100;\nvoid getSineVal(){\nfor(int i = 0; i < samples; i++){\nsineVal[i] = (sin(2*i*PI/samples)+1)*((0xFFF+1)/2);\n}\n}\ngetSineVal();\nHAL_TIM_Base_Start(&htim6);\nHAL_DAC_Start(&hdac, DAC_CHANNEL_1);\nHAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_1, sineVal, 100, DAC_ALIGN_12B_R);\n// sineVal being the data, 100 being the # of data points}",
+          "image": "/projects-v2/tf2sentry/assets/audioSch.png"
+        },
+        {
+          "sectionTitle": "Sending the Audio Data",
+          "content": "Now I see I can properly send data, so how can I send the audio data? Well first I need the actual audio files, so I ripped them from the TF2 files. I used a program called WavToCode to edit some of the properties of the audio and generate a file of the audio data. I changed it to an 8 bit sound (which will be explained in the next section). The audio frequency is at 44.1kHz, which we must keep in mind. The reason being is according to the datasheet and documentation, the timer (TIM6 in this case) must be running at the same frequency. To get 44.1kHz from 80Mhz, I need to divide. 80Mhz/44.1khz is approximately 1814. So in the counter period, I put 1814-1, which will give 44.1kHz.Now I have separate files for each separate sound. I create a pointer to the start of the audio data. I don't need the first 44 bytes that describe the file as I already set everything else myself."
+        },
+        {
+          "sectionTitle": "Processing the Data",
+          "content": " This is the tricky part. I'm using the half callbacks and full callbacks. I have a wave buffer of size 512. Before I put the data into the buffer, I shift the 8 bit data left 4 times to create 12 bit data. Just for a small quality boost. Dac OUT = Vref(DOR/0xFFF). Vref is 3.3, DOR is the data and 0xFFF is the DAC Max Digital Value, 2^12 or 4095. So this allows a voltage of 0 to 3.3V. Now, I start with sending the first 512. Upon a half callback, 256 pieces of data should of been sent. Imagine two sections, the first half of the 512 and the second half. Once I have the half callback, that means the first 256 has been processed. So for effiency, I now fill that first half with new data so after the second half completes, it's immediately ready to go with the next 512. Then when the full call back is complete, it now fills the second half with new data, and the process repeats depending on the length of the audio file, which I have predefined. Using this method allows me to use only one buffer and not needing to constantly stop and start the dac/dma everytime I need to fill in the new data. This has to be done this way because you can't just send 100k data at once."
+        },
+        {
+          "sectionTitle": "Storing the Data",
+          "content": " I wanted to avoid needing extra memory to store the audio. For example, needing an SD card to store the audio. The good news is, I can store the data onto the flash ROM on the STM. There's enough room. After some research, I found out by going into the FLASH_ROM.ld file, I can define the areas in the ROM where I want to store the audio file data. I define the starting address and the size required. Using the software from STM called the STM Monitor, I can see where on the STM there is available space on the ROM. I do this because I don't want to override something that the STM needs. Then in the code, I have a pointer to this data to use it."
+        },
+        {
+          "sectionTitle": "Results",
+          "content": "Below are the results, along witha video",
+          "video": "https://drive.google.com/file/d/1ZWiDRZsqSpiItDE-Ykzc9e5wXtlC8ei-/preview",
+          "carousel": [
+            "/projects-v2/tf2sentry/assets/audioResults/ampSig1.jpg",
+            "/projects-v2/tf2sentry/assets/audioResults/ampSig2.jpg",
+            "/projects-v2/tf2sentry/assets/audioResults/ampSig3.jpg",
+            "/projects-v2/tf2sentry/assets/audioResults/ampSig4.jpg",
+            "/projects-v2/tf2sentry/assets/audioResults/ampSig5.jpg",
+            "/projects-v2/tf2sentry/assets/audioResults/audioSig1.jpg",
+            "/projects-v2/tf2sentry/assets/audioResults/audioSig2.jpg",
+            "/projects-v2/tf2sentry/assets/audioResults/audioSig3.jpg",
+            "/projects-v2/tf2sentry/assets/audioResults/audioSig4.jpg",
+            "/projects-v2/tf2sentry/assets/audioResults/audioSig5.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "logTitle": "LOG_06: LEDS",
+      "sections": [
+        {
+          "sectionTitle": "LEDs",
+          "content": "There are 3 sets of LEDs. One is the sentry LED with the appropriate team color like in the game that shows the sentry is powered. Next is the LEDs for the muzzle flash. The third set of LEDs will be on the PCB themselves."
+        },
+        {
+          "sectionTitle": "Team Color LED",
+          "content": " This will be placed in the front of the sentry near the muzzle. In the game, it is cosmetic to show the sentry is powered on. I bought a very high luminous intensity LED (24k-65k) in red. It's connected to the 5V from the converter and ran through a 56 ohm resistor to provide 50mA, as it has a 2.2 typical forward voltage."
+        },
+        {
+          "sectionTitle": "Muzzle Flash LEDs",
+          "content": " I will use 2-4 LEDs here. They are also very high luminous intensity LEDs, except in an amber color. I could of used a white LED as well, but in the game, the muzzle has an amber color to it. They are connected to selected GPIO pins on the STM32, which provide a 3.3V output. There is a 2.1 typical voltage drop, leaving 1.2V. The forwad current is 20mA, so 1.2/20 = 60 ohms. I put 61 ohms in series. The way they turn on and off is in the sentry fire routine in the code. Part of the routine is toggling the pin on and off with a certain delay to sync with the audio that plays."
+        },
+        {
+          "sectionTitle" : "PCB LEDs",
+          "content": " This is more for debugging purposes for the PCB. I have two SMD leds on the board. One is a board power led which is red, connected to the 3.3V line with a 1k ohm resistor. The second is a board status LED which is blue. It is connected to a GPIO pin which will turn it on while the code is running. If the program hangs, then it will not be turned on and I will know its hanging."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "logTitle": "LOG_07: Bluetooth",
+      "sections": [
+        {
+          "sectionTitle": "Bluetooth System",
+          "content": "Part of the engineer's tools in the game is his PDA. It let's him know the status of his buildings. For the sentry, that's the current level of the sentry, the health, it's ammo, and whether it's being sapped or not. I decided to make the PDA an app for a smartphone, so I can have a project to work on for a smartphone as well. This is the reason for the bluetooth. The bluetooth will be used for the STM and the smartphone to communicate with each other. The bluetooth device I will use for the STM is the HC05 by HiLetGo."
+        },
+        {
+          "sectionTitle": "HC05 - Why this device?",
+          "content": " Why did I use this bluetooth device? Well, I originally started with the expansion board from STM for my nucleo board from STM. It was called the X-NUCLEO-IDB05A2. I had huge problems with this expansion board. It just never would transmmit anything. I followed every tutorial for it, read the limited documentations, endless videos, posted on many forums for help, and debugged it myself in the STM debugger. I was stuck. Even people online were stuck on how to help. What I ended up finding out was the HAL libraries for bluetooth are not that well, and tons of people seem to have issues with it. Bugs here, incorrect spelling here that affects the code, etc. The time I realized this though, I already ordered the HC05 as I found much more documentation on it, and I decided to program the registers directly instead of the HAL libraries, which was much more straightforward and easier. It has six pins, and I will be using 4 of them. Transmit, receive, VDD, and GND."
+        },
+        {
+          "sectionTitle": "Bluetooth on the STM",
+          "content": " To use the HC05, I will use the USART on the STM. Specifically USART3. I set the baud rate to the recommended 9600 Bit/s, with the word length being 8 bits (including parity bits). The data direction is both transmit and receive. The reason the smartphone app will send data is because when the sentry is 'out of ammo', I will press a button on the phone to reset the variable. I also chose to use interrupt mode instead of polling so I don't consume the CPU time. Plus the bluetooth isn't used often. Only upon firing or sapped. Most of the time the sentry would be scanning."
+        },
+        {
+          "sectionTitle": "Code on the STM",
+          "content": " In interrupt file, under the USART3 interrupt handler I put the code to handle received data. First I check the ISR register if the interrupt was because we are receiving data. Once I do, I declare a 8 bit character and set it to the data in the received data register. Then I can do whatever I like with it. For example, if it's the value '1', then do X. The receiver enable bit is set and cleared by me. Now for sending data, I made a transferchar function. It takes an input. The transmitter enable bit is set and cleared by me. I simply set the transmit data register to the input, then have a while loop waiting for the tranmission to complete. That's it! I also have a transferstring function which will just use the transferchar function on a loop, depending on the length of the string and loops through it."
+        },
+        {
+          "sectionTitle": "Oscilloscope Image",
+          "content": " Here is a photo on my oscilloscope. This was actually one of the first reasons I bought the scope since I was having such issues with the original bluetooth module. Anyways, below is a transmission shown in hex. In english text it reads 'hello' without the paranthesis.",
+          "image": "/projects-v2/tf2sentry/assets/helloScope.jpg"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "logTitle":"LOG_08: Mobile App",
+      "sections": [
+        {
+          "sectionTitle": "Mobile Application",
+          "content": "The smartphone application is for the engineer's PDA. Instead of having a physical one, I thought why not get creative and have a PDA on the smartphone. It can help me refresh my java development and would be fun to learn bluetooth on the phone as well."
+        },
+        {
+          "sectionTitle":"Design and Features",
+          "content": "The design I felt would be straight forward. Based on the ingame PDA, I'll have the sentry icon, the health and ammo displayed. The upgrade and kill count will remain static, although I can always have a 'kill' count just +1 everytime the sentry fires. Now in the game if the sentry sapped, the sapper icon is displayed to the engineer sliding out to the right. There is no room on the phone for this unless I make the sentry much more narrow, which didn't look right. Since I didn't have a dispenser or teleporter icon, I made the sapper icon come down instead of to the right. On the bottom is buttons for me during testing. I plan to redesign it. There's buttons to test the health and ammo animations, the sapping animation, and for the bluetooth connection (which I implemented). The test buttons will be removed as those commands will come from the STM, but I will replace them with refill health or refill ammo button, just to reset the variables. "
+        },
+        {
+          "sectionTitle": "Android Studio",
+          "content": " I decide to use a tool called Android Studio. It's a nice tool that lets you simulate any phone on the computer, and lets you visualize the UI on the comptuer as well. (Although my PC has an AMD processor which apparently is a problem for the software where you can't simulate phones, so I have to directly connect my phone to the computer and flash the program to the phone when I want to test). It lets you choose between Java and Kotlin as well (I am using Java as I wrote above)."
+        },
+        {
+          "sectionTitle": "Results",
+          "content": "Below is a image from the game for reference, the latest GUI design, then a video with older UI designs showing the animations. I will add videos that show the bluetooth connection later on.",
+          "carousel": [
+            "/projects-v2/tf2sentry/assets/pdaGame.png",
+            "/projects-v2/tf2sentry/assets/pdaPhone.png"
+          ],
+          "video": "https://drive.google.com/file/d/1uRf1ulKO-2aa-giZuvONGJB8ni1kSd4Z/preview"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "logTitle":"LOG_09: PCB Design",
+      "sections": [
+        {
+          "sectionTitle": "Final Schematic & PCB Design",
+          "content": "The end goal after designing using the nucleo board was for me to design a PCB board with the STM chip. I've only ever done PCB design for my senior capstone and if you read up on that project, you saw COVID got in the way of the development. I felt this would be a good oppurtunity to learn."
+        },
+        {
+          "sectionTitle": "PCB Functionality Design, Cosmetic Design, and Schematics",
+          "content": "The final design of the PCB will consist of the following sections on the board, and have the following designs and schematic parameters:",
+          "list": [
+            "Chip: This is in regards to the STM32F7 chip. I have to find a good spot to place it on the board. My idea I had in mind was to hopefully have it perfectly in the center, but that doesn't end up being the case. It is close to the center though.",
+            "Connectors: There will be various connectors, male and female, for different reasons. There will be a power connector for the power adapter. There will be adapters for the components such as the ultrasonic sensors. Then there will be USB connectors to connect it to a computer along with JTAG connectors.",
+            "Power Section: This will consist of the terminal where I will plug in the 12V power adapter, and two sections that will drop the voltage to 5V and 3.3V. Also, I will have to keep in mind the trace widths for the current ratings. This will be very important on the most current intensive part of the board, the motor controller.",
+            "Clock: This section will be for the crystal that produces the clock frequency. For my design, I end up using a 16Mhz crystal as the higher frequency crystals will cost an additional fee from JLCPCB, and I'm trying to reduce the costs. This means my code for the STM will have to be updated to reflect using a 16MHz.",
+            "BOOT0 Switch: This is for the boot mode. Basically either RUN or PROGRAM mode. Run will run whatever code has been flashed to the board. In SWD, it can override this switch. Since I'm using USB and UART, it wll need a switch. Program will be used to program the board.",
+            "Board LEDs: This is straight forward. There will be two LEDs, one for the 3.3V power and one for the board status.",
+            "Shape of PCB: I wanted to have a circle PCB that will fit the circular shape of the sentry where the PCB will fit. Though I decided to keep it rectangular for now to keep it simple. If I were ever to do a follow up, I'd try to make it a circle.",
+            "RED or BLUE: Had to decide on which team color. I actually wanted to do a blue color because I have a blue dispenser, but I remember buying the RED colored LEDs and Laser, so I guess it will have to be the RED team.",
+            "Logo: Obviously since the team color is red, it will have to be the RED logo. I used KiCADs bitmap to component converter to create a component to place on the board. I pulled a picture of the RED logo online and converted it.",
+            "Chip: This is in regards to the STM32F7 chip. I have to find a good spot to place it on the board. My idea I had in mind was to hopefully have it perfectly in the center, but that doesn't end up being the case. It is close to the center though.",
+            "Connectors: These are not all the connectors, but here are some. For the power adapter I have a screw terminal. For the SWD I have a 2x5 male adapter. For the USB, I have a USB B micro cable. Along side it is a package that has TVS diodes for ESD protection. It's a good idea since you are unplugging and plugging in the USB a lot onto the board. ",
+            "Power Section: For the power section, I am using XL1509 step down dc/dc converters. It has a wide input range from 4.5-40V and can output up to 2A. Each design is essentially the same with some value changes at the output for the needed values. I have a 5V output for the components like the ultrasonic sensors, bluetooth device, etc. I also have a 3.3V stage for the STM. Both of these take 12V. Now a question occurs of what to do when a 5V input comes from the USB? Well I know when I have the USB plugged in, I'm probably testing and programming. I do not want to be powering anything else other than the board. So first I will only have this for the 3.3V stage for the STM. Obviously I don't want to plug in 12V and then another 5V. Since I have a gate there, I can add an additonal component to create an or gate. I can add a schottky diode that is connected to the 5V from the USB. This creates an essential OR gate for the input stage. Whichever voltage is higher,it will reverse bias the other side. Notice that I specifically use a different 5V power flag for the USB vs the 5V output I'm creating with one of the converters. Otherwise there would be a problem! I also place the fuse after the OR gate since I also have to protect from the USB input. Finally I have some ferrite beads for filtering. ",
+            "Clock: I have a 16Mhz crystal that I found on JCLPCB connected accordingly to the data sheet. It's connected to the STM High Speed External input and output pins. ",
+            "BOOT0 Switch: This is for the boot mode. Single Pole Double Throw switch. Meaning it has a single pole and two outputs. Then a 10k resistor for protection and current limiting. ",
+            "Board LEDs:  I have a LED that comes directly from the 3.3V, meaning the board should be receiving the 3.3V power. The other is a board status LED. I assigned this pin to a GPIO pin and in my code, I can simple say to turn this LED on when the program is running. If the program isn't running for X reason, I will know since the LED isn't on! ",
+            "Overall Design: In the pictures below you'll see the overall schematic. It is a bit big and I have inconsistency here. For the STM, I drew a lot of wires to connectors. But with every other part of my schematic, I used a lot of labels. This made it a lot cleaner. This was after I did the chip, I learned it looked much cleaner. If I were to redo this, I would use more labels with the chip to reduce the size of the schematic and make it cleaner and easier to follow. "
+          ]
+        },
+        {
+          "sectionTitle": "Final PCB Design",
+          "content":  "Here is the final design. It's around 4x4 inches. I have all the connectors for the stuff I need to plug in for the sentry towards the 'bottom' of the board. This side will face closest to those items, so it will make it easier to wire, cleaner and shorter. The hall sensor connectors are where they are because the hall sensors will be the only part that will be in the back of the sentry. There are female connectors for the motor controller, and a 1x4 male connector next to it for the 4 wires of the motor. The reason being is the motor controller already is a PCB with its own connectors, and there's no connectors on it for the motor, so I have to create my own on my board. Along the 'top', is where I have my dc/dc converters. Notice I have very big capacitors, inductors, etc. Is this necessary? No, but I did it to save money on paying for additonal fees for the factory to solder. I can buy these through hole components and do it myself. Otherwise the board could of been smaller. Also notice I try to keep the power stuff near each other. Top left of the board is power related, bottom right is STM and connector related. Finally on the right side is the boot switch and the USB. ",
+          "carousel": [
+            "/projects-v2/tf2sentry/assets/final/pcb1.png",
+            "/projects-v2/tf2sentry/assets/final/pcb2.png",
+            "/projects-v2/tf2sentry/assets/final/chip.png",
+            "/projects-v2/tf2sentry/assets/final/connectors.png",
+            "/projects-v2/tf2sentry/assets/final/power1.png",
+            "/projects-v2/tf2sentry/assets/final/power2.png",
+            "/projects-v2/tf2sentry/assets/final/clock.png",
+            "/projects-v2/tf2sentry/assets/final/boot0.png",
+            "/projects-v2/tf2sentry/assets/final/leds.png",
+            "/projects-v2/tf2sentry/assets/final/overall.png"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "logTitle":"LOG_10: Sentry Construction",
+      "sections": [
+        {
+          "sectionTitle": "Construction",
+          "content": "Constructing the physical sentry I made based off the actual sentry, although with some changes. It's pretty big, though not accurate to the game where it's half the height of a human. "
+        },
+        {
+          "sectionTitle": "Building and Materials",
+          "content": "The sentry's main material is cardboard. The reason being is I had a 2 big pieces of cardboard, and I've made things out of cardboard when I was younger, so I know how to do it without needing expensive tools. Plus again the focus was to learn the STM, not learn how to construct or model things. The pipe in the middle of the sentry is made out of PCV pipe and steel piping. There are nuts and bolts and the feet are styrofoam which I plan to place rubber underneath. "
+        },
+        {
+          "sectionTitle": "Challenges",
+          "content": " I would say the main challenge was the sentry being top heavy and sentry top portion will rotate backwards along the bolts attaching it to the base. My first iteration I attempted to make a sort of stand to have the metal piping touch the floor or wherever it was placed. This didn't work for long, it eventually tipped if it was slightly moved. I realized I need to connect the center piping to something that was heavier then the top to keep it in place. I thought of sand or clay. I went to home depot and found they sold 5lb bags of sand, which was perfect. I also needed a wide but low in height container to pour the sand in. Luckily my mom had a container shaped just like this from some special tape she bought that was in the container. I removed the tape and put the sand in. This worked much better but another issue I have run into is the sand is too loose, so the sentry can flip a bit. It might have been better to use clay. Something I can maybe try in the future. "
+        },
+        {
+          "sectionTitle": "Construction Slideshow",
+          "content": "Here is a slideshow of the development of the sentry",
+          "carousel": [
+            "/projects-v2/tf2sentry/assets/slideshow/1.jpg",
+            "/projects-v2/tf2sentry/assets/slideshow/2.jpg",
+            "/projects-v2/tf2sentry/assets/slideshow/3.jpg",
+            "/projects-v2/tf2sentry/assets/slideshow/4.jpg",
+            "/projects-v2/tf2sentry/assets/slideshow/5.jpg",
+            "/projects-v2/tf2sentry/assets/slideshow/6.jpg",
+            "/projects-v2/tf2sentry/assets/slideshow/7.jpg",
+            "/projects-v2/tf2sentry/assets/slideshow/8.jpg",
+            "/projects-v2/tf2sentry/assets/slideshow/9.jpg",
+            "/projects-v2/tf2sentry/assets/slideshow/10.jpg",
+            "/projects-v2/tf2sentry/assets/slideshow/11.jpg",
+            "/projects-v2/tf2sentry/assets/slideshow/12.jpg",
+            "/projects-v2/tf2sentry/assets/slideshow/13.jpg",
+            "/projects-v2/tf2sentry/assets/slideshow/14.jpg",
+            "/projects-v2/tf2sentry/assets/slideshow/15.jpg",
+            "/projects-v2/tf2sentry/assets/slideshow/16.jpg",
+            "/projects-v2/tf2sentry/assets/slideshow/17.jpg",
+            "/projects-v2/tf2sentry/assets/slideshow/18.jpg",
+            "/projects-v2/tf2sentry/assets/slideshow/19.jpg",
+            "/projects-v2/tf2sentry/assets/slideshow/20.jpg"
+          ]
+        },
+        {
+          "sectionTitle": "Results",
+          "content": "Below is a picture of the sentry so far",
+          "image":"/projects-v2/tf2sentry/assets/slideshow/21.jpg"
+
+        }
+      ]
     }
   ]
 }

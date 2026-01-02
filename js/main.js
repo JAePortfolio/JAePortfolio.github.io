@@ -21,7 +21,7 @@ async function openLog(projectFolder, fileName, logId) {
 function renderContent(container, log) {
     container.innerHTML = ''; // Clear previous content
 
-    log.sections.forEach(section => {
+    log.sections.forEach((section, sIndex) => {
         const html = `
             <div class="mb-12 border-b border-base-300 pb-8 last:border-0">
                 <h4 class="text-primary font-black uppercase text-sm mb-4">
@@ -55,8 +55,28 @@ function renderContent(container, log) {
                     <div class="mockup-code text-xs mb-6">
                         <pre><code>${section.code}</code></pre>
                     </div>` : ''}
+
+                ${section.carousel ? `
+                                    <div class="carousel w-full border border-base-300 rounded-lg overflow-hidden">
+                                        ${section.carousel.map((imgSrc, iIndex) => `
+                                            <div id="slide-${sIndex}-${iIndex}" class="carousel-item relative w-full">
+                                                <img src="${imgSrc}" class="w-full object-cover aspect-video" />
+                                                <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                                                    <a href="#slide-${sIndex}-${iIndex === 0 ? section.carousel.length - 1 : iIndex - 1}" class="btn btn-circle btn-xs opacity-50">❮</a> 
+                                                    <a href="#slide-${sIndex}-${iIndex === section.carousel.length - 1 ? 0 : iIndex + 1}" class="btn btn-circle btn-xs opacity-50">❯</a>
+                                                </div>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                    <div class="flex justify-center w-full py-2 gap-2">
+                                        ${section.carousel.map((_, iIndex) => `
+                                            <a href="#slide-${sIndex}-${iIndex}" class="btn btn-xs btn-ghost border-base-300">${iIndex + 1}</a>
+                                        `).join('')}
+                                    </div>
+                                ` : ''}
             </div>
         `;
+
         container.insertAdjacentHTML('beforeend', html);
     });
 }
