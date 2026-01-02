@@ -72,13 +72,49 @@ const footerTemplate = `
 </footer>
 `;
 
+// 3. Minimized Footer Template
+const minimizedFooterTemplate = `
+<footer class="w-full border-t border-base-300 bg-base-100 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-10">
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 items-center gap-8">
+            
+            <div class="flex flex-col items-center md:items-start">
+                <span class="font-black text-sm tracking-tighter uppercase text-base-content">John Arena</span>
+                <span class="text-[9px] uppercase tracking-[0.2em] opacity-40">Computer Engineer</span>
+            </div>
+
+            <div class="flex justify-center gap-8">
+                <a href="/projects" class="text-[10px] font-bold uppercase tracking-widest hover:text-primary transition-colors opacity-60 hover:opacity-100">Projects</a>
+                <a href="/about" class="text-[10px] font-bold uppercase tracking-widest hover:text-primary transition-colors opacity-60 hover:opacity-100">About</a>
+                <a href="/contact" class="text-[10px] font-bold uppercase tracking-widest text-primary">Contact</a>
+            </div>
+
+            <div class="flex justify-center md:justify-end gap-6">
+                <a href="#" class="text-[10px] font-bold uppercase tracking-widest opacity-60 hover:opacity-100 transition-all">LinkedIn</a>
+                <a href="#" class="text-[10px] font-bold uppercase tracking-widest opacity-60 hover:opacity-100 transition-all">GitHub</a>
+                <a href="#" class="text-[10px] font-bold uppercase tracking-widest opacity-60 hover:opacity-100 transition-all">Resume</a>
+            </div>
+        </div>
+
+        <div class="mt-10 pt-6 border-t border-base-300 flex flex-col md:flex-row justify-between items-center gap-4 text-[9px] uppercase tracking-[0.2em]">
+            <span class="opacity-40">© 2026 — All Rights Reserved</span>
+            <span class="opacity-40 font-medium">Built with Tailwind & DaisyUI</span>
+        </div>
+        
+    </div>
+</footer>
+`;
+
 // 3. The builder function
 function initLayout() {
     const navbarContainer = document.getElementById('main-navbar');
     const footerContainer = document.getElementById('main-footer');
+    const minimizedFooterContainer = document.getElementById('min-footer');
 
     if (navbarContainer) navbarContainer.innerHTML = navbarTemplate;
     if (footerContainer) footerContainer.innerHTML = footerTemplate;
+    if (minimizedFooterContainer) minimizedFooterContainer.innerHTML = minimizedFooterTemplate;
 }
 
 // 4. Instantiate the layout
