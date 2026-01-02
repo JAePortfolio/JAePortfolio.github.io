@@ -43,6 +43,17 @@ const activities = [
         link: "#",
         isComingSoon: true,
     },
+    {
+        title: "Single Cycle - CPU",
+        year: "2019",
+        type: "Hardware",
+        desc: "32-bit CPU based on the 32-bit MIPS instruction, implemented with I and R type instructions. Built using Intel's Quartus on an Altera DE2-70 FPGA.",
+        img: "/projects-v2/cpu/assets/cpu.jpg",
+        tags: ["VHDL", "MIPS", "CPU Design", "FPGA"],
+        github: "https://github.com/JAePortfolio/Single-Cycle-CPU---Comp.-Arch.",
+        link: "#",
+        isComingSoon: true,
+    },
 ];
 
 /**
