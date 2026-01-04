@@ -11,7 +11,7 @@ const navbarTemplate = `
     <div class="flex-none items-center">
         <a href="/projects-v2/projects.html" class="link link-hover ml-4">Portfolio</a>
         <a href="/docs/John Arena's Resume.pdf" class="link link-hover ml-4">Resume</a>
-        <a href="/about-v2.html" class="link link-hover ml-4">About</a>
+        <a href="/about.html" class="link link-hover ml-4">About</a>
         <a href="/contact-v2.html" class="link link-hover ml-4">Contact</a>
 
         <a href="https://www.linkedin.com/in/john-arena" target="_blank" class="btn btn-ghost btn-circle ml-8">
@@ -88,7 +88,7 @@ const minimizedFooterTemplate = `
             <div class="flex justify-center gap-8">
                 <a href="/projects-v2/projects.html" class="text-[10px] font-bold uppercase tracking-widest hover:text-primary transition-colors opacity-60 hover:opacity-100">Portfolio</a>
                 <a href="/docs/John Arena's Resume.pdf" class="text-[10px] font-bold uppercase tracking-widest hover:text-primary transition-colors opacity-60 hover:opacity-100">Resume</a>
-                <a href="/about-v2.html" class="text-[10px] font-bold uppercase tracking-widest hover:text-primary transition-colors opacity-60 hover:opacity-100">About</a>
+                <a href="/about.html" class="text-[10px] font-bold uppercase tracking-widest hover:text-primary transition-colors opacity-60 hover:opacity-100">About</a>
                 <a href="/contact-v2.html" class="text-[10px] font-bold uppercase tracking-widest text-primary">Contact</a>
             </div>
 
