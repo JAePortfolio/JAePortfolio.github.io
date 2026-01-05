@@ -17,9 +17,9 @@
                 <p class="text-lg opacity-80 mb-8">
                     A 1:1 scale autonomous replica demonstrating multi-system integration: from power regulation and motor control to custom audio and smartphone interfacing.
                 </p>
-                <div class="flex gap-4">
-                    <div class="badge badge-outline rounded-none p-4 font-mono uppercase">Status: Deployed</div>
-                    <div class="badge badge-primary rounded-none p-4 font-mono uppercase text-white">System: 10/10 Online</div>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <div class="badge badge-outline rounded-none p-4 font-mono uppercase whitespace-nowrap">Status: Deployed</div>
+                    <div class="badge badge-primary rounded-none p-4 font-mono uppercase text-white whitespace-nowrap">System: 10/10 Online</div>
                 </div>
             </div>
             <div class="bg-base-300 p-2 border border-base-300 shadow-2xl relative">
@@ -41,341 +41,289 @@
         </div>
     </div> -->
 
-    <main class="max-w-6xl mx-auto px-6 py-20">
-        <div class="grid grid-cols-1 gap-4 py-10">
-            <div class="flex flex-col md:flex-row items-center justify-between p-8 bg-base-200 border border-base-300 mb-4">
-                
-                <div class="flex flex-col gap-1">
-                    <span class="text-xs font-mono text-primary uppercase tracking-widest">System_01</span>
-                    <h3 class="text-2xl font-black uppercase tracking-tight">Description</h3>
-                </div>
-
-                <div class="flex items-center gap-10">
-                    <div class="hidden lg:flex flex-col items-end">
-                        <span class="text-[10px] uppercase opacity-50">Status</span>
-                        <span class="text-xs font-mono text-success">NOMINAL_VOLTAGE</span>
-                    </div>
-
-                    <label for="modal-1" 
-                        onclick="openLog('tf2sentry', 'tf2project-data', 1, 'Description')" 
-                        class="btn btn-primary px-10 rounded-none h-10 flex items-center justify-center">
-                        OPEN LOG
-                    </label>
-                </div>
+<main class="max-w-6xl mx-auto px-6 py-20">
+    <div class="grid grid-cols-1 gap-4 py-10">
+        <div class="flex flex-col md:flex-row items-center justify-between p-8 bg-base-200 border border-base-300 mb-4">
+            <div class="flex flex-col gap-1 text-center md:text-left mb-6 md:mb-0">
+                <span class="text-xs font-mono text-primary uppercase tracking-widest">System_01</span>
+                <h3 class="text-2xl font-black uppercase tracking-tight">Description</h3>
             </div>
-            <div class="flex flex-col md:flex-row items-center justify-between p-8 bg-base-200 border border-base-300 mb-4">
-                
-                <div class="flex flex-col gap-1">
-                    <span class="text-xs font-mono text-primary uppercase tracking-widest">System_02</span>
-                    <h3 class="text-2xl font-black uppercase tracking-tight">Power System</h3>
+            <div class="flex flex-col md:flex-row items-center gap-6 md:gap-10 w-full md:w-auto">
+                <div class="hidden lg:flex flex-col items-end">
+                    <span class="text-[10px] uppercase opacity-50">Status</span>
+                    <span class="text-xs font-mono text-success">NOMINAL_VOLTAGE</span>
                 </div>
-
-                <div class="flex items-center gap-10">
-                    <div class="hidden lg:flex flex-col items-end">
-                        <span class="text-[10px] uppercase opacity-50">Status</span>
-                        <span class="text-xs font-mono text-success">NOMINAL_VOLTAGE</span>
-                    </div>
-
-                    <label for="modal-2" 
-                        onclick="openLog('tf2sentry', 'tf2project-data', 2, 'Power System')" 
-                        class="btn btn-primary px-10 rounded-none h-10 flex items-center justify-center">
-                        OPEN LOG
-                    </label>
-                </div>
-            </div>
-                    <div class="flex flex-col md:flex-row items-center justify-between p-8 bg-base-200 border border-base-300 mb-4">
-                
-                <div class="flex flex-col gap-1">
-                    <span class="text-xs font-mono text-primary uppercase tracking-widest">System_03</span>
-                    <h3 class="text-2xl font-black uppercase tracking-tight">Motor System</h3>
-                </div>
-
-                <div class="flex items-center gap-10">
-                    <div class="hidden lg:flex flex-col items-end">
-                        <span class="text-[10px] uppercase opacity-50">Status</span>
-                        <span class="text-xs font-mono text-success">NOMINAL_VOLTAGE</span>
-                    </div>
-
-                    <label for="modal-3" 
-                        onclick="openLog('tf2sentry', 'tf2project-data', 3, 'Motor System')" 
-                        class="btn btn-primary px-10 rounded-none h-10 flex items-center justify-center">
-                        OPEN LOG
-                    </label>
-                </div>
-            </div>
-                    <div class="flex flex-col md:flex-row items-center justify-between p-8 bg-base-200 border border-base-300 mb-4">
-                
-                <div class="flex flex-col gap-1">
-                    <span class="text-xs font-mono text-primary uppercase tracking-widest">System_04</span>
-                    <h3 class="text-2xl font-black uppercase tracking-tight">Ultrasonic Sensors</h3>
-                </div>
-
-                <div class="flex items-center gap-10">
-                    <div class="hidden lg:flex flex-col items-end">
-                        <span class="text-[10px] uppercase opacity-50">Status</span>
-                        <span class="text-xs font-mono text-success">NOMINAL_VOLTAGE</span>
-                    </div>
-
-                    <label for="modal-4" 
-                        onclick="openLog('tf2sentry', 'tf2project-data', 4, 'Ultrasonic Sensors')" 
-                        class="btn btn-primary px-10 rounded-none h-10 flex items-center justify-center">
-                        OPEN LOG
-                    </label>
-                </div>
-            </div>
-                    <div class="flex flex-col md:flex-row items-center justify-between p-8 bg-base-200 border border-base-300 mb-4">
-                
-                <div class="flex flex-col gap-1">
-                    <span class="text-xs font-mono text-primary uppercase tracking-widest">System_05</span>
-                    <h3 class="text-2xl font-black uppercase tracking-tight">Audio System</h3>
-                </div>
-
-                <div class="flex items-center gap-10">
-                    <div class="hidden lg:flex flex-col items-end">
-                        <span class="text-[10px] uppercase opacity-50">Status</span>
-                        <span class="text-xs font-mono text-success">NOMINAL_VOLTAGE</span>
-                    </div>
-
-                    <label for="modal-5" 
-                        onclick="openLog('tf2sentry', 'tf2project-data', 5, 'Audio System')" 
-                        class="btn btn-primary px-10 rounded-none h-10 flex items-center justify-center">
-                        OPEN LOG
-                    </label>
-                </div>
-            </div>
-                    <div class="flex flex-col md:flex-row items-center justify-between p-8 bg-base-200 border border-base-300 mb-4">
-                
-                <div class="flex flex-col gap-1">
-                    <span class="text-xs font-mono text-primary uppercase tracking-widest">System_06</span>
-                    <h3 class="text-2xl font-black uppercase tracking-tight">LEDS</h3>
-                </div>
-
-                <div class="flex items-center gap-10">
-                    <div class="hidden lg:flex flex-col items-end">
-                        <span class="text-[10px] uppercase opacity-50">Status</span>
-                        <span class="text-xs font-mono text-success">NOMINAL_VOLTAGE</span>
-                    </div>
-
-                    <label for="modal-6"
-                        onclick="openLog('tf2sentry', 'tf2project-data', 6, 'LEDS')" 
-                        class="btn btn-primary px-10 rounded-none h-10 flex items-center justify-center">
-                        OPEN LOG
-                    </label>
-                </div>
-            </div>
-                    <div class="flex flex-col md:flex-row items-center justify-between p-8 bg-base-200 border border-base-300 mb-4">
-                
-                <div class="flex flex-col gap-1">
-                    <span class="text-xs font-mono text-primary uppercase tracking-widest">System_07</span>
-                    <h3 class="text-2xl font-black uppercase tracking-tight">Bluetooth</h3>
-                </div>
-
-                <div class="flex items-center gap-10">
-                    <div class="hidden lg:flex flex-col items-end">
-                        <span class="text-[10px] uppercase opacity-50">Status</span>
-                        <span class="text-xs font-mono text-success">NOMINAL_VOLTAGE</span>
-                    </div>
-
-                    <label for="modal-7" 
-                        onclick="openLog('tf2sentry', 'tf2project-data', 7, 'Bluetooth')" 
-                        class="btn btn-primary px-10 rounded-none h-10 flex items-center justify-center">
-                        OPEN LOG
-                    </label>
-                </div>
-            </div>
-                    <div class="flex flex-col md:flex-row items-center justify-between p-8 bg-base-200 border border-base-300 mb-4">
-                
-                <div class="flex flex-col gap-1">
-                    <span class="text-xs font-mono text-primary uppercase tracking-widest">System_08</span>
-                    <h3 class="text-2xl font-black uppercase tracking-tight">Mobile App</h3>
-                </div>
-
-                <div class="flex items-center gap-10">
-                    <div class="hidden lg:flex flex-col items-end">
-                        <span class="text-[10px] uppercase opacity-50">Status</span>
-                        <span class="text-xs font-mono text-success">NOMINAL_VOLTAGE</span>
-                    </div>
-
-                    <label for="modal-8" 
-                        onclick="openLog('tf2sentry', 'tf2project-data', 8, 'Mobile App')" 
-                        class="btn btn-primary px-10 rounded-none h-10 flex items-center justify-center">
-                        OPEN LOG
-                    </label>
-                </div>
-            </div>
-                    <div class="flex flex-col md:flex-row items-center justify-between p-8 bg-base-200 border border-base-300 mb-4">
-                
-                <div class="flex flex-col gap-1">
-                    <span class="text-xs font-mono text-primary uppercase tracking-widest">System_09</span>
-                    <h3 class="text-2xl font-black uppercase tracking-tight">PCB Design</h3>
-                </div>
-
-                <div class="flex items-center gap-10">
-                    <div class="hidden lg:flex flex-col items-end">
-                        <span class="text-[10px] uppercase opacity-50">Status</span>
-                        <span class="text-xs font-mono text-success">NOMINAL_VOLTAGE</span>
-                    </div>
-
-                    <label for="modal-9" 
-                        onclick="openLog('tf2sentry', 'tf2project-data', 9, 'PCB Design')" 
-                        class="btn btn-primary px-10 rounded-none h-10 flex items-center justify-center">
-                        OPEN LOG
-                    </label>
-                </div>
-            </div>
-                    <div class="flex flex-col md:flex-row items-center justify-between p-8 bg-base-200 border border-base-300 mb-4">
-                
-                <div class="flex flex-col gap-1">
-                    <span class="text-xs font-mono text-primary uppercase tracking-widest">System_10</span>
-                    <h3 class="text-2xl font-black uppercase tracking-tight">Construction</h3>
-                </div>
-
-                <div class="flex items-center gap-10">
-                    <div class="hidden lg:flex flex-col items-end">
-                        <span class="text-[10px] uppercase opacity-50">Status</span>
-                        <span class="text-xs font-mono text-success">NOMINAL_VOLTAGE</span>
-                    </div>
-
-                    <label for="modal-10" 
-                        onclick="openLog('tf2sentry', 'tf2project-data', 10, 'Construction')" 
-                        class="btn btn-primary px-10 rounded-none h-10 flex items-center justify-center">
-                        OPEN LOG
-                    </label>
-                </div>
+                <label for="modal-1" onclick="openLog('tf2sentry', 'tf2project-data', 1, 'Description')" 
+                    class="btn btn-primary px-10 rounded-none h-10 w-full md:w-auto flex items-center justify-center">
+                    OPEN LOG
+                </label>
             </div>
         </div>
 
-        <input type="checkbox" id="modal-1" class="modal-toggle" />
-        <div class="modal modal-bottom sm:modal-middle" role="dialog">
-            <div class="modal-box w-full max-w-5xl h-full max-h-[90vh] rounded-none p-0 flex flex-col">
-                <div class="p-4 border-b border-base-300 flex justify-between items-center bg-base-100 sticky top-0 z-10">
-                    <h3 id="modal-title-1" class="font-black uppercase text-sm">LOG_01: Description</h3>
-                    <label for="modal-1" class="btn btn-sm btn-square btn-ghost">✕</label>
+        <div class="flex flex-col md:flex-row items-center justify-between p-8 bg-base-200 border border-base-300 mb-4">
+            <div class="flex flex-col gap-1 text-center md:text-left mb-6 md:mb-0">
+                <span class="text-xs font-mono text-primary uppercase tracking-widest">System_02</span>
+                <h3 class="text-2xl font-black uppercase tracking-tight">Power System</h3>
+            </div>
+            <div class="flex flex-col md:flex-row items-center gap-6 md:gap-10 w-full md:w-auto">
+                <div class="hidden lg:flex flex-col items-end">
+                    <span class="text-[10px] uppercase opacity-50">Status</span>
+                    <span class="text-xs font-mono text-success">NOMINAL_VOLTAGE</span>
                 </div>
-                
-                <div id="modal-content-1" class="overflow-y-auto p-8">
-                    </div>
+                <label for="modal-2" onclick="openLog('tf2sentry', 'tf2project-data', 2, 'Power System')" 
+                    class="btn btn-primary px-10 rounded-none h-10 w-full md:w-auto flex items-center justify-center">
+                    OPEN LOG
+                </label>
             </div>
         </div>
 
-        <input type="checkbox" id="modal-2" class="modal-toggle" />
-        <div class="modal modal-bottom sm:modal-middle" role="dialog">
-            <div class="modal-box w-full max-w-5xl h-full max-h-[90vh] rounded-none p-0 flex flex-col">
-                <div class="p-4 border-b border-base-300 flex justify-between items-center bg-base-100 sticky top-0 z-10">
-                    <h3 id="modal-title-2" class="font-black uppercase text-sm">LOG_02: Power System</h3>
-                    <label for="modal-2" class="btn btn-sm btn-square btn-ghost">✕</label>
+        <div class="flex flex-col md:flex-row items-center justify-between p-8 bg-base-200 border border-base-300 mb-4">
+            <div class="flex flex-col gap-1 text-center md:text-left mb-6 md:mb-0">
+                <span class="text-xs font-mono text-primary uppercase tracking-widest">System_03</span>
+                <h3 class="text-2xl font-black uppercase tracking-tight">Motor System</h3>
+            </div>
+            <div class="flex flex-col md:flex-row items-center gap-6 md:gap-10 w-full md:w-auto">
+                <div class="hidden lg:flex flex-col items-end">
+                    <span class="text-[10px] uppercase opacity-50">Status</span>
+                    <span class="text-xs font-mono text-success">NOMINAL_VOLTAGE</span>
                 </div>
-
-                <div id="modal-content-2" class="overflow-y-auto p-8">
-                    </div>
+                <label for="modal-3" onclick="openLog('tf2sentry', 'tf2project-data', 3, 'Motor System')" 
+                    class="btn btn-primary px-10 rounded-none h-10 w-full md:w-auto flex items-center justify-center">
+                    OPEN LOG
+                </label>
             </div>
         </div>
 
-        <input type="checkbox" id="modal-3" class="modal-toggle" />
-        <div class="modal modal-bottom sm:modal-middle" role="dialog">
-            <div class="modal-box w-full max-w-5xl h-full max-h-[90vh] rounded-none p-0 flex flex-col">
-                <div class="p-4 border-b border-base-300 flex justify-between items-center bg-base-100 sticky top-0 z-10">
-                    <h3 id="modal-title-3" class="font-black uppercase text-sm">LOG_03: Motor System</h3>
-                    <label for="modal-3" class="btn btn-sm btn-square btn-ghost">✕</label>
+        <div class="flex flex-col md:flex-row items-center justify-between p-8 bg-base-200 border border-base-300 mb-4">
+            <div class="flex flex-col gap-1 text-center md:text-left mb-6 md:mb-0">
+                <span class="text-xs font-mono text-primary uppercase tracking-widest">System_04</span>
+                <h3 class="text-2xl font-black uppercase tracking-tight">Ultrasonic Sensors</h3>
+            </div>
+            <div class="flex flex-col md:flex-row items-center gap-6 md:gap-10 w-full md:w-auto">
+                <div class="hidden lg:flex flex-col items-end">
+                    <span class="text-[10px] uppercase opacity-50">Status</span>
+                    <span class="text-xs font-mono text-success">NOMINAL_VOLTAGE</span>
                 </div>
-
-                <div id="modal-content-3" class="overflow-y-auto p-8">
-                    </div>
+                <label for="modal-4" onclick="openLog('tf2sentry', 'tf2project-data', 4, 'Ultrasonic Sensors')" 
+                    class="btn btn-primary px-10 rounded-none h-10 w-full md:w-auto flex items-center justify-center">
+                    OPEN LOG
+                </label>
             </div>
         </div>
 
-        <input type="checkbox" id="modal-4" class="modal-toggle" />
-        <div class="modal modal-bottom sm:modal-middle" role="dialog">
-            <div class="modal-box w-full max-w-5xl h-full max-h-[90vh] rounded-none p-0 flex flex-col">
-                <div class="p-4 border-b border-base-300 flex justify-between items-center bg-base-100 sticky top-0 z-10">
-                    <h3 id="modal-title-4" class="font-black uppercase text-sm">LOG_04: Ultrasonic Sensor System</h3>
-                    <label for="modal-4" class="btn btn-sm btn-square btn-ghost">✕</label>
+        <div class="flex flex-col md:flex-row items-center justify-between p-8 bg-base-200 border border-base-300 mb-4">
+            <div class="flex flex-col gap-1 text-center md:text-left mb-6 md:mb-0">
+                <span class="text-xs font-mono text-primary uppercase tracking-widest">System_05</span>
+                <h3 class="text-2xl font-black uppercase tracking-tight">Audio System</h3>
+            </div>
+            <div class="flex flex-col md:flex-row items-center gap-6 md:gap-10 w-full md:w-auto">
+                <div class="hidden lg:flex flex-col items-end">
+                    <span class="text-[10px] uppercase opacity-50">Status</span>
+                    <span class="text-xs font-mono text-success">NOMINAL_VOLTAGE</span>
                 </div>
-
-                <div id="modal-content-4" class="overflow-y-auto p-8">
-                    </div>
+                <label for="modal-5" onclick="openLog('tf2sentry', 'tf2project-data', 5, 'Audio System')" 
+                    class="btn btn-primary px-10 rounded-none h-10 w-full md:w-auto flex items-center justify-center">
+                    OPEN LOG
+                </label>
             </div>
         </div>
 
-        <input type="checkbox" id="modal-5" class="modal-toggle" />
-        <div class="modal modal-bottom sm:modal-middle" role="dialog">
-            <div class="modal-box w-full max-w-5xl h-full max-h-[90vh] rounded-none p-0 flex flex-col">
-                <div class="p-4 border-b border-base-300 flex justify-between items-center bg-base-100 sticky top-0 z-10">
-                    <h3 id="modal-title-5" class="font-black uppercase text-sm">LOG_05: Audio System</h3>
-                    <label for="modal-5" class="btn btn-sm btn-square btn-ghost">✕</label>
+        <div class="flex flex-col md:flex-row items-center justify-between p-8 bg-base-200 border border-base-300 mb-4">
+            <div class="flex flex-col gap-1 text-center md:text-left mb-6 md:mb-0">
+                <span class="text-xs font-mono text-primary uppercase tracking-widest">System_06</span>
+                <h3 class="text-2xl font-black uppercase tracking-tight">LEDS</h3>
+            </div>
+            <div class="flex flex-col md:flex-row items-center gap-6 md:gap-10 w-full md:w-auto">
+                <div class="hidden lg:flex flex-col items-end">
+                    <span class="text-[10px] uppercase opacity-50">Status</span>
+                    <span class="text-xs font-mono text-success">NOMINAL_VOLTAGE</span>
                 </div>
-
-                <div id="modal-content-5" class="overflow-y-auto p-8">
-                    </div>
+                <label for="modal-6" onclick="openLog('tf2sentry', 'tf2project-data', 6, 'LEDS')" 
+                    class="btn btn-primary px-10 rounded-none h-10 w-full md:w-auto flex items-center justify-center">
+                    OPEN LOG
+                </label>
             </div>
         </div>
 
-        <input type="checkbox" id="modal-6" class="modal-toggle" />
-        <div class="modal modal-bottom sm:modal-middle" role="dialog">
-            <div class="modal-box w-full max-w-5xl h-full max-h-[90vh] rounded-none p-0 flex flex-col">
-                <div class="p-4 border-b border-base-300 flex justify-between items-center bg-base-100 sticky top-0 z-10">
-                    <h3 id="modal-title-6" class="font-black uppercase text-sm">LOG_06: LEDs</h3>
-                    <label for="modal-6" class="btn btn-sm btn-square btn-ghost">✕</label>
+        <div class="flex flex-col md:flex-row items-center justify-between p-8 bg-base-200 border border-base-300 mb-4">
+            <div class="flex flex-col gap-1 text-center md:text-left mb-6 md:mb-0">
+                <span class="text-xs font-mono text-primary uppercase tracking-widest">System_07</span>
+                <h3 class="text-2xl font-black uppercase tracking-tight">Bluetooth</h3>
+            </div>
+            <div class="flex flex-col md:flex-row items-center gap-6 md:gap-10 w-full md:w-auto">
+                <div class="hidden lg:flex flex-col items-end">
+                    <span class="text-[10px] uppercase opacity-50">Status</span>
+                    <span class="text-xs font-mono text-success">NOMINAL_VOLTAGE</span>
                 </div>
-
-                <div id="modal-content-6" class="overflow-y-auto p-8">
-                    </div>
+                <label for="modal-7" onclick="openLog('tf2sentry', 'tf2project-data', 7, 'Bluetooth')" 
+                    class="btn btn-primary px-10 rounded-none h-10 w-full md:w-auto flex items-center justify-center">
+                    OPEN LOG
+                </label>
             </div>
         </div>
 
-        <input type="checkbox" id="modal-7" class="modal-toggle" />
-        <div class="modal modal-bottom sm:modal-middle" role="dialog">
-            <div class="modal-box w-full max-w-5xl h-full max-h-[90vh] rounded-none p-0 flex flex-col">
-                <div class="p-4 border-b border-base-300 flex justify-between items-center bg-base-100 sticky top-0 z-10">
-                    <h3 id="modal-title-7" class="font-black uppercase text-sm">LOG_07: Bluetooth</h3>
-                    <label for="modal-7" class="btn btn-sm btn-square btn-ghost">✕</label>
+        <div class="flex flex-col md:flex-row items-center justify-between p-8 bg-base-200 border border-base-300 mb-4">
+            <div class="flex flex-col gap-1 text-center md:text-left mb-6 md:mb-0">
+                <span class="text-xs font-mono text-primary uppercase tracking-widest">System_08</span>
+                <h3 class="text-2xl font-black uppercase tracking-tight">Mobile App</h3>
+            </div>
+            <div class="flex flex-col md:flex-row items-center gap-6 md:gap-10 w-full md:w-auto">
+                <div class="hidden lg:flex flex-col items-end">
+                    <span class="text-[10px] uppercase opacity-50">Status</span>
+                    <span class="text-xs font-mono text-success">NOMINAL_VOLTAGE</span>
                 </div>
-
-                <div id="modal-content-7" class="overflow-y-auto p-8">
-                    </div>
+                <label for="modal-8" onclick="openLog('tf2sentry', 'tf2project-data', 8, 'Mobile App')" 
+                    class="btn btn-primary px-10 rounded-none h-10 w-full md:w-auto flex items-center justify-center">
+                    OPEN LOG
+                </label>
             </div>
         </div>
 
-        <input type="checkbox" id="modal-8" class="modal-toggle" />
-        <div class="modal modal-bottom sm:modal-middle" role="dialog">
-            <div class="modal-box w-full max-w-5xl h-full max-h-[90vh] rounded-none p-0 flex flex-col">
-                <div class="p-4 border-b border-base-300 flex justify-between items-center bg-base-100 sticky top-0 z-10">
-                    <h3 id="modal-title-8" class="font-black uppercase text-sm">LOG_08: Mobile App</h3>
-                    <label for="modal-8" class="btn btn-sm btn-square btn-ghost">✕</label>
+        <div class="flex flex-col md:flex-row items-center justify-between p-8 bg-base-200 border border-base-300 mb-4">
+            <div class="flex flex-col gap-1 text-center md:text-left mb-6 md:mb-0">
+                <span class="text-xs font-mono text-primary uppercase tracking-widest">System_09</span>
+                <h3 class="text-2xl font-black uppercase tracking-tight">PCB Design</h3>
+            </div>
+            <div class="flex flex-col md:flex-row items-center gap-6 md:gap-10 w-full md:w-auto">
+                <div class="hidden lg:flex flex-col items-end">
+                    <span class="text-[10px] uppercase opacity-50">Status</span>
+                    <span class="text-xs font-mono text-success">NOMINAL_VOLTAGE</span>
                 </div>
-
-                <div id="modal-content-8" class="overflow-y-auto p-8">
-                    </div>
+                <label for="modal-9" onclick="openLog('tf2sentry', 'tf2project-data', 9, 'PCB Design')" 
+                    class="btn btn-primary px-10 rounded-none h-10 w-full md:w-auto flex items-center justify-center">
+                    OPEN LOG
+                </label>
             </div>
         </div>
 
-        <input type="checkbox" id="modal-9" class="modal-toggle" />
-        <div class="modal modal-bottom sm:modal-middle" role="dialog">
-            <div class="modal-box w-full max-w-5xl h-full max-h-[90vh] rounded-none p-0 flex flex-col">
-                <div class="p-4 border-b border-base-300 flex justify-between items-center bg-base-100 sticky top-0 z-10">
-                    <h3 id="modal-title-9" class="font-black uppercase text-sm">LOG_09: Final Schematic & PCB Design</h3>
-                    <label for="modal-9" class="btn btn-sm btn-square btn-ghost">✕</label>
+        <div class="flex flex-col md:flex-row items-center justify-between p-8 bg-base-200 border border-base-300 mb-4">
+            <div class="flex flex-col gap-1 text-center md:text-left mb-6 md:mb-0">
+                <span class="text-xs font-mono text-primary uppercase tracking-widest">System_10</span>
+                <h3 class="text-2xl font-black uppercase tracking-tight">Construction</h3>
+            </div>
+            <div class="flex flex-col md:flex-row items-center gap-6 md:gap-10 w-full md:w-auto">
+                <div class="hidden lg:flex flex-col items-end">
+                    <span class="text-[10px] uppercase opacity-50">Status</span>
+                    <span class="text-xs font-mono text-success">NOMINAL_VOLTAGE</span>
                 </div>
-
-                <div id="modal-content-9" class="overflow-y-auto p-8">
-                    </div>
+                <label for="modal-10" onclick="openLog('tf2sentry', 'tf2project-data', 10, 'Construction')" 
+                    class="btn btn-primary px-10 rounded-none h-10 w-full md:w-auto flex items-center justify-center">
+                    OPEN LOG
+                </label>
             </div>
         </div>
+    </div>
 
-        <input type="checkbox" id="modal-10" class="modal-toggle" />
-        <div class="modal modal-bottom sm:modal-middle" role="dialog">
-            <div class="modal-box w-full max-w-5xl h-full max-h-[90vh] rounded-none p-0 flex flex-col">
-                <div class="p-4 border-b border-base-300 flex justify-between items-center bg-base-100 sticky top-0 z-10">
-                    <h3 id="modal-title-10" class="font-black uppercase text-sm">LOG_10: Sentry Construction</h3>
-                    <label for="modal-10" class="btn btn-sm btn-square btn-ghost">✕</label>
-                </div>
-
-                <div id="modal-content-10" class="overflow-y-auto p-8">
-                    </div>
+    <input type="checkbox" id="modal-1" class="modal-toggle" />
+    <div class="modal modal-bottom sm:modal-middle" role="dialog">
+        <div class="modal-box w-full max-w-5xl h-full max-h-[90vh] rounded-none p-0 flex flex-col">
+            <div class="p-4 border-b border-base-300 flex justify-between items-center bg-base-100 sticky top-0 z-10">
+                <h3 id="modal-title-1" class="font-black uppercase text-sm">LOG_01: Description</h3>
+                <label for="modal-1" class="btn btn-sm btn-square btn-ghost">✕</label>
             </div>
+            <div id="modal-content-1" class="overflow-y-auto p-8"></div>
         </div>
+    </div>
 
-    </main>
+    <input type="checkbox" id="modal-2" class="modal-toggle" />
+    <div class="modal modal-bottom sm:modal-middle" role="dialog">
+        <div class="modal-box w-full max-w-5xl h-full max-h-[90vh] rounded-none p-0 flex flex-col">
+            <div class="p-4 border-b border-base-300 flex justify-between items-center bg-base-100 sticky top-0 z-10">
+                <h3 id="modal-title-2" class="font-black uppercase text-sm">LOG_02: Power System</h3>
+                <label for="modal-2" class="btn btn-sm btn-square btn-ghost">✕</label>
+            </div>
+            <div id="modal-content-2" class="overflow-y-auto p-8"></div>
+        </div>
+    </div>
+
+    <input type="checkbox" id="modal-3" class="modal-toggle" />
+    <div class="modal modal-bottom sm:modal-middle" role="dialog">
+        <div class="modal-box w-full max-w-5xl h-full max-h-[90vh] rounded-none p-0 flex flex-col">
+            <div class="p-4 border-b border-base-300 flex justify-between items-center bg-base-100 sticky top-0 z-10">
+                <h3 id="modal-title-3" class="font-black uppercase text-sm">LOG_03: Motor System</h3>
+                <label for="modal-3" class="btn btn-sm btn-square btn-ghost">✕</label>
+            </div>
+            <div id="modal-content-3" class="overflow-y-auto p-8"></div>
+        </div>
+    </div>
+
+    <input type="checkbox" id="modal-4" class="modal-toggle" />
+    <div class="modal modal-bottom sm:modal-middle" role="dialog">
+        <div class="modal-box w-full max-w-5xl h-full max-h-[90vh] rounded-none p-0 flex flex-col">
+            <div class="p-4 border-b border-base-300 flex justify-between items-center bg-base-100 sticky top-0 z-10">
+                <h3 id="modal-title-4" class="font-black uppercase text-sm">LOG_04: Ultrasonic Sensor System</h3>
+                <label for="modal-4" class="btn btn-sm btn-square btn-ghost">✕</label>
+            </div>
+            <div id="modal-content-4" class="overflow-y-auto p-8"></div>
+        </div>
+    </div>
+
+    <input type="checkbox" id="modal-5" class="modal-toggle" />
+    <div class="modal modal-bottom sm:modal-middle" role="dialog">
+        <div class="modal-box w-full max-w-5xl h-full max-h-[90vh] rounded-none p-0 flex flex-col">
+            <div class="p-4 border-b border-base-300 flex justify-between items-center bg-base-100 sticky top-0 z-10">
+                <h3 id="modal-title-5" class="font-black uppercase text-sm">LOG_05: Audio System</h3>
+                <label for="modal-5" class="btn btn-sm btn-square btn-ghost">✕</label>
+            </div>
+            <div id="modal-content-5" class="overflow-y-auto p-8"></div>
+        </div>
+    </div>
+
+    <input type="checkbox" id="modal-6" class="modal-toggle" />
+    <div class="modal modal-bottom sm:modal-middle" role="dialog">
+        <div class="modal-box w-full max-w-5xl h-full max-h-[90vh] rounded-none p-0 flex flex-col">
+            <div class="p-4 border-b border-base-300 flex justify-between items-center bg-base-100 sticky top-0 z-10">
+                <h3 id="modal-title-6" class="font-black uppercase text-sm">LOG_06: LEDs</h3>
+                <label for="modal-6" class="btn btn-sm btn-square btn-ghost">✕</label>
+            </div>
+            <div id="modal-content-6" class="overflow-y-auto p-8"></div>
+        </div>
+    </div>
+
+    <input type="checkbox" id="modal-7" class="modal-toggle" />
+    <div class="modal modal-bottom sm:modal-middle" role="dialog">
+        <div class="modal-box w-full max-w-5xl h-full max-h-[90vh] rounded-none p-0 flex flex-col">
+            <div class="p-4 border-b border-base-300 flex justify-between items-center bg-base-100 sticky top-0 z-10">
+                <h3 id="modal-title-7" class="font-black uppercase text-sm">LOG_07: Bluetooth</h3>
+                <label for="modal-7" class="btn btn-sm btn-square btn-ghost">✕</label>
+            </div>
+            <div id="modal-content-7" class="overflow-y-auto p-8"></div>
+        </div>
+    </div>
+
+    <input type="checkbox" id="modal-8" class="modal-toggle" />
+    <div class="modal modal-bottom sm:modal-middle" role="dialog">
+        <div class="modal-box w-full max-w-5xl h-full max-h-[90vh] rounded-none p-0 flex flex-col">
+            <div class="p-4 border-b border-base-300 flex justify-between items-center bg-base-100 sticky top-0 z-10">
+                <h3 id="modal-title-8" class="font-black uppercase text-sm">LOG_08: Mobile App</h3>
+                <label for="modal-8" class="btn btn-sm btn-square btn-ghost">✕</label>
+            </div>
+            <div id="modal-content-8" class="overflow-y-auto p-8"></div>
+        </div>
+    </div>
+
+    <input type="checkbox" id="modal-9" class="modal-toggle" />
+    <div class="modal modal-bottom sm:modal-middle" role="dialog">
+        <div class="modal-box w-full max-w-5xl h-full max-h-[90vh] rounded-none p-0 flex flex-col">
+            <div class="p-4 border-b border-base-300 flex justify-between items-center bg-base-100 sticky top-0 z-10">
+                <h3 id="modal-title-9" class="font-black uppercase text-sm">LOG_09: Final Schematic & PCB Design</h3>
+                <label for="modal-9" class="btn btn-sm btn-square btn-ghost">✕</label>
+            </div>
+            <div id="modal-content-9" class="overflow-y-auto p-8"></div>
+        </div>
+    </div>
+
+    <input type="checkbox" id="modal-10" class="modal-toggle" />
+    <div class="modal modal-bottom sm:modal-middle" role="dialog">
+        <div class="modal-box w-full max-w-5xl h-full max-h-[90vh] rounded-none p-0 flex flex-col">
+            <div class="p-4 border-b border-base-300 flex justify-between items-center bg-base-100 sticky top-0 z-10">
+                <h3 id="modal-title-10" class="font-black uppercase text-sm">LOG_10: Sentry Construction</h3>
+                <label for="modal-10" class="btn btn-sm btn-square btn-ghost">✕</label>
+            </div>
+            <div id="modal-content-10" class="overflow-y-auto p-8"></div>
+        </div>
+    </div>
+</main>
 
     <footer id="min-footer"></footer>
 </body>
