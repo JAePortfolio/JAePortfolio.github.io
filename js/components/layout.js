@@ -11,7 +11,7 @@ const navbarTemplate = `
     <div class="navbar bg-base-200 h-20 px-4 md:px-8 w-full border-b border-base-content/10">
       <div class="flex-1">
         <a href="/" class="btn btn-ghost text-xl font-bold tracking-tight">
-            John A <span class="hidden sm:inline font-normal opacity-60">- Computer Engineer</span>
+            John A <span class="hidden sm:inline font-bold">- Computer Engineer</span>
         </a>
       </div>
       
