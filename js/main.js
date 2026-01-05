@@ -1,7 +1,7 @@
 // This function is called when a modal is opened to load and display project content
 async function openLog(projectFolder, fileName, logId) {
     try {
-        const response = await fetch(`/projects-v2/${projectFolder}/${fileName}.json`);
+        const response = await fetch(`/projects/${projectFolder}/${fileName}.json`);
         const data = await response.json();
         const log = data.logs.find(l => l.id === logId);
         

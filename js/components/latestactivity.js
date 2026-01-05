@@ -26,10 +26,10 @@ const activities = [
         year: "2021",
         type: "Hardware",
         desc: "Replica of the Sentry Gun from Team Fortress 2, built with STM32, sensors, motors, etc.",
-        img: "/projects-v2/tf2sentry/assets/sentryCard.png",
+        img: "/projects/tf2sentry/assets/sentryCard.png",
         tags: ["STM32", "C/C++", "Robotics", "Mobile App"],
         github: "",
-        link: "/projects-v2/tf2sentry/tf2sentry.html",
+        link: "/projects/tf2sentry/tf2sentry.html",
         isComingSoon: false,
     },
 ]

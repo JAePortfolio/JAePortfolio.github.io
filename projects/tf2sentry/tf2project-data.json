@@ -28,7 +28,7 @@
         {
           "sectionTitle": "Functional Block Diagram",
           "content": "This is the functional block diagram I came up with to give a general understanding on how all the modules would be connected.",
-          "image": "/projects-v2/tf2sentry/assets/funcDiag.jpg"
+          "image": "/projects/tf2sentry/assets/funcDiag.jpg"
         }
       ]
     },
@@ -87,7 +87,7 @@
         {
           "sectionTitle": "Motor - Force, Torque, Inertia, and RPM Calculations",
           "content": "This was the first major part of the sentry for me. I had to find a motor that can support the weight it would move, and if it had enough torque to support the timing. The operation of the sentry in TF2 is it rotates a full 90 degrees within a 2 second period. When it sees a target, it rotates to it within 1 second. Opening my old physics book for some assistance, I was able to calculate the requirements. So the top of the sentry gun that rotates is obviously a unique shape. For simplicity, I modeled it as a circle that is being rotated at it's center. Now, I need to find the force required to rotate the sentry which can suppor tthe speed and weight. The load at the time of the design is 1.7lbs. Below is a summary of the calculations I did to find the torque, inertia, and a few other things.",
-          "image": "/projects-v2/tf2sentry/assets/calculations.png"
+          "image": "/projects/tf2sentry/assets/calculations.png"
         },
         {
           "sectionTitle": "Motor Selection",
@@ -119,7 +119,7 @@
         {
           "sectionTitle": "Sensor Selection",
           "content": "This was pretty straight forward, as a sensor commonly used in projects is the HC-SR04.",
-          "image": "/projects-v2/tf2sentry/assets/hc05.jpg"
+          "image": "/projects/tf2sentry/assets/hc05.jpg"
         },
         {
           "sectionTitle": "Object Detection",
@@ -152,7 +152,7 @@
           "sectionTitle": "Design of the System",
           "content": " The way the sentry will provide audio is using DAC (Digital to Analog Conversion), an audio amplifier and obviously a speaker. I will output a datastream from the audio from the STM to the amplifier, which will be connected to a speaker. The amplifier is the PAM8302A. I will use the HAL libraries along with DMA. Following the AN3126 guide from STM, I designed a system to test, by generating a sine wave with the code below. I use specifically TIM6 since it's designed to drive the DAC. The clock is at 80Mhz. The prescalar is 100-1, and the samples is 100. So 80Mhz/(80 * 100 *100) = 100Hz. In the image below, you can find the generated sine wave",
           "code": "uint8_t samples = 100;\nvoid getSineVal(){\nfor(int i = 0; i < samples; i++){\nsineVal[i] = (sin(2*i*PI/samples)+1)*((0xFFF+1)/2);\n}\n}\ngetSineVal();\nHAL_TIM_Base_Start(&htim6);\nHAL_DAC_Start(&hdac, DAC_CHANNEL_1);\nHAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_1, sineVal, 100, DAC_ALIGN_12B_R);\n// sineVal being the data, 100 being the # of data points}",
-          "image": "/projects-v2/tf2sentry/assets/audioSch.png"
+          "image": "/projects/tf2sentry/assets/audioSch.png"
         },
         {
           "sectionTitle": "Sending the Audio Data",
@@ -171,16 +171,16 @@
           "content": "Below are the results, along witha video",
           "video": "https://drive.google.com/file/d/1ZWiDRZsqSpiItDE-Ykzc9e5wXtlC8ei-/preview",
           "carousel": [
-            "/projects-v2/tf2sentry/assets/audioResults/ampSig1.jpg",
-            "/projects-v2/tf2sentry/assets/audioResults/ampSig2.jpg",
-            "/projects-v2/tf2sentry/assets/audioResults/ampSig3.jpg",
-            "/projects-v2/tf2sentry/assets/audioResults/ampSig4.jpg",
-            "/projects-v2/tf2sentry/assets/audioResults/ampSig5.jpg",
-            "/projects-v2/tf2sentry/assets/audioResults/audioSig1.jpg",
-            "/projects-v2/tf2sentry/assets/audioResults/audioSig2.jpg",
-            "/projects-v2/tf2sentry/assets/audioResults/audioSig3.jpg",
-            "/projects-v2/tf2sentry/assets/audioResults/audioSig4.jpg",
-            "/projects-v2/tf2sentry/assets/audioResults/audioSig5.jpg"
+            "/projects/tf2sentry/assets/audioResults/ampSig1.jpg",
+            "/projects/tf2sentry/assets/audioResults/ampSig2.jpg",
+            "/projects/tf2sentry/assets/audioResults/ampSig3.jpg",
+            "/projects/tf2sentry/assets/audioResults/ampSig4.jpg",
+            "/projects/tf2sentry/assets/audioResults/ampSig5.jpg",
+            "/projects/tf2sentry/assets/audioResults/audioSig1.jpg",
+            "/projects/tf2sentry/assets/audioResults/audioSig2.jpg",
+            "/projects/tf2sentry/assets/audioResults/audioSig3.jpg",
+            "/projects/tf2sentry/assets/audioResults/audioSig4.jpg",
+            "/projects/tf2sentry/assets/audioResults/audioSig5.jpg"
           ]
         }
       ]
@@ -230,7 +230,7 @@
         {
           "sectionTitle": "Oscilloscope Image",
           "content": " Here is a photo on my oscilloscope. This was actually one of the first reasons I bought the scope since I was having such issues with the original bluetooth module. Anyways, below is a transmission shown in hex. In english text it reads 'hello' without the paranthesis.",
-          "image": "/projects-v2/tf2sentry/assets/helloScope.jpg"
+          "image": "/projects/tf2sentry/assets/helloScope.jpg"
         }
       ]
     },
@@ -254,8 +254,8 @@
           "sectionTitle": "Results",
           "content": "Below is a image from the game for reference, the latest GUI design, then a video with older UI designs showing the animations. I will add videos that show the bluetooth connection later on.",
           "carousel": [
-            "/projects-v2/tf2sentry/assets/pdaGame.png",
-            "/projects-v2/tf2sentry/assets/pdaPhone.png"
+            "/projects/tf2sentry/assets/pdaGame.png",
+            "/projects/tf2sentry/assets/pdaPhone.png"
           ],
           "video": "https://drive.google.com/file/d/1uRf1ulKO-2aa-giZuvONGJB8ni1kSd4Z/preview"
         }
@@ -295,16 +295,16 @@
           "sectionTitle": "Final PCB Design",
           "content":  "Here is the final design. It's around 4x4 inches. I have all the connectors for the stuff I need to plug in for the sentry towards the 'bottom' of the board. This side will face closest to those items, so it will make it easier to wire, cleaner and shorter. The hall sensor connectors are where they are because the hall sensors will be the only part that will be in the back of the sentry. There are female connectors for the motor controller, and a 1x4 male connector next to it for the 4 wires of the motor. The reason being is the motor controller already is a PCB with its own connectors, and there's no connectors on it for the motor, so I have to create my own on my board. Along the 'top', is where I have my dc/dc converters. Notice I have very big capacitors, inductors, etc. Is this necessary? No, but I did it to save money on paying for additonal fees for the factory to solder. I can buy these through hole components and do it myself. Otherwise the board could of been smaller. Also notice I try to keep the power stuff near each other. Top left of the board is power related, bottom right is STM and connector related. Finally on the right side is the boot switch and the USB. ",
           "carousel": [
-            "/projects-v2/tf2sentry/assets/final/pcb1.png",
-            "/projects-v2/tf2sentry/assets/final/pcb2.png",
-            "/projects-v2/tf2sentry/assets/final/chip.png",
-            "/projects-v2/tf2sentry/assets/final/connectors.png",
-            "/projects-v2/tf2sentry/assets/final/power1.png",
-            "/projects-v2/tf2sentry/assets/final/power2.png",
-            "/projects-v2/tf2sentry/assets/final/clock.png",
-            "/projects-v2/tf2sentry/assets/final/boot0.png",
-            "/projects-v2/tf2sentry/assets/final/leds.png",
-            "/projects-v2/tf2sentry/assets/final/overall.png"
+            "/projects/tf2sentry/assets/final/pcb1.png",
+            "/projects/tf2sentry/assets/final/pcb2.png",
+            "/projects/tf2sentry/assets/final/chip.png",
+            "/projects/tf2sentry/assets/final/connectors.png",
+            "/projects/tf2sentry/assets/final/power1.png",
+            "/projects/tf2sentry/assets/final/power2.png",
+            "/projects/tf2sentry/assets/final/clock.png",
+            "/projects/tf2sentry/assets/final/boot0.png",
+            "/projects/tf2sentry/assets/final/leds.png",
+            "/projects/tf2sentry/assets/final/overall.png"
           ]
         }
       ]
@@ -329,32 +329,32 @@
           "sectionTitle": "Construction Slideshow",
           "content": "Here is a slideshow of the development of the sentry",
           "carousel": [
-            "/projects-v2/tf2sentry/assets/slideshow/1.jpg",
-            "/projects-v2/tf2sentry/assets/slideshow/2.jpg",
-            "/projects-v2/tf2sentry/assets/slideshow/3.jpg",
-            "/projects-v2/tf2sentry/assets/slideshow/4.jpg",
-            "/projects-v2/tf2sentry/assets/slideshow/5.jpg",
-            "/projects-v2/tf2sentry/assets/slideshow/6.jpg",
-            "/projects-v2/tf2sentry/assets/slideshow/7.jpg",
-            "/projects-v2/tf2sentry/assets/slideshow/8.jpg",
-            "/projects-v2/tf2sentry/assets/slideshow/9.jpg",
-            "/projects-v2/tf2sentry/assets/slideshow/10.jpg",
-            "/projects-v2/tf2sentry/assets/slideshow/11.jpg",
-            "/projects-v2/tf2sentry/assets/slideshow/12.jpg",
-            "/projects-v2/tf2sentry/assets/slideshow/13.jpg",
-            "/projects-v2/tf2sentry/assets/slideshow/14.jpg",
-            "/projects-v2/tf2sentry/assets/slideshow/15.jpg",
-            "/projects-v2/tf2sentry/assets/slideshow/16.jpg",
-            "/projects-v2/tf2sentry/assets/slideshow/17.jpg",
-            "/projects-v2/tf2sentry/assets/slideshow/18.jpg",
-            "/projects-v2/tf2sentry/assets/slideshow/19.jpg",
-            "/projects-v2/tf2sentry/assets/slideshow/20.jpg"
+            "/projects/tf2sentry/assets/slideshow/1.jpg",
+            "/projects/tf2sentry/assets/slideshow/2.jpg",
+            "/projects/tf2sentry/assets/slideshow/3.jpg",
+            "/projects/tf2sentry/assets/slideshow/4.jpg",
+            "/projects/tf2sentry/assets/slideshow/5.jpg",
+            "/projects/tf2sentry/assets/slideshow/6.jpg",
+            "/projects/tf2sentry/assets/slideshow/7.jpg",
+            "/projects/tf2sentry/assets/slideshow/8.jpg",
+            "/projects/tf2sentry/assets/slideshow/9.jpg",
+            "/projects/tf2sentry/assets/slideshow/10.jpg",
+            "/projects/tf2sentry/assets/slideshow/11.jpg",
+            "/projects/tf2sentry/assets/slideshow/12.jpg",
+            "/projects/tf2sentry/assets/slideshow/13.jpg",
+            "/projects/tf2sentry/assets/slideshow/14.jpg",
+            "/projects/tf2sentry/assets/slideshow/15.jpg",
+            "/projects/tf2sentry/assets/slideshow/16.jpg",
+            "/projects/tf2sentry/assets/slideshow/17.jpg",
+            "/projects/tf2sentry/assets/slideshow/18.jpg",
+            "/projects/tf2sentry/assets/slideshow/19.jpg",
+            "/projects/tf2sentry/assets/slideshow/20.jpg"
           ]
         },
         {
           "sectionTitle": "Results",
           "content": "Below is a picture of the sentry so far",
-          "image":"/projects-v2/tf2sentry/assets/slideshow/21.jpg"
+          "image":"/projects/tf2sentry/assets/slideshow/21.jpg"
 
         }
       ]
