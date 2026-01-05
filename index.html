@@ -62,10 +62,16 @@
 
         <div class="relative h-[40vh] w-full overflow-hidden">
             <img src="/images/projects/vscode.png" class="w-full h-full object-cover" alt="Software">
-            <div class="absolute inset-0 flex items-center justify-center bg-black/50 p-4">
+            <div class="absolute inset-0 flex flex-col items-center justify-center bg-black/50 p-4">
                 <div class="flex flex-col items-center text-center"> 
                     <h2 class="text-4xl font-extrabold tracking-widest text-white">SOFTWARE</h2>
                     <p class="mt-2 text-lg text-white opacity-80">Mobile Apps, Embedded C/C++, Python, QA and more.</p>
+                </div>
+                
+                <div class="absolute bottom-4 animate-bounce opacity-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                    </svg>
                 </div>
             </div>
         </div>
@@ -86,36 +92,44 @@
             </div>
         </div>
     </section>
-
+    <button 
+        id="backToTop" 
+        class="btn btn-primary btn-circle fixed bottom-8 right-8 z-50 transition-opacity duration-300 opacity-0 pointer-events-none"
+        onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+    >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
     <footer id="main-footer"></footer>
 </body>
 </html>
 
 <script>
-const hero = document.getElementById('hero-slider');
-const hardware = document.getElementById('hardware-bg');
-const software = document.getElementById('software-bg');
+    const hero = document.getElementById('hero-slider');
+    const hardware = document.getElementById('hardware-bg');
+    const software = document.getElementById('software-bg');
 
-// If hero exists and we're on a large enough screen, allow this interactive effect
-if(hero && window.innerWidth >= 1024) {
-    hero.addEventListener('mousemove', e => {
-    const rect = hero.getBoundingClientRect();
-    const mouseX = e.clientX - rect.left;
-    const totalWidth = rect.width;
-    const totalOpacity = 100;
+    // If hero exists and we're on a large enough screen, allow this interactive effect
+    if(hero && window.innerWidth >= 1024) {
+        hero.addEventListener('mousemove', e => {
+        const rect = hero.getBoundingClientRect();
+        const mouseX = e.clientX - rect.left;
+        const totalWidth = rect.width;
+        const totalOpacity = 100;
 
-    // Mouse position as a percentage
-    const percent = (mouseX / totalWidth) * 100;
+        // Mouse position as a percentage
+        const percent = (mouseX / totalWidth) * 100;
 
-    // Right panel width = mouse position percentage
-    software.style.width = percent + "%";
+        // Right panel width = mouse position percentage
+        software.style.width = percent + "%";
 
-    // Left panel width = remaining space
-    hardware.style.width = (100 - percent) + "%";
-    
-    // Opacity adjusts based on mouse position. *2 because default will be 50% due to mouse starting in middle
-    software.style.opacity = (totalOpacity - (100 - percent)) * 2 + "%";
-    hardware.style.opacity = (totalOpacity - percent) * 2 + "%";
+        // Left panel width = remaining space
+        hardware.style.width = (100 - percent) + "%";
+        
+        // Opacity adjusts based on mouse position. *2 because default will be 50% due to mouse starting in middle
+        software.style.opacity = (totalOpacity - (100 - percent)) * 2 + "%";
+        hardware.style.opacity = (totalOpacity - percent) * 2 + "%";
     });
 }
 
@@ -135,6 +149,19 @@ hero.addEventListener('mouseleave', () => {
 }
 </style>
 
+<script>
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 500) {
+            backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+            backToTopBtn.classList.add('opacity-100', 'pointer-events-all');
+        } else {
+            backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+            backToTopBtn.classList.remove('opacity-100', 'pointer-events-all');
+        }
+    });
+</script>
 <script src="js/components/layout.js"></script>
 <script src="js/components/portfolio.js"></script>
 
