@@ -12,7 +12,7 @@ const navbarTemplate = `
         <a href="/projects/projects.html" class="link link-hover ml-4">Portfolio</a>
         <a href="/docs/John Arena's Resume.pdf" class="link link-hover ml-4">Resume</a>
         <a href="/about.html" class="link link-hover ml-4">About</a>
-        <a href="/contact-v2.html" class="link link-hover ml-4">Contact</a>
+        <a href="/contact.html" class="link link-hover ml-4">Contact</a>
 
         <a href="https://www.linkedin.com/in/john-arena" target="_blank" class="btn btn-ghost btn-circle ml-8">
             <svg class="size-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -89,7 +89,7 @@ const minimizedFooterTemplate = `
                 <a href="/projects/projects.html" class="text-[10px] font-bold uppercase tracking-widest hover:text-primary transition-colors opacity-60 hover:opacity-100">Portfolio</a>
                 <a href="/docs/John Arena's Resume.pdf" class="text-[10px] font-bold uppercase tracking-widest hover:text-primary transition-colors opacity-60 hover:opacity-100">Resume</a>
                 <a href="/about.html" class="text-[10px] font-bold uppercase tracking-widest hover:text-primary transition-colors opacity-60 hover:opacity-100">About</a>
-                <a href="/contact-v2.html" class="text-[10px] font-bold uppercase tracking-widest text-primary">Contact</a>
+                <a href="/contact.html" class="text-[10px] font-bold uppercase tracking-widest text-primary">Contact</a>
             </div>
 
             <div class="flex justify-center md:justify-end gap-6">
