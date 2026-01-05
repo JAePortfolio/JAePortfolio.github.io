@@ -1,6 +1,25 @@
 docs/
+backup/
 videos/
 unused/
 projects/clock/clockOld.html
 projects/clock/clockOld2.html
 projects/clock/clockOld3.html
+
+# Dependencies 
+/node_modules 
+
+# Output Files
+output.css
+
+# Package Lock
+package-lock.json
+
+# VS Code
+.vscode/
+
+#V2 Setup
+V2_SETUP.md
+
+# src
+src/

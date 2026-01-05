@@ -1,27 +1,19 @@
-# My website
-This is repository for my first website which I will be using as a personal website
+# Portfolio | John Arena
 
-# My website
-This is repository for my first website which I will be using as a personal website. It is currently built using HTML, CSS and JS. I will be using a CSS mainframe to mainstream the CSS process. This website will mainly be used to show projects I've done in and outside of school
+Computer Engineer based in NYC. This is the repository for my personal portfolio website, featuring software engineering experience and hardware-centric side projects.
 
 ## Built With
-
-* [HTML](https://en.wikipedia.org/wiki/HTML) - Language Markup
-* [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) - Styling
-* [JS](https://www.javascript.com/) - Javascript
-* [CSS Materialize](https://materializecss.com/) - Streamline CSS Process
-
-
+* [Tailwind CSS](https://tailwindcss.com/) & [DaisyUI](https://daisyui.com/) - Styling and Components
+* [JavaScript](https://www.javascript.com/) - Interactive logic
+* [HTML5](https://en.wikipedia.org/wiki/HTML) - Structure
 
 ## Authors
 
-* **John Arena** - *Developer of this Project* - [JAePortfolio](https://github.com/JAePortfolio)
+* **John Arena** - *Software Engineer II* - [JAePortfolio](https://github.com/JAePortfolio)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+* **Code:** The underlying source code (HTML, JS, Tailwind configuration) is licensed under the [MIT License](LICENSE).
+* **Content:** All personal text, project descriptions, and media (photos/videos) are licensed under [Creative Commons Attribution-NonCommercial-NoDerivs 4.0 International (CC BY-NC-ND 4.0)](https://creativecommons.org/licenses/by-nc-nd/4.0/).
 
-## Acknowledgments
-
-* None at the moment.
 
