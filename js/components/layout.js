@@ -2,6 +2,9 @@
 // a footer into a web page. It follows the structure of a builder pattern, where the `initLayout` 
 // function is responsible for populating the specified containers with the provided HTML templates.
 
+// Current Year for Footer
+const currentYear = new Date().getFullYear();
+
 // 1. The Navbar Template
 const navbarTemplate = `
 <div class="drawer drawer-end z-[100]">
@@ -108,7 +111,7 @@ const footerTemplate = `
         </div>
 
         <div class="mt-20 pt-8 border-t border-base-content/5 flex flex-col md:flex-row justify-between gap-4 opacity-40 text-[10px] font-bold uppercase tracking-[0.2em]">
-            <span>&copy; 2025 JAe | Computer Engineering Portfolio</span>
+            <span>&copy; ${currentYear} JAe | Computer Engineering Portfolio</span>
             <span>Built with Tailwind & DaisyUI</span>
         </div>
     </div>
@@ -140,9 +143,9 @@ const minimizedFooterTemplate = `
             </div>
         </div>
 
-        <div class="mt-10 pt-6 border-t border-base-300 flex flex-col md:flex-row justify-between items-center gap-4 text-[9px] uppercase tracking-[0.2em]">
-            <span class="opacity-40">© 2026 — All Rights Reserved</span>
-            <span class="opacity-40 font-medium">Built with Tailwind & DaisyUI</span>
+        <div class="mt-10 pt-6 border-t border-base-300 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-bold uppercase tracking-[0.2em]">
+            <span class="opacity-40">© ${currentYear} — All Rights Reserved</span>
+            <span class="opacity-40 font-bold">Built with Tailwind & DaisyUI</span>
         </div>
         
     </div>
