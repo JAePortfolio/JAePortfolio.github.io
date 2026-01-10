@@ -2734,6 +2734,9 @@
   .cursor-crosshair {
     cursor: crosshair;
   }
+  .cursor-default {
+    cursor: default;
+  }
   .cursor-not-allowed {
     cursor: not-allowed;
   }
