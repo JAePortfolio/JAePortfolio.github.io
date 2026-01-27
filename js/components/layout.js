@@ -134,7 +134,7 @@ const minimizedFooterTemplate = `
                 <a href="/projects/projects.html" class="text-[10px] font-bold uppercase tracking-widest hover:text-primary transition-colors opacity-60 hover:opacity-100">Portfolio</a>
                 <a href="/docs/John Arena's Resume.pdf" class="text-[10px] font-bold uppercase tracking-widest hover:text-primary transition-colors opacity-60 hover:opacity-100">Resume</a>
                 <a href="/about.html" class="text-[10px] font-bold uppercase tracking-widest hover:text-primary transition-colors opacity-60 hover:opacity-100">About</a>
-                <a href="/contact.html" class="text-[10px] font-bold uppercase tracking-widest text-primary">Contact</a>
+                <a href="/contact.html" class="text-[10px] font-bold uppercase tracking-widest hover:text-primary transition-colors opacity-60 hover:opacity-100">Contact</a>
             </div>
 
             <div class="flex justify-center md:justify-end gap-6">
