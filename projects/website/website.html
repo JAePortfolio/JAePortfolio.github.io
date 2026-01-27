@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="business">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John A - Computer Engineer</title>
+    <link href="../../output.css" rel="stylesheet">
+</head>
+
+<body class="bg-base-100 text-base-content">
+    <header id="main-navbar"></header>
+
+    <header class="py-20 bg-base-200 border-b border-base-300">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <h1 class="text-6xl font-black uppercase tracking-tighter leading-none mb-6">Website Redesign</h1>
+                <p class="text-lg opacity-80 mb-8">
+                     My new personal website using modern web technologies. 
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <div class="badge badge-outline rounded-none p-4 font-mono uppercase whitespace-nowrap">Status: Deployed</div>
+                    <div class="badge badge-primary rounded-none p-4 font-mono uppercase text-white whitespace-nowrap">System: 10/10 Online</div>
+                </div>
+            </div>
+            <div class="bg-base-300 p-2 border border-base-300 shadow-2xl relative">
+                <img src="/projects/website/assets/landing page.png" class="w-full h-auto object-cover" alt="Final Assembly">
+                
+                <div class="absolute top-4 left-4 bg-primary text-white text-[10px] font-black px-2 py-1 uppercase">
+                    Live_Capture
+                </div>
+            </div>
+        </div>
+    </header>
+
+<main class="max-w-6xl mx-auto px-6 py-0">
+    <div class="grid grid-cols-1 gap-4 py-10">
+        <div class="flex flex-col md:flex-row items-center justify-between p-8 bg-base-200 border border-base-300 mb-4">
+            <div class="flex flex-col gap-1 text-center md:text-left mb-6 md:mb-0">
+                <span class="text-xs font-mono text-primary uppercase tracking-widest">System_01</span>
+                <h3 class="text-2xl font-black uppercase tracking-tight">Description</h3>
+            </div>
+            <div class="flex flex-col md:flex-row items-center gap-6 md:gap-10 w-full md:w-auto">
+                <div class="hidden lg:flex flex-col items-end">
+                    <span class="text-[10px] uppercase opacity-50">Status</span>
+                    <span class="text-xs font-mono text-success">NOMINAL_VOLTAGE</span>
+                </div>
+                <label for="modal-1" onclick="openLog('website', 'website-data', 1, 'Description')" 
+                    class="btn btn-primary px-10 rounded-none h-10 w-full md:w-auto flex items-center justify-center">
+                    OPEN LOG
+                </label>
+            </div>
+        </div>
+
+    </div>
+
+    <input type="checkbox" id="modal-1" class="modal-toggle" />
+    <div class="modal modal-bottom sm:modal-middle" role="dialog">
+        <div class="modal-box w-full max-w-5xl h-full max-h-[90vh] rounded-none p-0 flex flex-col">
+            <div class="p-4 border-b border-base-300 flex justify-between items-center bg-base-100 sticky top-0 z-10">
+                <h3 id="modal-title-1" class="font-black uppercase text-sm">LOG_01: Description</h3>
+                <label for="modal-1" class="btn btn-sm btn-square btn-ghost">✕</label>
+            </div>
+            <div id="modal-content-1" class="overflow-y-auto p-8"></div>
+        </div>
+    </div>
+
+</main>
+
+    <footer id="min-footer"></footer>
+</body>
+</html>
+
+<script src="../../js/components/layout.js"></script>
+<script src="../../js/main.js"></script>

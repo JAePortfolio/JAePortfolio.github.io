@@ -18,8 +18,8 @@ const activities = [
         img: "../../images/projects/vscode.png",
         tags: ["Tailwind CSS", "JavaScript", "DaisyUI"],
         github: "",
-        link: "",
-        isComingSoon: true,
+        link: "/projects/website/website.html",
+        isComingSoon: false,
     },
     {
         title: "TF2 Sentry",
