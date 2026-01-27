@@ -1,0 +1,59 @@
+{
+  "logs": [
+    {
+      "id": 1,
+      "logTitle": "Log_01: Description",
+      "sections": [
+        {
+          "sectionTitle": "Description",
+          "content":  "This is my final project for my Computer Architecture class, with the infamous Professor Gertner. Me and 3 other students out of ~65 were the only ones to complete it. The objective was to design a 32-bit CPU based on the 32-bit MIPS instruction set. 32-bit meaning the addresses are 32 bits, the data elements are 32-bit integers, instruction length, etc."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "logTitle": "Log_02: Design",
+      "sections": [
+        {
+          "sectionTitle": "Software and Hardware",
+          "content": " This Single Cycle CPU was designed on Intel's Quartus and implemented on the Altera DE2-70 Development and Education Board. The language the programming was done is VHDL."
+        },
+        {
+          "sectionTitle": "The Design",
+          "content": [
+            "A single cycle CPU is a CPU that does everything on a single clock cycle. Load things into registers, computations, incrementing PC, etc. A 32-bit instruction is fed into the instruction memory, and each part of the 32-bit instruction goes to different components. A lot of components here I have designed and simulated using VHDL in previous labs, such as the 32-bit SRAM for the instruction memory, the 32-bit adder to increment the PC counter. My source/work can be found on my github, the link beind under the links section of this website. Below is a design of the single cycle CPU."
+          ],
+          "image": "/projects/cpu/assets/singleCycleCPU.png"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "logTitle": "Log_03: How It Works",
+      "sections": [
+        {
+          "sectionTitle": "Functionality",
+          "content": "In the picture in the design section log, notice the paths. The instruction is 'broken up' and sent to through different paths, for example, bits 31-26 of the instruction go to control unit, which basically act as an opcode. These then activate certain enable lines depending on the opcode, for example, a memory write, a branch, etc. Bits 25-21, 20-16, are sent to the registers unit, etc. All the groups of bits are needed for different parts, again, per based on the MIPS architecture. Below is a video of the design. Note, it's sped up due to my professor's requirements.",
+          "video": {
+            "src": "https://drive.google.com/file/d/1e1PYewCHX4MaUxIFlYWcOAWkhtaN4DY8/preview",
+            "fullscreen": true
+          }
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "logTitle": "LOG_04: Demonstration",
+      "sections": [
+        {
+          "sectionTitle": "Video Demonstration",
+          "content": "Below is a demonstration of the 32-bit CPU",
+          "video": {
+            "src": "https://drive.google.com/file/d/1nbbg3yt1uD2epd76dG7N35Cwi4fdKxri/preview",
+            "fullscreen": false
+          }
+        }
+      ]
+    }
+  ]
+}
