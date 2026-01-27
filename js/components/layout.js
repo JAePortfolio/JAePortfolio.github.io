@@ -4,6 +4,7 @@
 
 // Current Year for Footer
 const currentYear = new Date().getFullYear();
+const lastUpdated = "January 27, 2026";
 
 // 1. The Navbar Template
 const navbarTemplate = `
@@ -143,9 +144,14 @@ const minimizedFooterTemplate = `
             </div>
         </div>
 
-        <div class="mt-10 pt-6 border-t border-base-300 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-bold uppercase tracking-[0.2em]">
-            <span class="opacity-40">© ${currentYear} — All Rights Reserved</span>
-            <span class="opacity-40 font-bold">Built with Tailwind & DaisyUI</span>
+        <div class="mt-10 pt-6 border-t border-base-300 text-[10px] font-bold uppercase tracking-[0.2em]">
+            <div class="mb-4 text-left opacity-40">
+                <span>Site Last Updated: ${lastUpdated}</span>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 opacity-40">
+                <span>© ${currentYear} — All Rights Reserved</span>
+                <span class="font-bold">Built with Tailwind & DaisyUI</span>
+            </div>
         </div>
         
     </div>
