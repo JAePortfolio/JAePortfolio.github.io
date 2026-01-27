@@ -51,7 +51,7 @@ const activities = [
         img: "/projects/cpu/assets/cpu.jpg",
         tags: ["VHDL", "MIPS", "CPU Design", "FPGA"],
         github: "https://github.com/JAePortfolio/Single-Cycle-CPU---Comp.-Arch.",
-        link: "/backup/archive/2025/projects/cpu/cpu.html",
+        link: "/projects/cpu/cpu.html",
         isComingSoon: false,
     },
     {
