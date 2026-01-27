@@ -47,8 +47,8 @@ function renderContent(container, log) {
                 
                 ${section.video ? `
                     <div class="bg-base-200 p-2 border border-base-300 mb-6">
-                        <iframe src="${section.video}" frameborder="0" 
-                        width="640" height="480"></iframe>
+                        <iframe src="${typeof section.video === 'string' ? section.video : section.video.src}" frameborder="0" 
+                        width="640" height="480" ${typeof section.video === 'string' || section.video.fullscreen ? 'allowfullscreen="allowfullscreen"' : ''}></iframe>
                     </div>` : ''}
 
                 ${section.code ? `

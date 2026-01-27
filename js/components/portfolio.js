@@ -18,8 +18,8 @@ const activities = [
         img: "../../images/projects/vscode.png",
         tags: ["Tailwind CSS", "JavaScript", "DaisyUI"],
         github: "",
-        link: "",
-        isComingSoon: true,
+        link: "/projects/website/website.html",
+        isComingSoon: false,
     },
     {
         title: "TF2 Sentry",
@@ -40,7 +40,7 @@ const activities = [
         img: "/projects/ebike/assets/ebike.png",
         tags: ["PCB Design", "LiDAR/Obj Det", "Power Systems"],
         github: "https://github.com/JAePortfolio/Smart-eBike",
-        link: "#",
+        link: "/projects/ebike/ebike.html",
         isComingSoon: true,
     },
     {
@@ -51,8 +51,8 @@ const activities = [
         img: "/projects/cpu/assets/cpu.jpg",
         tags: ["VHDL", "MIPS", "CPU Design", "FPGA"],
         github: "https://github.com/JAePortfolio/Single-Cycle-CPU---Comp.-Arch.",
-        link: "#",
-        isComingSoon: true,
+        link: "/projects/cpu/cpu.html",
+        isComingSoon: false,
     },
     {
         title: "Digital Clock",

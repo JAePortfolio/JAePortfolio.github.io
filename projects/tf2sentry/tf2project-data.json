@@ -104,7 +104,10 @@
         {
           "sectionTitle": "Results",
           "content": "Below is a video of the motor itself, moving at 15RPM.",
-          "video": "https://drive.google.com/file/d/1OPJoO9Ijz2DHaABHdi1U8rJkKgglga5b/preview"
+          "video": {
+            "src": "https://drive.google.com/file/d/1OPJoO9Ijz2DHaABHdi1U8rJkKgglga5b/preview",
+            "fullscreen": true
+          }
         }
       ]
     },
@@ -136,7 +139,10 @@
         {
           "sectionTitle": "Results",
           "content": "Below is a video of a LED turning on and off depending on the distance from my Metrocard to the sensor.",
-          "video": "https://drive.google.com/file/d/1_iv2C9Slon_vCIIDOHmnWVtmgQYoIlc8/preview"
+          "video": {
+            "src": "https://drive.google.com/file/d/1_iv2C9Slon_vCIIDOHmnWVtmgQYoIlc8/preview",
+            "fullscreen": true
+          }
         }
       ]
     },
@@ -169,7 +175,10 @@
         {
           "sectionTitle": "Results",
           "content": "Below are the results, along witha video",
-          "video": "https://drive.google.com/file/d/1ZWiDRZsqSpiItDE-Ykzc9e5wXtlC8ei-/preview",
+          "video": {
+            "src": "https://drive.google.com/file/d/1ZWiDRZsqSpiItDE-Ykzc9e5wXtlC8ei-/preview",
+            "fullscreen": true
+          },
           "carousel": [
             "/projects/tf2sentry/assets/audioResults/ampSig1.jpg",
             "/projects/tf2sentry/assets/audioResults/ampSig2.jpg",
@@ -257,7 +266,10 @@
             "/projects/tf2sentry/assets/pdaGame.png",
             "/projects/tf2sentry/assets/pdaPhone.png"
           ],
-          "video": "https://drive.google.com/file/d/1uRf1ulKO-2aa-giZuvONGJB8ni1kSd4Z/preview"
+          "video": {
+            "src": "https://drive.google.com/file/d/1uRf1ulKO-2aa-giZuvONGJB8ni1kSd4Z/preview",
+            "fullscreen": true
+          }
         }
       ]
     },

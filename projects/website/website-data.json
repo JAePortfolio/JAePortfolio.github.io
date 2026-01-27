@@ -1,0 +1,14 @@
+{
+  "logs": [
+    {
+      "id": 1,
+      "logTitle": "Log_01: Description",
+      "sections": [
+        {
+          "sectionTitle": "Description",
+          "content":  "My original portfolio website was built using MaterializeJS, a framework that hadn't been updated for years. After realizing how outdated it had become and how it wasn't serving my needs anymore, I decided to completely redesign it. This new version leverages modern web technologies including Tailwind CSS for responsive design, DaisyUI for elegant component styling, and a custom JavaScript architecture for dynamic content loading. The result is a faster, cleaner, and more maintainable portfolio that better showcases my projects and engineering work."
+        }
+      ]
+    }
+  ]
+}

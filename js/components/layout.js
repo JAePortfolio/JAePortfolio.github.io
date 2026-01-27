@@ -2,6 +2,10 @@
 // a footer into a web page. It follows the structure of a builder pattern, where the `initLayout` 
 // function is responsible for populating the specified containers with the provided HTML templates.
 
+// Current Year for Footer
+const currentYear = new Date().getFullYear();
+const lastUpdated = "January 27, 2026";
+
 // 1. The Navbar Template
 const navbarTemplate = `
 <div class="drawer drawer-end z-[100]">
@@ -108,7 +112,7 @@ const footerTemplate = `
         </div>
 
         <div class="mt-20 pt-8 border-t border-base-content/5 flex flex-col md:flex-row justify-between gap-4 opacity-40 text-[10px] font-bold uppercase tracking-[0.2em]">
-            <span>&copy; 2025 JAe | Computer Engineering Portfolio</span>
+            <span>&copy; ${currentYear} JAe | Computer Engineering Portfolio</span>
             <span>Built with Tailwind & DaisyUI</span>
         </div>
     </div>
@@ -131,7 +135,7 @@ const minimizedFooterTemplate = `
                 <a href="/projects/projects.html" class="text-[10px] font-bold uppercase tracking-widest hover:text-primary transition-colors opacity-60 hover:opacity-100">Portfolio</a>
                 <a href="/docs/John Arena's Resume.pdf" class="text-[10px] font-bold uppercase tracking-widest hover:text-primary transition-colors opacity-60 hover:opacity-100">Resume</a>
                 <a href="/about.html" class="text-[10px] font-bold uppercase tracking-widest hover:text-primary transition-colors opacity-60 hover:opacity-100">About</a>
-                <a href="/contact.html" class="text-[10px] font-bold uppercase tracking-widest text-primary">Contact</a>
+                <a href="/contact.html" class="text-[10px] font-bold uppercase tracking-widest hover:text-primary transition-colors opacity-60 hover:opacity-100">Contact</a>
             </div>
 
             <div class="flex justify-center md:justify-end gap-6">
@@ -140,9 +144,14 @@ const minimizedFooterTemplate = `
             </div>
         </div>
 
-        <div class="mt-10 pt-6 border-t border-base-300 flex flex-col md:flex-row justify-between items-center gap-4 text-[9px] uppercase tracking-[0.2em]">
-            <span class="opacity-40">© 2026 — All Rights Reserved</span>
-            <span class="opacity-40 font-medium">Built with Tailwind & DaisyUI</span>
+        <div class="mt-10 pt-6 border-t border-base-300 text-[10px] font-bold uppercase tracking-[0.2em]">
+            <div class="mb-4 text-left opacity-40">
+                <span>Site Last Updated: ${lastUpdated}</span>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 opacity-40">
+                <span>© ${currentYear} — All Rights Reserved</span>
+                <span class="font-bold">Built with Tailwind & DaisyUI</span>
+            </div>
         </div>
         
     </div>
