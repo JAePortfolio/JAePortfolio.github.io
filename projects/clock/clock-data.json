@@ -1,0 +1,18 @@
+{
+  "logs": [
+    {
+      "id": 1,
+      "logTitle": "LOG_01: Description & Demo",
+      "sections": [
+        {
+          "sectionTitle": "Video Demonstration",
+          "content": "This project started off as a final project for one of my EE Labs. Due to time constraints in the class, the professor changed the requirements to just have the hours working. After the class the ended, I decided to create the fully developed clock during my summer break. The clock uses a 12-hour format and includes 7 segment displays, BCDs, and a crystal oscillator. It can be powered with a 12V supply or 9V battery. The video below demonstrates the clock in action, showcasing its functionality and design.",
+          "video": {
+            "src": "https://drive.google.com/file/d/10EXezhaa-iFLIvT71y_s6f0jfiGfm8O8/preview" ,
+            "fullscreen": false
+          }
+        }
+      ]
+    }
+  ]
+}

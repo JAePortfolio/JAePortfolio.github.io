@@ -62,8 +62,8 @@ const activities = [
         img: "/projects/clock/assets/cardImage.jpg",
         tags: ["ICs", "Wiring", "Breadboard"],
         github: "",
-        link: "#",
-        isComingSoon: true,
+        link: "/projects/clock/clock.html",
+        isComingSoon: false,
     },
 ];
 
