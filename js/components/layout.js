@@ -4,7 +4,7 @@
 
 // Current Year for Footer
 const currentYear = new Date().getFullYear();
-const lastUpdated = "February 10, 2026";
+const lastUpdated = "February 17, 2026";
 
 // 1. The Navbar Template
 const navbarTemplate = `
