@@ -40,8 +40,8 @@ const activities = [
         img: "/projects/ebike/assets/ebike.png",
         tags: ["PCB Design", "LiDAR/Obj Det", "Power Systems"],
         github: "https://github.com/JAePortfolio/Smart-eBike",
-        link: "/projects/ebike/ebike.html",
-        isComingSoon: true,
+        link: "/backup/2025/projects/ebike/ebike.html",
+        isComingSoon: false,
     },
     {
         title: "Single Cycle - CPU",
